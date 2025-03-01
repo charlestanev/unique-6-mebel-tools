@@ -147,5 +147,14 @@
     "image": "https://images.pexels.com/photos/1161929/pexels-photo-1161929.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "машини",
     "subcategory": "CNC рутери"
+  },
+  {
+    "id": "1740859860635",
+    "name": "gfdbdfs",
+    "price": 234,
+    "description": "http://localhost:3000/admin",
+    "image": "http://localhost:3000/admin",
+    "category": "софтуер",
+    "subcategory": null
   }
 ]
