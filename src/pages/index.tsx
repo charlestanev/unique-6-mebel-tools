@@ -1,27 +1,29 @@
-import fs from "fs";
-import path from "path";
+import { useEffect, useState } from "react";
 
-export async function getStaticProps() {
-    const filePath = path.join(process.cwd(), "data", "products.json");
-    const jsonData = fs.readFileSync(filePath, "utf-8");
-    const products = JSON.parse(jsonData);
+export default function HomePage() {
+    const [products, setProducts] = useState([]);
 
-    return { props: { products }, revalidate: 10 };
-}
+    useEffect(() => {
+        async function fetchProducts() {
+            const res = await fetch("/api/products");
+            const data = await res.json();
+            setProducts(data);
+        }
+        fetchProducts();
+    }, []);
 
-export default function ProductsPage({ products }) {
     return (
-        <div>
-            <h1>Продукти</h1>
-            <ul>
-                {products.map((product) => (
-                    <li key={product.id}>
-                        <h2>{product.name}</h2>
+        <div className="container mx-auto p-6">
+            <h1 className="text-3xl font-bold mb-4">Продукти</h1>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {products.map((product: any) => (
+                    <div key={product.id} className="border p-4 shadow-md">
+                        <h2 className="text-xl font-semibold">{product.name}</h2>
                         <p>{product.description}</p>
-                        <p>Цена: {product.price}</p>
-                    </li>
+                        <p className="font-bold text-green-600">{product.price} BGN</p>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }
