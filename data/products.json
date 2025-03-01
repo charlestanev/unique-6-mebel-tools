@@ -1,128 +1,151 @@
 [
   {
     "id": "1",
-    "name": "Ъглошлайф Makita GA5030",
-    "price": 180,
-    "description": "Компактен и мощен ъглошлайф за професионална употреба.",
-    "image": "https://plus.unsplash.com/premium_photo-1677585183137-7786c2d1b1e3?w=500&auto=format&fit=crop&q=60",
+    "name": "Акумулаторен винтоверт Bosch GSR 18V-50",
+    "price": 350,
+    "description": "Мощен и компактен акумулаторен винтоверт за професионална употреба.",
+    "image": "https://unsplash.com/photos/people-sitting-at-the-table-2pPw5Glro5I",
     "category": "инструменти",
-    "subcategory": "шлайф машини"
+    "subcategory": "индивидуални инструменти"
   },
   {
     "id": "2",
     "name": "Бормашина Bosch GSB 13 RE",
     "price": 230,
     "description": "Компактна и мощна ударна бормашина за дърво и метал.",
-    "image": "https://plus.unsplash.com/premium_photo-1683865776032-07bf70b0add1?w=500&auto=format&fit=crop&q=60",
+    "image": "https://plus.unsplash.com/premium_photo-1683865776032-07bf70b0add1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXJsfGVufDB8fDB8fHww",
     "category": "инструменти",
     "subcategory": "диамантени инструменти"
   },
   {
     "id": "3",
-    "name": "Перфоратор DeWalt D25133K",
-    "price": 350,
-    "description": "Перфоратор с три режима на работа – пробиване, ударно пробиване и къртене.",
-    "image": "https://plus.unsplash.com/premium_photo-1676271046532-cfd2a07f4824?w=500&auto=format&fit=crop&q=60",
+    "name": "Диамантен диск Bosch Expert for Concrete",
+    "price": 80,
+    "description": "Висококачествен диамантен диск за рязане на бетон.",
+    "image": "https://unsplash.com/photos/man-in-black-crew-neck-t-shirt-using-black-laptop-computer-b9-odQi5oDo",
     "category": "инструменти",
-    "subcategory": "ударни инструменти"
+    "subcategory": "дискове"
   },
   {
     "id": "4",
-    "name": "Циркулярен трион Makita HS7601",
-    "price": 420,
-    "description": "Мощен циркулярен трион за точни разрези в дърво и пластмаса.",
-    "image": "https://plus.unsplash.com/premium_photo-1676676383129-978675a16238?w=500&auto=format&fit=crop&q=60",
+    "name": "Фреза Bosch GMF 1600 CE",
+    "price": 450,
+    "description": "Мощна фреза за прецизна обработка на дърво.",
+    "image": "https://unsplash.com/photos/a-woman-working-on-a-laptop-6uAssP0vuPs",
     "category": "инструменти",
-    "subcategory": "режещи инструменти"
+    "subcategory": "фрезери"
   },
   {
     "id": "5",
-    "name": "Ръчен фрезер Bosch POF 1200 AE",
-    "price": 280,
-    "description": "Идеален за фрезоване на ръбове и канали в дърво.",
-    "image": "https://plus.unsplash.com/premium_photo-1677968086015-1b0154d0b8fc?w=500&auto=format&fit=crop&q=60",
-    "category": "инструменти",
-    "subcategory": "дървообработващи инструменти"
+    "name": "Кантираща машина Holz-Her Sprint 1329",
+    "price": 12000,
+    "description": "Високопроизводителна кантираща машина за професионална употреба.",
+    "image": "https://unsplash.com/photos/black-smartphone-beside-pen-rNYCrcjUnOA",
+    "category": "машини",
+    "subcategory": "кантиращи машини"
   },
   {
     "id": "6",
-    "name": "Лентов шлайф DeWalt DW433",
-    "price": 320,
-    "description": "Мощен лентов шлайф за професионално използване.",
-    "image": "https://plus.unsplash.com/premium_photo-1677332237138-8b72dfb50562?w=500&auto=format&fit=crop&q=60",
-    "category": "инструменти",
-    "subcategory": "шлайф машини"
+    "name": "CNC рутер Biesse Rover A",
+    "price": 50000,
+    "description": "Високоскоростен CNC рутер за обработка на дърво и други материали.",
+    "image": "https://unsplash.com/photos/monitor-showing-java-programming-OqtafYT5kTw",
+    "category": "машини",
+    "subcategory": "CNC рутери"
   },
   {
     "id": "7",
-    "name": "Гайковерт Makita DTW285Z",
-    "price": 400,
-    "description": "Компактен акумулаторен гайковерт с висок въртящ момент.",
-    "image": "https://plus.unsplash.com/premium_photo-1677276804297-8f8b503fef34?w=500&auto=format&fit=crop&q=60",
-    "category": "инструменти",
-    "subcategory": "ударни инструменти"
+    "name": "Циркуляр Holzmann TS 250",
+    "price": 800,
+    "description": "Настолен циркуляр за рязане на дърво.",
+    "image": "https://unsplash.com/photos/two-people-sitting-on-a-couch-playing-video-games-xoT1rt09NEI",
+    "category": "машини",
+    "subcategory": "циркуляри"
   },
   {
     "id": "8",
-    "name": "Къртач Bosch GSH 11 E",
-    "price": 950,
-    "description": "Мощен професионален къртач за тежки строителни работи.",
-    "image": "https://plus.unsplash.com/premium_photo-1677351829152-21726d575cfb?w=500&auto=format&fit=crop&q=60",
-    "category": "инструменти",
-    "subcategory": "къртачи"
+    "name": "Пробивна машина Proma B-16/40",
+    "price": 600,
+    "description": "Настолна пробивна машина за метал и дърво.",
+    "image": "https://unsplash.com/photos/black-iphone-7-on-white-laptop-computer-KW0rZJojScM",
+    "category": "машини",
+    "subcategory": "пробивни машини"
   },
   {
     "id": "9",
-    "name": "Лазерен нивелир DeWalt DW088K",
-    "price": 260,
-    "description": "Прецизен лазерен нивелир за точни измервания на строителната площадка.",
-    "image": "https://plus.unsplash.com/premium_photo-1676743790975-1cbb65d90d4f?w=500&auto=format&fit=crop&q=60",
-    "category": "измервателни инструменти",
-    "subcategory": "лазерни инструменти"
+    "name": "Софтуер AutoCAD",
+    "price": 1500,
+    "description": "Софтуер за 2D и 3D CAD проектиране.",
+    "image": "https://unsplash.com/photos/black-and-white-laptop-computer-xA1l7OCKL4Q",
+    "category": "софтуер"
   },
   {
     "id": "10",
-    "name": "Отвертка с тресчотка Stanley 69-189",
-    "price": 35,
-    "description": "Комплект отвертка с различни накрайници за универсално приложение.",
-    "image": "https://plus.unsplash.com/premium_photo-1677744739122-3f8cf0f1f5fc?w=500&auto=format&fit=crop&q=60",
-    "category": "ръчни инструменти",
-    "subcategory": "отвертки"
+    "name": "Софтуер SolidWorks",
+    "price": 2000,
+    "description": "Софтуер за 3D CAD и CAE проектиране.",
+    "image": "https://unsplash.com/photos/close-up-view-of-female-hand-writing-on-blank-notebook-while-working-with-digital-tablet-h4ftfGi2gBs",
+    "category": "софтуер"
   },
   {
     "id": "11",
-    "name": "Комплект гаечни ключове Stanley 94-251",
-    "price": 120,
-    "description": "Комплект професионални гаечни ключове с различни размери.",
-    "image": "https://plus.unsplash.com/premium_photo-1677573422932-9b2a94a7a847?w=500&auto=format&fit=crop&q=60",
-    "category": "ръчни инструменти",
-    "subcategory": "ключове"
+    "name": "Софтуер SketchUp Pro",
+    "price": 700,
+    "description": "Софтуер за 3D моделиране и визуализация.",
+    "image": "https://unsplash.com/photos/man-in-white-crew-neck-t-shirt-Ilg0getpBYE",
+    "category": "софтуер"
   },
   {
     "id": "12",
-    "name": "Комплект акумулаторни батерии Makita BL1850B",
-    "price": 280,
-    "description": "Комплект литиево-йонни батерии за акумулаторни инструменти.",
-    "image": "https://plus.unsplash.com/premium_photo-1677688831013-83c2f6264b54?w=500&auto=format&fit=crop&q=60",
-    "category": "аксесоари",
-    "subcategory": "батерии"
+    "name": "Софтуер CorelDRAW Graphics Suite",
+    "price": 500,
+    "description": "Софтуерен пакет за графичен дизайн.",
+    "image": "https://unsplash.com/photos/a-man-and-a-woman-sitting-at-a-table-with-a-laptop-if6dO0zT7QA",
+    "category": "софтуер"
   },
   {
     "id": "13",
-    "name": "Поялник Weller WE1010",
-    "price": 190,
-    "description": "Електрически поялник за професионална и любителска употреба.",
-    "image": "https://plus.unsplash.com/premium_photo-1677757883523-4e5a5c1d14c7?w=500&auto=format&fit=crop&q=60",
-    "category": "електроинструменти",
-    "subcategory": "поялници"
+    "name": "Ръчен циркуляр Bosch GKS 190",
+    "price": 280,
+    "description": "Ръчен циркуляр за рязане на дърво и други материали.",
+    "image": "https://unsplash.com/photos/an-abstract-background-with-a-purple-and-blue-pattern-2I0x5N0P_d8",
+    "category": "инструменти",
+    "subcategory": "индивидуални инструменти"
   },
   {
     "id": "14",
-    "name": "Метална рулетка Stanley 0-33-720",
-    "price": 25,
-    "description": "Здрава метална рулетка с дължина 5 метра.",
-    "image": "https://plus.unsplash.com/premium_photo-1677654486822-4a6b5e1d51b8?w=500&auto=format&fit=crop&q=60",
-    "category": "измервателни инструменти",
-    "subcategory": "рулетки"
+    "name": "Диамантен диск за керамика Bosch",
+    "price": 60,
+    "description": "Диамантен диск за рязане на керамични плочки.",
+    "image": "https://unsplash.com/photos/a-group-of-white-and-gold-tiles-on-a-white-surface-nPZ68nehUUo",
+    "category": "инструменти",
+    "subcategory": "дискове"
+  },
+  {
+    "id": "15",
+    "name": "Фреза за дърво Makita RT0700C",
+    "price": 320,
+    "description": "Ръчна фреза за обработка на дърво.",
+    "image": "https://unsplash.com/photos/pink-and-black-abstract-painting-QTNrM9M4ltY",
+    "category": "инструменти",
+    "subcategory": "фрезери"
+  },
+  {
+    "id": "16",
+    "name": "Кантираща машина Felder G 500",
+    "price": 15000,
+    "description": "Автоматична кантираща машина за професионална употреба.",
+    "image": "https://unsplash.com/photos/landscape-photography-of-sand-dunes-H69EgivmCjE",
+    "category": "машини",
+    "subcategory": "кантиращи машини"
+  },
+  {
+    "id": "17",
+    "name": "CNC рутер Weeke Venture 114",
+    "price": 60000,
+    "description": "Високопроизводителен CNC рутер за обработка на дърво и пластмаси.",
+    "image": "https://unsplash.com/photos/a-multicolored-image-of-a-spiral-design-IPR4I5s5sAs",
+    "category": "машини",
+    "subcategory": "CNC рутери"
   }
 ]
