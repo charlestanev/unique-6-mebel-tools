@@ -1,10 +1,10 @@
 [
   {
-    "id": "2",
-    "name": "Бормашина Bosch GSB 13 RE",
-    "price": "230 BGN",
-    "description": "Компактна и мощна ударна бормашина за дърво и метал.",
-    "image": "/products/bosch-drill.jpg",
+    "id": "1",
+    "name": "Циркулярен трион Makita",
+    "price": 450,
+    "description": "Професионален циркулярен трион за мебелисти.",
+    "image": "/products/makita.jpg",
     "category": "Инструменти"
   }
 ]

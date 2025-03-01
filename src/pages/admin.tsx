@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react";
+import { z } from "zod";
+
+const productSchema = z.object({
+    name: z.string().min(3, "Името трябва да бъде поне 3 символа."),
+    price: z.number().min(1, "Цената трябва да бъде положително число."),
+    description: z.string().min(1, "Описанието трябва да съдържа поне 10 символа."),
+    image: z.string().url("URL-то за изображение е невалидно."),
+    category: z.string().min(3, "Категорията трябва да съдържа поне 3 символа."),
+});
 
 interface Product {
     id: string;
     name: string;
-    price: string;
+    price: number;
     description: string;
     image: string;
     category: string;
@@ -12,11 +21,10 @@ interface Product {
 export default function AdminPage() {
     const [products, setProducts] = useState<Product[]>([]);
     const [name, setName] = useState("");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState<number | "">("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [category, setCategory] = useState("");
-
 
     useEffect(() => {
         async function fetchProducts() {
@@ -27,17 +35,16 @@ export default function AdminPage() {
         fetchProducts();
     }, []);
 
-    async function handleDelete(id: string) {
-        await fetch("/api/products", {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id }),
-        });
-        setProducts(products.filter((p) => p.id !== id));
-    }
-
     async function handleAddProduct(e: React.FormEvent) {
         e.preventDefault();
+
+        const validationResult = productSchema.safeParse({ name, price, description, image, category });
+
+        if (!validationResult.success) {
+            alert(validationResult.error.issues.map(issue => issue.message).join("\n"));
+            return;
+        }
+
         const res = await fetch("/api/products", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -46,7 +53,7 @@ export default function AdminPage() {
 
         if (res.ok) {
             const newProduct = await res.json();
-            setProducts([...products, newProduct]); // Добавяне на новия продукт в state
+            setProducts([...products, newProduct]);
             setName("");
             setPrice("");
             setDescription("");
@@ -55,6 +62,7 @@ export default function AdminPage() {
         }
     }
 
+
     return (
         <div className="container mx-auto p-6">
             <h1 className="text-3xl font-bold mb-4">Админ Панел</h1>
@@ -62,7 +70,17 @@ export default function AdminPage() {
             <form onSubmit={handleAddProduct} className="mb-6 p-4 border rounded bg-gray-100">
                 <h2 className="text-xl font-bold mb-4">Добави нов продукт</h2>
                 <input className="border p-2 mb-2 w-full" type="text" placeholder="Име" value={name} onChange={(e) => setName(e.target.value)} required />
-                <input className="border p-2 mb-2 w-full" type="text" placeholder="Цена" value={price} onChange={(e) => setPrice(e.target.value)} required />
+                <input
+                    className="border p-2 mb-2 w-full"
+                    type="text"
+                    placeholder="Цена (напр. 450)"
+                    value={price !== "" ? `${price} лв` : ""}
+                    onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, "");
+                        setPrice(value === "" ? "" : Number(value));
+                    }}
+                    required
+                />
                 <input className="border p-2 mb-2 w-full" type="text" placeholder="URL на изображение" value={image} onChange={(e) => setImage(e.target.value)} required />
                 <textarea className="border p-2 mb-2 w-full" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
                 <input className="border p-2 mb-2 w-full" type="text" placeholder="Категория" value={category} onChange={(e) => setCategory(e.target.value)} required />
@@ -73,7 +91,6 @@ export default function AdminPage() {
             {products.map((product) => (
                 <div key={product.id} className="border p-4 shadow-md flex justify-between">
                     <h3>{product.name} - {product.price} BGN</h3>
-                    <button className="bg-red-500 text-white px-3 py-1" onClick={() => handleDelete(product.id)}>Delete</button>
                 </div>
             ))}
         </div>
