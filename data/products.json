@@ -1,20 +1,128 @@
 [
   {
+    "id": "1",
+    "name": "Ъглошлайф Makita GA5030",
+    "price": 180,
+    "description": "Компактен и мощен ъглошлайф за професионална употреба.",
+    "image": "https://plus.unsplash.com/premium_photo-1677585183137-7786c2d1b1e3?w=500&auto=format&fit=crop&q=60",
+    "category": "инструменти",
+    "subcategory": "шлайф машини"
+  },
+  {
     "id": "2",
     "name": "Бормашина Bosch GSB 13 RE",
     "price": 230,
     "description": "Компактна и мощна ударна бормашина за дърво и метал.",
-    "image": "https://plus.unsplash.com/premium_photo-1683865776032-07bf70b0add1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXJsfGVufDB8fDB8fHww",
+    "image": "https://plus.unsplash.com/premium_photo-1683865776032-07bf70b0add1?w=500&auto=format&fit=crop&q=60",
     "category": "инструменти",
     "subcategory": "диамантени инструменти"
   },
   {
-    "id": "1740856622083",
-    "name": "qqqqqqqq",
-    "price": 1234,
-    "description": "qwregwerg",
-    "image": "http://localhost:3000/admin",
+    "id": "3",
+    "name": "Перфоратор DeWalt D25133K",
+    "price": 350,
+    "description": "Перфоратор с три режима на работа – пробиване, ударно пробиване и къртене.",
+    "image": "https://plus.unsplash.com/premium_photo-1676271046532-cfd2a07f4824?w=500&auto=format&fit=crop&q=60",
     "category": "инструменти",
-    "subcategory": "индивидуални инструменти"
+    "subcategory": "ударни инструменти"
+  },
+  {
+    "id": "4",
+    "name": "Циркулярен трион Makita HS7601",
+    "price": 420,
+    "description": "Мощен циркулярен трион за точни разрези в дърво и пластмаса.",
+    "image": "https://plus.unsplash.com/premium_photo-1676676383129-978675a16238?w=500&auto=format&fit=crop&q=60",
+    "category": "инструменти",
+    "subcategory": "режещи инструменти"
+  },
+  {
+    "id": "5",
+    "name": "Ръчен фрезер Bosch POF 1200 AE",
+    "price": 280,
+    "description": "Идеален за фрезоване на ръбове и канали в дърво.",
+    "image": "https://plus.unsplash.com/premium_photo-1677968086015-1b0154d0b8fc?w=500&auto=format&fit=crop&q=60",
+    "category": "инструменти",
+    "subcategory": "дървообработващи инструменти"
+  },
+  {
+    "id": "6",
+    "name": "Лентов шлайф DeWalt DW433",
+    "price": 320,
+    "description": "Мощен лентов шлайф за професионално използване.",
+    "image": "https://plus.unsplash.com/premium_photo-1677332237138-8b72dfb50562?w=500&auto=format&fit=crop&q=60",
+    "category": "инструменти",
+    "subcategory": "шлайф машини"
+  },
+  {
+    "id": "7",
+    "name": "Гайковерт Makita DTW285Z",
+    "price": 400,
+    "description": "Компактен акумулаторен гайковерт с висок въртящ момент.",
+    "image": "https://plus.unsplash.com/premium_photo-1677276804297-8f8b503fef34?w=500&auto=format&fit=crop&q=60",
+    "category": "инструменти",
+    "subcategory": "ударни инструменти"
+  },
+  {
+    "id": "8",
+    "name": "Къртач Bosch GSH 11 E",
+    "price": 950,
+    "description": "Мощен професионален къртач за тежки строителни работи.",
+    "image": "https://plus.unsplash.com/premium_photo-1677351829152-21726d575cfb?w=500&auto=format&fit=crop&q=60",
+    "category": "инструменти",
+    "subcategory": "къртачи"
+  },
+  {
+    "id": "9",
+    "name": "Лазерен нивелир DeWalt DW088K",
+    "price": 260,
+    "description": "Прецизен лазерен нивелир за точни измервания на строителната площадка.",
+    "image": "https://plus.unsplash.com/premium_photo-1676743790975-1cbb65d90d4f?w=500&auto=format&fit=crop&q=60",
+    "category": "измервателни инструменти",
+    "subcategory": "лазерни инструменти"
+  },
+  {
+    "id": "10",
+    "name": "Отвертка с тресчотка Stanley 69-189",
+    "price": 35,
+    "description": "Комплект отвертка с различни накрайници за универсално приложение.",
+    "image": "https://plus.unsplash.com/premium_photo-1677744739122-3f8cf0f1f5fc?w=500&auto=format&fit=crop&q=60",
+    "category": "ръчни инструменти",
+    "subcategory": "отвертки"
+  },
+  {
+    "id": "11",
+    "name": "Комплект гаечни ключове Stanley 94-251",
+    "price": 120,
+    "description": "Комплект професионални гаечни ключове с различни размери.",
+    "image": "https://plus.unsplash.com/premium_photo-1677573422932-9b2a94a7a847?w=500&auto=format&fit=crop&q=60",
+    "category": "ръчни инструменти",
+    "subcategory": "ключове"
+  },
+  {
+    "id": "12",
+    "name": "Комплект акумулаторни батерии Makita BL1850B",
+    "price": 280,
+    "description": "Комплект литиево-йонни батерии за акумулаторни инструменти.",
+    "image": "https://plus.unsplash.com/premium_photo-1677688831013-83c2f6264b54?w=500&auto=format&fit=crop&q=60",
+    "category": "аксесоари",
+    "subcategory": "батерии"
+  },
+  {
+    "id": "13",
+    "name": "Поялник Weller WE1010",
+    "price": 190,
+    "description": "Електрически поялник за професионална и любителска употреба.",
+    "image": "https://plus.unsplash.com/premium_photo-1677757883523-4e5a5c1d14c7?w=500&auto=format&fit=crop&q=60",
+    "category": "електроинструменти",
+    "subcategory": "поялници"
+  },
+  {
+    "id": "14",
+    "name": "Метална рулетка Stanley 0-33-720",
+    "price": 25,
+    "description": "Здрава метална рулетка с дължина 5 метра.",
+    "image": "https://plus.unsplash.com/premium_photo-1677654486822-4a6b5e1d51b8?w=500&auto=format&fit=crop&q=60",
+    "category": "измервателни инструменти",
+    "subcategory": "рулетки"
   }
 ]
