@@ -120,99 +120,27 @@ export default function AdminPage() {
 
 
     return (
-        <>
-
-            <div className="container mx-auto p-6">
-                <h1 className="text-3xl font-bold mb-4">Админ Панел</h1>
-                <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={handleLogout}>
-                    Изход
-                </button>
-                {/* Form for Adding Products */}
-                <form onSubmit={handleAddProduct} className="mb-6 p-4 border rounded bg-gray-100">
-                    <h2 className="text-xl font-bold mb-4">Добави нов продукт</h2>
-                    <input className="border p-2 mb-2 w-full" type="text" placeholder="Име" value={name} onChange={(e) => setName(e.target.value)} required />
-                    <input className="border p-2 mb-2 w-full" type="text" placeholder="Цена (напр. 450)" value={price !== "" ? `${price} лв` : ""}
-                        onChange={(e) => {
-                            const value = e.target.value.replace(/\D/g, "");
-                            setPrice(value === "" ? "" : Number(value));
-                        }} required />
-                    <input className="border p-2 mb-2 w-full" type="text" placeholder="тук URL на някво изображение" value={image} onChange={(e) => setImage(e.target.value)} required />
-                    <textarea className="border p-2 mb-2 w-full" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
-
-                    {/* Category Dropdown */}
-                    <select className="border p-2 mb-2 w-full" value={category} onChange={(e) => {
-                        setCategory(e.target.value);
-                        setSubcategory("");
-                    }} required>
-                        <option value="">Избери категория</option>
-                        {categories.map((cat) => (
-                            <option key={cat} value={cat}>{cat}</option>
-                        ))}
-                    </select>
-
-                    {/* Subcategory Dropdown (Only for Инструменти & Машини) */}
-                    {category !== "софтуер" && subcategoriesMap[category] && (
-                        <select className="border p-2 mb-2 w-full" value={subcategory} onChange={(e) => setSubcategory(e.target.value)}>
-                            <option value="">Избери подкатегория</option>
-                            {subcategoriesMap[category].map((sub) => (
-                                <option key={sub} value={sub}>{sub}</option>
-                            ))}
-                        </select>
-                    )}
-
-                    <button className="bg-green-500 text-white px-4 py-2 rounded">Добави продукт</button>
-                </form>
-
-                {/* 🔥 Product List with Delete Button (Added Below the Form) */}
-                <h2 className="text-2xl font-bold mb-4">Списък с продукти</h2>
-                <div className="space-y-4">
-                    {products.map((product) => (
-                        <div key={product.id} className="border p-4 shadow-md flex justify-between items-center">
-                            <div>
-                                <h3 className="text-lg font-semibold">{product.name} - {product.price} лв</h3>
-                                <p className="text-gray-500">{product.category} {product.subcategory ? `> ${product.subcategory}` : ""}</p>
-                            </div>
-                            <button
-                                className="bg-red-500 text-white px-3 py-1 rounded"
-                                onClick={() => handleDeleteProduct(product.id)}
-                            >
-                                Изтрий
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-        </>
-
-
-
         // <>
+
         //     <div className="container mx-auto p-6">
-        //         <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">Админ Панел</h1>
-        //         <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition" onClick={handleLogout}>
+        //         <h1 className="text-3xl font-bold mb-4">Админ Панел</h1>
+        //         <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={handleLogout}>
         //             Изход
         //         </button>
-
         //         {/* Form for Adding Products */}
-        //         <form onSubmit={handleAddProduct} className="mb-6 p-4 border rounded bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-        //             <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Добави нов продукт</h2>
-        //             <input className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" type="text" placeholder="Име" value={name} onChange={(e) => setName(e.target.value)} required />
-        //             <input
-        //                 className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white"
-        //                 type="text"
-        //                 placeholder="Цена (напр. 450)"
-        //                 value={price !== "" ? `${price} лв` : ""}
+        //         <form onSubmit={handleAddProduct} className="mb-6 p-4 border rounded bg-gray-100">
+        //             <h2 className="text-xl font-bold mb-4">Добави нов продукт</h2>
+        //             <input className="border p-2 mb-2 w-full" type="text" placeholder="Име" value={name} onChange={(e) => setName(e.target.value)} required />
+        //             <input className="border p-2 mb-2 w-full" type="text" placeholder="Цена (напр. 450)" value={price !== "" ? `${price} лв` : ""}
         //                 onChange={(e) => {
         //                     const value = e.target.value.replace(/\D/g, "");
         //                     setPrice(value === "" ? "" : Number(value));
-        //                 }} required
-        //             />
-        //             <input className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" type="text" placeholder="тук URL на някво изображение" value={image} onChange={(e) => setImage(e.target.value)} required />
-        //             <textarea className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
+        //                 }} required />
+        //             <input className="border p-2 mb-2 w-full" type="text" placeholder="тук URL на някво изображение" value={image} onChange={(e) => setImage(e.target.value)} required />
+        //             <textarea className="border p-2 mb-2 w-full" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
 
         //             {/* Category Dropdown */}
-        //             <select className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" value={category} onChange={(e) => {
+        //             <select className="border p-2 mb-2 w-full" value={category} onChange={(e) => {
         //                 setCategory(e.target.value);
         //                 setSubcategory("");
         //             }} required>
@@ -222,9 +150,9 @@ export default function AdminPage() {
         //                 ))}
         //             </select>
 
-        //             {/* Subcategory Dropdown */}
+        //             {/* Subcategory Dropdown (Only for Инструменти & Машини) */}
         //             {category !== "софтуер" && subcategoriesMap[category] && (
-        //                 <select className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" value={subcategory} onChange={(e) => setSubcategory(e.target.value)}>
+        //                 <select className="border p-2 mb-2 w-full" value={subcategory} onChange={(e) => setSubcategory(e.target.value)}>
         //                     <option value="">Избери подкатегория</option>
         //                     {subcategoriesMap[category].map((sub) => (
         //                         <option key={sub} value={sub}>{sub}</option>
@@ -232,20 +160,20 @@ export default function AdminPage() {
         //                 </select>
         //             )}
 
-        //             <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">Добави продукт</button>
+        //             <button className="bg-green-500 text-white px-4 py-2 rounded">Добави продукт</button>
         //         </form>
 
-        //         {/* Product List */}
-        //         <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Списък с продукти</h2>
+        //         {/* 🔥 Product List with Delete Button (Added Below the Form) */}
+        //         <h2 className="text-2xl font-bold mb-4">Списък с продукти</h2>
         //         <div className="space-y-4">
         //             {products.map((product) => (
-        //                 <div key={product.id} className="border p-4 shadow-md flex justify-between items-center bg-white dark:bg-gray-800 dark:border-gray-700">
+        //                 <div key={product.id} className="border p-4 shadow-md flex justify-between items-center">
         //                     <div>
-        //                         <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{product.name} - {product.price} лв</h3>
-        //                         <p className="text-gray-500 dark:text-gray-400">{product.category} {product.subcategory ? ` > ${product.subcategory}` : ""}</p>
+        //                         <h3 className="text-lg font-semibold">{product.name} - {product.price} лв</h3>
+        //                         <p className="text-gray-500">{product.category} {product.subcategory ? `> ${product.subcategory}` : ""}</p>
         //                     </div>
         //                     <button
-        //                         className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+        //                         className="bg-red-500 text-white px-3 py-1 rounded"
         //                         onClick={() => handleDeleteProduct(product.id)}
         //                     >
         //                         Изтрий
@@ -254,6 +182,78 @@ export default function AdminPage() {
         //             ))}
         //         </div>
         //     </div>
+
         // </>
+
+
+
+        <>
+            <div className="container mx-auto p-6">
+                <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">Админ Панел</h1>
+                <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition" onClick={handleLogout}>
+                    Изход
+                </button>
+
+                {/* Form for Adding Products */}
+                <form onSubmit={handleAddProduct} className="mb-6 p-4 border rounded bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                    <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Добави нов продукт</h2>
+                    <input className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" type="text" placeholder="Име" value={name} onChange={(e) => setName(e.target.value)} required />
+                    <input
+                        className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white"
+                        type="text"
+                        placeholder="Цена (напр. 450)"
+                        value={price !== "" ? `${price} лв` : ""}
+                        onChange={(e) => {
+                            const value = e.target.value.replace(/\D/g, "");
+                            setPrice(value === "" ? "" : Number(value));
+                        }} required
+                    />
+                    <input className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" type="text" placeholder="тук URL на някво изображение" value={image} onChange={(e) => setImage(e.target.value)} required />
+                    <textarea className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
+
+                    {/* Category Dropdown */}
+                    <select className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" value={category} onChange={(e) => {
+                        setCategory(e.target.value);
+                        setSubcategory("");
+                    }} required>
+                        <option value="">Избери категория</option>
+                        {categories.map((cat) => (
+                            <option key={cat} value={cat}>{cat}</option>
+                        ))}
+                    </select>
+
+                    {/* Subcategory Dropdown */}
+                    {category !== "софтуер" && subcategoriesMap[category] && (
+                        <select className="border p-2 mb-2 w-full bg-white dark:bg-gray-700 dark:text-white" value={subcategory} onChange={(e) => setSubcategory(e.target.value)}>
+                            <option value="">Избери подкатегория</option>
+                            {subcategoriesMap[category].map((sub) => (
+                                <option key={sub} value={sub}>{sub}</option>
+                            ))}
+                        </select>
+                    )}
+
+                    <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">Добави продукт</button>
+                </form>
+
+                {/* Product List */}
+                <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Списък с продукти</h2>
+                <div className="space-y-4">
+                    {products.map((product) => (
+                        <div key={product.id} className="border p-4 shadow-md flex justify-between items-center bg-white dark:bg-gray-800 dark:border-gray-700">
+                            <div>
+                                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{product.name} - {product.price} лв</h3>
+                                <p className="text-gray-500 dark:text-gray-400">{product.category} {product.subcategory ? ` > ${product.subcategory}` : ""}</p>
+                            </div>
+                            <button
+                                className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+                                onClick={() => handleDeleteProduct(product.id)}
+                            >
+                                Изтрий
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
     );
 }
