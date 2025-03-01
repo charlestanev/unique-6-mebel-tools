@@ -4,70 +4,17 @@
     "name": "Бормашина Bosch GSB 13 RE",
     "price": 230,
     "description": "Компактна и мощна ударна бормашина за дърво и метал.",
-    "image": "/images/bosch-drill.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1683865776032-07bf70b0add1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXJsfGVufDB8fDB8fHww",
     "category": "инструменти",
     "subcategory": "диамантени инструменти"
   },
   {
-    "id": "3",
-    "name": "CNC Рутер X-Carve",
-    "price": 3200,
-    "description": "Прецизен CNC рутер за обработка на дървени материали.",
-    "image": "/images/cnc-router.jpg",
-    "category": "машини",
-    "subcategory": "CNC рутери"
-  },
-  {
-    "id": "5",
-    "name": "AutoCAD 2024",
-    "price": 2500,
-    "description": "Лиценз за най-новата версия на AutoCAD.",
-    "image": "/images/autocad.jpg",
-    "category": "софтуер"
-  },
-  {
-    "id": "1740851677524",
-    "name": "дадада",
-    "price": 345,
-    "description": "http://localhost:3000/admin",
-    "image": "http://localhost:3000/admin",
-    "category": "машини",
-    "subcategory": null
-  },
-  {
-    "id": "1740851727769",
-    "name": "гфжд",
-    "price": 345,
-    "description": "сдфгндгфхнфгхнфгх",
+    "id": "1740856622083",
+    "name": "qqqqqqqq",
+    "price": 1234,
+    "description": "qwregwerg",
     "image": "http://localhost:3000/admin",
     "category": "инструменти",
     "subcategory": "индивидуални инструменти"
-  },
-  {
-    "id": "1740851766907",
-    "name": "aaaaaaaaaaaaaaa",
-    "price": 1111,
-    "description": "reerhertherthert",
-    "image": "http://localhost:3000/admin",
-    "category": "инструменти",
-    "subcategory": "индивидуални инструменти"
-  },
-  {
-    "id": "1740851812745",
-    "name": "bbbbbbbbbbb",
-    "price": 222222,
-    "description": "sfgsdfgsdfg",
-    "image": "http://localhost:3000/admin",
-    "category": "машини",
-    "subcategory": "циркуляри"
-  },
-  {
-    "id": "1740852580209",
-    "name": "ccccccccccccccccccccccccccc",
-    "price": 33333,
-    "description": "http://localhost:3000/adminhttp://localhost:3000/adminhttp://localhost:3000/admin",
-    "image": "http://localhost:3000/admin",
-    "category": "машини",
-    "subcategory": "пробивни машини"
   }
 ]
