@@ -55,7 +55,6 @@ export default function AdminPage() {
         }
     }
 
-
     return (
         <div className="container mx-auto p-6">
             <h1 className="text-3xl font-bold mb-4">Админ Панел</h1>
@@ -69,7 +68,6 @@ export default function AdminPage() {
                 <input className="border p-2 mb-2 w-full" type="text" placeholder="Категория" value={category} onChange={(e) => setCategory(e.target.value)} required />
                 <button className="bg-green-500 text-white px-4 py-2 rounded">Добави продукт</button>
             </form>
-
 
             <h2 className="text-2xl font-bold mb-4">Продукти</h2>
             {products.map((product) => (
