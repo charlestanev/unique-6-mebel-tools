@@ -156,5 +156,14 @@
     "image": "http://localhost:3000/admin",
     "category": "софтуер",
     "subcategory": null
+  },
+  {
+    "id": "1740861577057",
+    "name": "kur",
+    "price": 2345,
+    "description": "segrwergwerg",
+    "image": "http://localhost:3000/admin",
+    "category": "инструменти",
+    "subcategory": "индивидуални инструменти"
   }
 ]

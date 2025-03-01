@@ -1,0 +1,4 @@
+{
+  "version": 2,
+  "rewrites": [{ "source": "/api/products", "destination": "/api/products.ts" }]
+}
