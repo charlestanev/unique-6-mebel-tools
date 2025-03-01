@@ -4,7 +4,7 @@
     "name": "Акумулаторен винтоверт Bosch GSR 18V-50",
     "price": 350,
     "description": "Мощен и компактен акумулаторен винтоверт за професионална употреба.",
-    "image": "https://unsplash.com/photos/people-sitting-at-the-table-2pPw5Glro5I",
+    "image": "https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "инструменти",
     "subcategory": "индивидуални инструменти"
   },
@@ -22,7 +22,7 @@
     "name": "Диамантен диск Bosch Expert for Concrete",
     "price": 80,
     "description": "Висококачествен диамантен диск за рязане на бетон.",
-    "image": "https://unsplash.com/photos/man-in-black-crew-neck-t-shirt-using-black-laptop-computer-b9-odQi5oDo",
+    "image": "https://images.pexels.com/photos/5963182/pexels-photo-5963182.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "инструменти",
     "subcategory": "дискове"
   },
@@ -31,7 +31,7 @@
     "name": "Фреза Bosch GMF 1600 CE",
     "price": 450,
     "description": "Мощна фреза за прецизна обработка на дърво.",
-    "image": "https://unsplash.com/photos/a-woman-working-on-a-laptop-6uAssP0vuPs",
+    "image": "https://images.pexels.com/photos/175039/pexels-photo-175039.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "инструменти",
     "subcategory": "фрезери"
   },
@@ -40,7 +40,7 @@
     "name": "Кантираща машина Holz-Her Sprint 1329",
     "price": 12000,
     "description": "Високопроизводителна кантираща машина за професионална употреба.",
-    "image": "https://unsplash.com/photos/black-smartphone-beside-pen-rNYCrcjUnOA",
+    "image": "https://images.pexels.com/photos/909256/pexels-photo-909256.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "машини",
     "subcategory": "кантиращи машини"
   },
@@ -49,7 +49,7 @@
     "name": "CNC рутер Biesse Rover A",
     "price": 50000,
     "description": "Високоскоростен CNC рутер за обработка на дърво и други материали.",
-    "image": "https://unsplash.com/photos/monitor-showing-java-programming-OqtafYT5kTw",
+    "image": "https://images.pexels.com/photos/270640/pexels-photo-270640.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "машини",
     "subcategory": "CNC рутери"
   },
@@ -58,7 +58,7 @@
     "name": "Циркуляр Holzmann TS 250",
     "price": 800,
     "description": "Настолен циркуляр за рязане на дърво.",
-    "image": "https://unsplash.com/photos/two-people-sitting-on-a-couch-playing-video-games-xoT1rt09NEI",
+    "image": "https://images.pexels.com/photos/162631/blacksmith-tools-shop-rustic-162631.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "машини",
     "subcategory": "циркуляри"
   },
@@ -67,7 +67,7 @@
     "name": "Пробивна машина Proma B-16/40",
     "price": 600,
     "description": "Настолна пробивна машина за метал и дърво.",
-    "image": "https://unsplash.com/photos/black-iphone-7-on-white-laptop-computer-KW0rZJojScM",
+    "image": "https://images.pexels.com/photos/1409226/pexels-photo-1409226.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "машини",
     "subcategory": "пробивни машини"
   },
@@ -76,7 +76,7 @@
     "name": "Софтуер AutoCAD",
     "price": 1500,
     "description": "Софтуер за 2D и 3D CAD проектиране.",
-    "image": "https://unsplash.com/photos/black-and-white-laptop-computer-xA1l7OCKL4Q",
+    "image": "https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "софтуер"
   },
   {
@@ -84,7 +84,7 @@
     "name": "Софтуер SolidWorks",
     "price": 2000,
     "description": "Софтуер за 3D CAD и CAE проектиране.",
-    "image": "https://unsplash.com/photos/close-up-view-of-female-hand-writing-on-blank-notebook-while-working-with-digital-tablet-h4ftfGi2gBs",
+    "image": "https://images.pexels.com/photos/259988/pexels-photo-259988.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "софтуер"
   },
   {
@@ -92,7 +92,7 @@
     "name": "Софтуер SketchUp Pro",
     "price": 700,
     "description": "Софтуер за 3D моделиране и визуализация.",
-    "image": "https://unsplash.com/photos/man-in-white-crew-neck-t-shirt-Ilg0getpBYE",
+    "image": "https://images.pexels.com/photos/51320/drill-milling-milling-machine-drilling-51320.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "софтуер"
   },
   {
@@ -100,7 +100,7 @@
     "name": "Софтуер CorelDRAW Graphics Suite",
     "price": 500,
     "description": "Софтуерен пакет за графичен дизайн.",
-    "image": "https://unsplash.com/photos/a-man-and-a-woman-sitting-at-a-table-with-a-laptop-if6dO0zT7QA",
+    "image": "https://images.pexels.com/photos/93396/pexels-photo-93396.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "софтуер"
   },
   {
@@ -108,7 +108,7 @@
     "name": "Ръчен циркуляр Bosch GKS 190",
     "price": 280,
     "description": "Ръчен циркуляр за рязане на дърво и други материали.",
-    "image": "https://unsplash.com/photos/an-abstract-background-with-a-purple-and-blue-pattern-2I0x5N0P_d8",
+    "image": "https://images.pexels.com/photos/93396/pexels-photo-93396.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "инструменти",
     "subcategory": "индивидуални инструменти"
   },
@@ -117,7 +117,7 @@
     "name": "Диамантен диск за керамика Bosch",
     "price": 60,
     "description": "Диамантен диск за рязане на керамични плочки.",
-    "image": "https://unsplash.com/photos/a-group-of-white-and-gold-tiles-on-a-white-surface-nPZ68nehUUo",
+    "image": "https://images.pexels.com/photos/47091/drill-milling-milling-machine-drilling-47091.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "инструменти",
     "subcategory": "дискове"
   },
@@ -126,7 +126,7 @@
     "name": "Фреза за дърво Makita RT0700C",
     "price": 320,
     "description": "Ръчна фреза за обработка на дърво.",
-    "image": "https://unsplash.com/photos/pink-and-black-abstract-painting-QTNrM9M4ltY",
+    "image": "https://images.pexels.com/photos/20791/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600",
     "category": "инструменти",
     "subcategory": "фрезери"
   },
@@ -135,7 +135,7 @@
     "name": "Кантираща машина Felder G 500",
     "price": 15000,
     "description": "Автоматична кантираща машина за професионална употреба.",
-    "image": "https://unsplash.com/photos/landscape-photography-of-sand-dunes-H69EgivmCjE",
+    "image": "https://images.pexels.com/photos/237997/pexels-photo-237997.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "машини",
     "subcategory": "кантиращи машини"
   },
@@ -144,7 +144,7 @@
     "name": "CNC рутер Weeke Venture 114",
     "price": 60000,
     "description": "Високопроизводителен CNC рутер за обработка на дърво и пластмаси.",
-    "image": "https://unsplash.com/photos/a-multicolored-image-of-a-spiral-design-IPR4I5s5sAs",
+    "image": "https://images.pexels.com/photos/1161929/pexels-photo-1161929.jpeg?auto=compress&cs=tinysrgb&w=600",
     "category": "машини",
     "subcategory": "CNC рутери"
   }
