@@ -2,9 +2,6 @@ import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import { Product } from "../types/product";
 
-// Тип за продукта
-
-
 // Глобален state за аутентикация
 export const isAuthenticatedAtom = atom<boolean>(false);
 
