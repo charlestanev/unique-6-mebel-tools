@@ -21,6 +21,28 @@ export default function HomePage() {
     const [products, setProducts] = useState<Product[]>([]);
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    // Проверява дали в LocalStorage има запазена тема
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const storedTheme = localStorage.getItem("theme");
+            if (storedTheme === "dark") {
+                document.documentElement.classList.add("dark");
+                setIsDarkMode(true);
+            }
+        }
+    }, []);
+
+    const toggleDarkMode = () => {
+        if (isDarkMode) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        }
+        setIsDarkMode(!isDarkMode);
+    };
 
     useEffect(() => {
         async function fetchProducts() {
@@ -35,7 +57,9 @@ export default function HomePage() {
         <>
             <div className="container mx-auto p-6">
                 <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">Продукти</h1>
-
+                <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={toggleDarkMode}>
+                    {isDarkMode ? "Светла тема" : "Тъмна тема"}
+                </button>
                 {/* Category Filter Buttons */}
                 <div className="flex flex-wrap gap-2 mb-6">
                     {categories.map((cat) => (
