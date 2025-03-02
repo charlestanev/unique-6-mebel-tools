@@ -5,6 +5,9 @@ import CategoryFilter from "@/components/CategoryFilter";
 import ProductList from "@/components/ProductList";
 import DarkModeToggle from "@/components/DarkModeToggle";
 import fetchProducts from "../../utils/fetchProducts";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 
 const categories = ["инструменти", "машини", "софтуер"];
 const subcategoriesMap: Record<string, string[]> = {
@@ -28,9 +31,9 @@ export default function HomePage() {
     }, []);
 
     return (
-        <div className="container mx-auto p-6">
+        <div className="container mx-auto p-6 mt-14">
+            <Navbar />
             <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">Продукти</h1>
-            <DarkModeToggle />
 
             <input
                 type="text"
@@ -70,6 +73,8 @@ export default function HomePage() {
                 selectedSubcategory={selectedSubcategory}
                 searchQuery={searchQuery}
             />
+            <Footer />
+            <CookieConsent />
         </div>
     );
 }
