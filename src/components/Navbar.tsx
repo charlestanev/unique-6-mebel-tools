@@ -3,6 +3,7 @@ import { useAtom } from "jotai";
 import { darkModeAtom } from "@/store";
 import Link from "next/link";
 import Image from "next/image";
+import { Sun, Moon, Phone, Mail } from "lucide-react";
 
 export default function Navbar() {
     const [darkMode, setDarkMode] = useAtom(darkModeAtom);
@@ -34,21 +35,21 @@ export default function Navbar() {
                     <Image src="/images/logo.png" alt="Уникат 6" width={150} height={40} className="cursor-pointer" />
                 </Link>
 
-                {/* Navigation Links */}
-                <div className="hidden md:flex space-x-6">
-                    <Link href="/" className="text-gray-900 dark:text-gray-100 hover:text-blue-500 transition">Начало</Link>
-                    <Link href="/privacy-policy" className="text-gray-900 dark:text-gray-100 hover:text-blue-500 transition">Политика за поверителност</Link>
-                    <Link href="/terms" className="text-gray-900 dark:text-gray-100 hover:text-blue-500 transition">Общи условия</Link>
-                    <Link href="/cookies-policy" className="text-gray-900 dark:text-gray-100 hover:text-blue-500 transition">Политика за бисквитки</Link>
+                {/* Contact Info + Theme Toggle */}
+                <div className="flex items-center space-x-6">
+                    {/* Phone */}
+                    <a href="tel:+359898447853" className="flex items-center text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400 transition">
+                        <Phone className="w-5 h-5 mr-1" /> +359 89 844 7853
+                    </a>
+                    {/* Email */}
+                    <a href="mailto:charlestanev.dev@gmail.com" className="flex items-center text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400 transition">
+                        <Mail className="w-5 h-5 mr-1" /> charlestanev.dev@gmail.com
+                    </a>
+                    {/* Theme Toggle */}
+                    <button onClick={() => setDarkMode(!darkMode)} className="text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400 transition">
+                        {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+                    </button>
                 </div>
-
-                {/* Light/Dark Mode Toggle */}
-                <button
-                    className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 dark:hover:bg-gray-500 transition"
-                    onClick={() => setDarkMode(!darkMode)}
-                >
-                    {darkMode ? "Светла тема" : "Тъмна тема"}
-                </button>
             </div>
         </nav>
     );
