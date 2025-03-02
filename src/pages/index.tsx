@@ -24,6 +24,8 @@ export default function HomePage() {
     const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
     const [isDarkMode, setIsDarkMode] = useAtom(darkModeAtom);
     const [products, setProducts] = useAtom(productsAtom);
+    const [searchQuery, setSearchQuery] = useState("");
+
 
     // Проверява дали в LocalStorage има запазена тема
     useEffect(() => {
@@ -50,6 +52,14 @@ export default function HomePage() {
     return (
         <>
             <div className="container mx-auto p-6">
+                <input
+                    type="text"
+                    placeholder="Търсене по описание..."
+                    className="border p-2 mb-6 w-full rounded-lg bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+
                 <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">Продукти</h1>
                 <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={toggleDarkMode}>
                     {isDarkMode ? "Светла тема" : "Тъмна тема"}
@@ -91,6 +101,9 @@ export default function HomePage() {
                     {products
                         .filter((product) => !selectedCategory || product.category === selectedCategory)
                         .filter((product) => !selectedSubcategory || product.subcategory === selectedSubcategory)
+                        .filter((product) =>
+                            product.description.toLowerCase().includes(searchQuery.toLowerCase())
+                        )
                         .map((product) => (
                             <div
                                 key={product.id}
@@ -110,6 +123,7 @@ export default function HomePage() {
                                 </div>
                             </div>
                         ))}
+
                 </div>
             </div>
         </>
