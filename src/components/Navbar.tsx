@@ -43,7 +43,7 @@ export default function Navbar() {
                     </a>
                     {/* Email */}
                     <a href="mailto:charlestanev.dev@gmail.com" className="flex items-center text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400 transition">
-                        <Mail className="w-5 h-5 mr-1" /> charlestanev.dev@gmail.com
+                        <Mail className="w-5 h-5 mr-1" /> unique6.tools@gmail.com
                     </a>
                     {/* Theme Toggle */}
                     <button onClick={() => setDarkMode(!darkMode)} className="text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400 transition">
