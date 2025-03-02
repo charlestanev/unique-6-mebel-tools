@@ -147,14 +147,5 @@
     "image": "http://localhost:3000/admin",
     "category": "инструменти",
     "subcategory": "диамантени инструменти"
-  },
-  {
-    "id": "1740911515991",
-    "name": "zzzzzzzzzzzzzzzzzzzzzzzzzz",
-    "price": 111111111,
-    "description": "http://localhost:3000/admin",
-    "image": "http://localhost:3000/admin",
-    "category": "софтуер",
-    "subcategory": null
   }
 ]

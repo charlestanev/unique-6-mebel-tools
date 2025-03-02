@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -16,12 +16,65 @@
   }
 }
 
+html,
+body {
+  @apply bg-white text-gray-900 transition-colors dark:bg-black dark:text-gray-100;
+}
+
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+} */
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Основни цветови променливи */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 0, 0, 0;
+}
+
+/* Глобални стилове */
+html,
+body {
+  @apply min-h-screen bg-white text-gray-900 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100;
+}
+
+/* Корекция на основния фон */
+body {
+  background-color: rgb(var(--background-rgb));
+  color: rgb(var(--foreground-rgb));
+}
+
+/* Уверете се, че елементите с тъмен фон се променят коректно */
+.bg-light {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.text-light {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* Уверете се, че input и textarea елементите имат правилен стил */
+input,
+textarea,
+select {
+  @apply bg-white text-gray-900 border-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600;
+}
+
+/* Навигация и други UI компоненти */
+.navbar {
+  @apply bg-white dark:bg-gray-900 shadow-md transition-colors;
 }
