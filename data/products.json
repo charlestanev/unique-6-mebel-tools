@@ -1,32 +1,5 @@
 [
   {
-    "id": "1",
-    "name": "Акумулаторен такова винтоверт Bosch GSR 18V-50",
-    "price": 350,
-    "description": "Мощен и компактен акумулаторен винтоверт за професионална употреба.",
-    "image": "https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "инструменти",
-    "subcategory": "индивидуални инструменти"
-  },
-  {
-    "id": "2",
-    "name": "Бормашина Bosch GSB 13 RE",
-    "price": 230,
-    "description": "Компактна и мощна ударна бормашина за дърво и метал.",
-    "image": "https://plus.unsplash.com/premium_photo-1683865776032-07bf70b0add1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXJsfGVufDB8fDB8fHww",
-    "category": "инструменти",
-    "subcategory": "диамантени инструменти"
-  },
-  {
-    "id": "3",
-    "name": "Диамантен диск Bosch Expert for Concrete",
-    "price": 80,
-    "description": "Висококачествен диамантен диск за рязане на бетон.",
-    "image": "https://images.pexels.com/photos/5963182/pexels-photo-5963182.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "инструменти",
-    "subcategory": "дискове"
-  },
-  {
     "id": "4",
     "name": "Фреза Bosch GMF 1600 CE",
     "price": 450,
@@ -165,5 +138,23 @@
     "image": "http://localhost:3000/admin",
     "category": "инструменти",
     "subcategory": "индивидуални инструменти"
+  },
+  {
+    "id": "1740910622707",
+    "name": "jjjjjjjjjjjjjjjjjjjjjjjj",
+    "price": 2345,
+    "description": "http://localhost:3000/admin",
+    "image": "http://localhost:3000/admin",
+    "category": "инструменти",
+    "subcategory": "диамантени инструменти"
+  },
+  {
+    "id": "1740911515991",
+    "name": "zzzzzzzzzzzzzzzzzzzzzzzzzz",
+    "price": 111111111,
+    "description": "http://localhost:3000/admin",
+    "image": "http://localhost:3000/admin",
+    "category": "софтуер",
+    "subcategory": null
   }
 ]
