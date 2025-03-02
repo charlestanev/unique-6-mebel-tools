@@ -1,16 +1,9 @@
 import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
+import { Product } from "../types/product";
 
 // Тип за продукта
-interface Product {
-    id: string;
-    name: string;
-    price: number;
-    description: string;
-    image: string;
-    category: string;
-    subcategory?: string;
-}
+
 
 // Глобален state за аутентикация
 export const isAuthenticatedAtom = atom<boolean>(false);

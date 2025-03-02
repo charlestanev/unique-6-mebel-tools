@@ -3,6 +3,7 @@ import { z } from "zod";
 import { useRouter } from "next/router";
 import { useAtom } from "jotai";
 import { isAuthenticatedAtom, productsAtom, darkModeAtom } from "@/store";
+import { Product } from "../../types/product";
 
 
 const productSchema = z.object({
@@ -14,15 +15,6 @@ const productSchema = z.object({
     subcategory: z.string().optional()
 });
 
-interface Product {
-    id: string;
-    name: string;
-    price: number;
-    description: string;
-    image: string;
-    category: string;
-    subcategory?: string;
-}
 
 export default function AdminPage() {
     const [isAuthenticated, setIsAuthenticated] = useAtom(isAuthenticatedAtom);

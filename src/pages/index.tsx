@@ -1,16 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { darkModeAtom, productsAtom } from "@/store";
-
-interface Product {
-    id: string;
-    name: string;
-    price: number;
-    description: string;
-    image: string;
-    category: string;
-    subcategory?: string;
-}
+import { Product } from "../../types/product";
 
 const categories = ["инструменти", "машини", "софтуер"];
 const subcategoriesMap: Record<string, string[]> = {
