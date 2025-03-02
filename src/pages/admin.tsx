@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import { useRouter } from "next/router";
+import { useAtom } from "jotai";
+import { isAuthenticatedAtom, productsAtom, darkModeAtom } from "@/store";
 
 
 const productSchema = z.object({
@@ -23,7 +25,10 @@ interface Product {
 }
 
 export default function AdminPage() {
-    const [products, setProducts] = useState<Product[]>([]);
+    const [isAuthenticated, setIsAuthenticated] = useAtom(isAuthenticatedAtom);
+    const [products, setProducts] = useAtom(productsAtom);
+    const [darkMode, setDarkMode] = useAtom(darkModeAtom);
+
     const [name, setName] = useState("");
     const [price, setPrice] = useState<number | "">("");
     const [description, setDescription] = useState("");
@@ -38,7 +43,6 @@ export default function AdminPage() {
         "софтуер": []
     };
 
-    const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
     useEffect(() => {
         async function checkAuth() {
@@ -54,6 +58,7 @@ export default function AdminPage() {
     async function handleLogout() {
         await fetch("/api/logout", { method: "POST" });
         setIsAuthenticated(false);
+        setProducts([]);
         router.push("/");
     }
 

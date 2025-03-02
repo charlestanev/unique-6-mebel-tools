@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { darkModeAtom, productsAtom } from "@/store";
 
 interface Product {
     id: string;
@@ -18,29 +20,21 @@ const subcategoriesMap: Record<string, string[]> = {
 };
 
 export default function HomePage() {
-    const [products, setProducts] = useState<Product[]>([]);
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useAtom(darkModeAtom);
+    const [products, setProducts] = useAtom(productsAtom);
+
     // Проверява дали в LocalStorage има запазена тема
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            const storedTheme = localStorage.getItem("theme");
-            if (storedTheme === "dark") {
-                document.documentElement.classList.add("dark");
-                setIsDarkMode(true);
-            }
+        if (isDarkMode) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
         }
-    }, []);
+    }, [isDarkMode]);
 
     const toggleDarkMode = () => {
-        if (isDarkMode) {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        } else {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        }
         setIsDarkMode(!isDarkMode);
     };
 
