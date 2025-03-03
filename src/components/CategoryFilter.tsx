@@ -14,12 +14,12 @@ export default function CategoryFilter({
     setSelectedSubcategory
 }: CategoryFilterProps) {
     return (
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 border-b border-gray-300 dark:border-gray-700 pb-2 bg-red-600">
             <button
-                className={`px-4 py-2 rounded-lg border transition-colors duration-200 font-semibold
+                className={`px-4 py-2 rounded-md font-semibold transition-all duration-200
                 ${selectedCategory === null
-                        ? "bg-blue-600 text-white border-blue-700"
-                        : "bg-gray-200 text-gray-900 border-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600"
+                        ? "bg-primary text-white shadow-md"
+                        : "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100"
                     }`}
                 onClick={() => {
                     setSelectedCategory(null);
@@ -32,10 +32,10 @@ export default function CategoryFilter({
             {categories.map((cat) => (
                 <button
                     key={cat}
-                    className={`px-4 py-2 rounded-lg border transition-colors duration-200 
+                    className={`px-4 py-2 rounded-md font-semibold transition-all duration-200 
                     ${selectedCategory === cat
-                            ? "bg-blue-600 text-white border-blue-700"
-                            : "bg-gray-200 text-gray-900 border-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600"}`}
+                            ? "bg-primary text-white shadow-md"
+                            : "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100"}`}
                     onClick={() => {
                         setSelectedCategory(cat);
                         if (setSelectedSubcategory) setSelectedSubcategory(null);

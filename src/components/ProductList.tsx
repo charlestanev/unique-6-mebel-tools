@@ -10,7 +10,7 @@ interface ProductListProps {
 
 export default function ProductList({ products, selectedCategory, selectedSubcategory, searchQuery, }: ProductListProps) {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             {products
                 .filter((product) => !selectedCategory || product.category === selectedCategory)
                 .filter((product) => !selectedSubcategory || product.subcategory === selectedSubcategory)

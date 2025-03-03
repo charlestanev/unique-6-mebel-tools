@@ -48,47 +48,71 @@ export default function HomePage() {
 
 
 
-            {/* Search */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-                className="mb-6 flex flex-col md:flex-row items-center gap-4"
-            >
-                <input
-                    type="text"
-                    placeholder="🔍 Търсене по описание..."
-                    className="w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-4 focus:ring-primary transition"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                />
-            </motion.div>
 
-            
-            {/* Category Filter */}
-            <CategoryFilter
-                categories={categories}
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                selectedSubcategory={selectedSubcategory}
-                setSelectedSubcategory={setSelectedSubcategory}
-            />
 
-            {selectedCategory && selectedCategory !== "софтуер" && (
-                <motion.select
+
+
+
+            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-6">
+                <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-4 focus:ring-primary transition"
-                    value={selectedSubcategory || ""}
-                    onChange={(e) => setSelectedSubcategory(e.target.value)}
+                    transition={{ duration: 0.4 }}
+                    className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0"
                 >
-                    <option value="">Всички подкатегории</option>
-                    {subcategoriesMap[selectedCategory].map((sub) => (
-                        <option key={sub} value={sub}>{sub}</option>
-                    ))}
-                </motion.select>
-            )}
+                    <input
+                        type="text"
+                        placeholder="🔍 Търсене по описание..."
+                        className="w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-4 focus:ring-primary transition"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
+                    className="mt-4 border-b border-gray-300 dark:border-gray-700 flex space-x-4 overflow-x-auto"
+                >
+                    <CategoryFilter
+                        categories={categories}
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                        selectedSubcategory={selectedSubcategory}
+                        setSelectedSubcategory={setSelectedSubcategory}
+                    />
+                </motion.div>
+
+                {selectedCategory && subcategoriesMap[selectedCategory]?.length > 0 && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="mt-4"
+                    >
+                        <select
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-4 focus:ring-primary transition"
+                            value={selectedSubcategory || ""}
+                            onChange={(e) => setSelectedSubcategory(e.target.value)}
+                        >
+                            <option value="">Всички подкатегории</option>
+                            {subcategoriesMap[selectedCategory].map((sub) => (
+                                <option key={sub} value={sub}>{sub}</option>
+                            ))}
+                        </select>
+                    </motion.div>
+                )}
+            </div>
+
+
+
+
+
+
+
+
+
 
             <ProductList
                 products={products}
