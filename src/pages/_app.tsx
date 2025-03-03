@@ -10,15 +10,20 @@ function ThemeWrapper() {
     useEffect(() => {
         if (typeof window !== "undefined") {
             const savedTheme = localStorage.getItem("theme");
-            if (savedTheme === "dark") {
-                setIsDarkMode(true);
-                document.documentElement.classList.add("dark");
-            } else {
-                setIsDarkMode(false);
-                document.documentElement.classList.remove("dark");
-            }
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            // Set theme based on saved preference or system preference
+            const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+            setIsDarkMode(shouldBeDark);
+            document.documentElement.classList.toggle("dark", shouldBeDark);
         }
-    }, [setIsDarkMode]);
+    }, []);
+
+    // Save the theme to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        document.documentElement.classList.toggle("dark", isDarkMode);
+    }, [isDarkMode]);
 
     return null;
 }
