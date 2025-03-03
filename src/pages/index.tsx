@@ -43,15 +43,10 @@ export default function HomePage() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="text-center mb-8 mt-12"
             >
-                <h1 className="text-4xl font-extrabold text-primary dark:text-secondary tracking-tight">Каталог на Продуктите</h1>
+                <h1 className="text-4xl font-extrabold text-primary dark:text-secondary tracking-tight">
+                    Каталог на Продуктите
+                </h1>
             </motion.div>
-
-
-
-
-
-
-
 
             <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-6">
                 <motion.div
@@ -69,50 +64,23 @@ export default function HomePage() {
                     />
                 </motion.div>
 
+                {/* Tabbed Navigation */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="mt-4 border-b border-gray-300 dark:border-gray-700 flex space-x-4 overflow-x-auto"
+                    className="mt-6"
                 >
                     <CategoryFilter
                         categories={categories}
+                        subcategoriesMap={subcategoriesMap}
                         selectedCategory={selectedCategory}
                         setSelectedCategory={setSelectedCategory}
                         selectedSubcategory={selectedSubcategory}
                         setSelectedSubcategory={setSelectedSubcategory}
                     />
                 </motion.div>
-
-                {selectedCategory && subcategoriesMap[selectedCategory]?.length > 0 && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4"
-                    >
-                        <select
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-4 focus:ring-primary transition"
-                            value={selectedSubcategory || ""}
-                            onChange={(e) => setSelectedSubcategory(e.target.value)}
-                        >
-                            <option value="">Всички подкатегории</option>
-                            {subcategoriesMap[selectedCategory].map((sub) => (
-                                <option key={sub} value={sub}>{sub}</option>
-                            ))}
-                        </select>
-                    </motion.div>
-                )}
             </div>
-
-
-
-
-
-
-
-
-
 
             <ProductList
                 products={products}
