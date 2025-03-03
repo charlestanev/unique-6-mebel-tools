@@ -47,7 +47,7 @@ export default function ProductForm() {
     }
 
     return (
-        <form onSubmit={handleAddProduct} className="mb-6 p-4 border rounded bg-gray-200 dark:bg-gray-900 dark:border-gray-700 shadow-md !bg-red-600">
+        <form onSubmit={handleAddProduct} className="mb-6 p-4 border rounded bg-gray-200 dark:bg-gray-900 dark:border-gray-700 shadow-md">
             <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Добави нов продукт</h2>
 
             <input

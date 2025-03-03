@@ -41,11 +41,14 @@ export default function HomePage() {
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="text-center my-8"
+                className="text-center mb-8 mt-12"
             >
                 <h1 className="text-4xl font-extrabold text-primary dark:text-secondary tracking-tight">Каталог на Продуктите</h1>
             </motion.div>
 
+
+
+            {/* Search */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -61,6 +64,8 @@ export default function HomePage() {
                 />
             </motion.div>
 
+            
+            {/* Category Filter */}
             <CategoryFilter
                 categories={categories}
                 selectedCategory={selectedCategory}

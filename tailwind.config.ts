@@ -25,7 +25,7 @@ const config: Config = {
         info: "#38BDF8", // Sky Blue - Informational Messages
       },
       ringColor: {
-        primary: "#7F56D9", // Ensures ring-primary matches the new color scheme
+        primary: "#7F56D9",
       },
       fontFamily: {
         sans: ['Poppins', 'Inter', 'sans-serif'],
