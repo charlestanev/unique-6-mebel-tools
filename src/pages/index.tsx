@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import { motion } from "framer-motion";
+import SearchBar from "@/components/SearchBar";
 
 const categories = ["инструменти", "машини", "софтуер"];
 const subcategoriesMap: Record<string, string[]> = {
@@ -48,20 +49,25 @@ export default function HomePage() {
                 </h1>
             </motion.div>
 
+
+
+
+
+
+
+
+
+
+
+
+
             <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-6">
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0"
                 >
-                    <input
-                        type="text"
-                        placeholder="🔍 Търсене по описание..."
-                        className="w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-4 focus:ring-primary transition"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
+                    <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
                 </motion.div>
 
                 {/* Tabbed Navigation */}
@@ -81,6 +87,17 @@ export default function HomePage() {
                     />
                 </motion.div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
 
             <ProductList
                 products={products}
