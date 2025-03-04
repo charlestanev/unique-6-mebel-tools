@@ -8,11 +8,10 @@ export default function ProductCard({ product }: { product: Product }) {
 
     return (
         <>
-            {/* Product Card */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0, ease: "easeOut" }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
                 whileHover={{ scale: 1.07, boxShadow: "0px 8px 16px rgba(0,0,0,0.15)" }}
                 className="border p-4 shadow-lg rounded-lg bg-white dark:bg-gray-900 dark:border-gray-700 transition-all duration-200 cursor-pointer"
                 onClick={() => setIsModalOpen(true)}
@@ -33,7 +32,6 @@ export default function ProductCard({ product }: { product: Product }) {
                 </div>
             </motion.div>
 
-            {/* Product Modal */}
             {isModalOpen && <ProductModal product={product} onClose={() => setIsModalOpen(false)} />}
         </>
     );

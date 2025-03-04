@@ -6,4 +6,5 @@ export interface Product {
     image: string;
     category: string;
     subcategory?: string;
+    media?: string[]; // Optional array of image & video links
 }
