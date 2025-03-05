@@ -102,5 +102,130 @@
       "https://www.youtube.com/watch?v=TUVL8j6lvdg",
       "/images/aa.jpg"
     ]
+  },
+  {
+    "id": "1741170717799",
+    "name": "Кантираща машина Compact",
+    "price": 1800,
+    "description": "Компактна кантираща машина за малки работилници.",
+    "image": "/images/w.jpg",
+    "category": "машини",
+    "subcategory": "кантиращи машини",
+    "media": [
+      "/images/w.jpg",
+      "https://www.youtube.com/watch?v=A_sWv8s8S8s",
+      "/images/z.jpg",
+      "https://www.youtube.com/watch?v=B_tXw9t9T9t",
+      "/images/x.jpg",
+      "/images/v.jpg",
+      "https://www.youtube.com/watch?v=C_uYx0u0U0u",
+      "/images/u.jpg",
+      "https://www.youtube.com/watch?v=D_vZx1v1V1v",
+      "/images/t.jpg"
+    ]
+  },
+  {
+    "id": "1741170717800",
+    "name": "Фреза за канали Profi",
+    "price": 110,
+    "description": "Професионална фреза за изрязване на канали в дърво.",
+    "image": "/images/r.jpg",
+    "category": "инструменти",
+    "subcategory": "фрезери",
+    "media": [
+      "/images/r.jpg",
+      "https://www.youtube.com/watch?v=E_wYv2w2W2w",
+      "/images/q.jpg",
+      "https://www.youtube.com/watch?v=F_tXw3t3X3t",
+      "/images/p.jpg",
+      "/images/o.jpg",
+      "https://www.youtube.com/watch?v=G_uYx4u4Y4u",
+      "/images/n.jpg",
+      "https://www.youtube.com/watch?v=H_vZx5v5Z5v",
+      "/images/m.jpg"
+    ]
+  },
+  {
+    "id": "1741170717801",
+    "name": "Софтуер за оптимизация OptiCut",
+    "price": 280,
+    "description": "Софтуер за оптимизация на разкрояване на материали.",
+    "image": "/images/logo.png",
+    "category": "софтуер",
+    "media": [
+      "/images/logo.png",
+      "https://www.youtube.com/watch?v=I_sWv6s6S6s",
+      "/images/l.jpg",
+      "https://www.youtube.com/watch?v=J_tXw7t7T7t",
+      "/images/k.jpg",
+      "/images/j.jpg",
+      "https://www.youtube.com/watch?v=K_uYx8u8Y8u",
+      "/images/i.jpg",
+      "https://www.youtube.com/watch?v=L_vZx9v9Z9v",
+      "/images/h.jpg"
+    ]
+  },
+  {
+    "id": "1741170717802",
+    "name": "Циркуляр за прецизно рязане",
+    "price": 550,
+    "description": "Циркуляр за прецизно рязане на дърво и плоскости.",
+    "image": "/images/makita.jpg",
+    "category": "машини",
+    "subcategory": "циркуляри",
+    "media": [
+      "/images/makita.jpg",
+      "https://www.youtube.com/watch?v=M_sWv0s0S0s",
+      "/images/g.jpg",
+      "https://www.youtube.com/watch?v=N_tXw1t1T1t",
+      "/images/f.jpg",
+      "/images/e.jpg",
+      "https://www.youtube.com/watch?v=O_uYx2u2Y2u",
+      "/images/d.jpg",
+      "https://www.youtube.com/watch?v=P_vZx3v3Z3v",
+      "/images/c.jpg"
+    ]
+  },
+  {
+    "id": "1741170717803",
+    "name": "Свредла за дърво Set",
+    "price": 45,
+    "description": "Комплект свредла за прецизно пробиване в дърво.",
+    "image": "/images/b.jpg",
+    "category": "инструменти",
+    "subcategory": "индивидуални инструменти",
+    "media": [
+      "/images/b.jpg",
+      "https://www.youtube.com/watch?v=Q_sWv4s4S4s",
+      "/images/a.jpg",
+      "https://www.youtube.com/watch?v=R_tXw5t5T5t",
+      "/images/y.jpg",
+      "/images/x.jpg",
+      "https://www.youtube.com/watch?v=S_uYx6u6Y6u",
+      "/images/w.jpg",
+      "https://www.youtube.com/watch?v=T_vZx7v7Z7v",
+      "/images/v.jpg"
+    ]
+  },
+  {
+    "id": "1741175980059",
+    "name": "Фреза за фалцове Master",
+    "price": 12345,
+    "description": "Висококачествена фреза за изрязване на фалцове в дърво",
+    "image": "/images/a.jpg",
+    "category": "инструменти",
+    "subcategory": "фрезери",
+    "media": [
+      "https://www.youtube.com/watch?v=er5Q4IGtkLo&list=RDer5Q4IGtkLo&start_radio=1",
+      "https://www.youtube.com/watch?v=wnYKH2dO620",
+      "https://www.youtube.com/watch?v=SRXH9AbT280&list=RDGMEMJQXQAmqrnmK1SEjY_rKBGAVMSRXH9AbT280&start_radio=1",
+      "https://www.youtube.com/watch?v=ZYBxZhvqYts",
+      "https://www.youtube.com/watch?v=YlXPu9mWBHs",
+      "/images/a.jpg",
+      "/images/b.jpg",
+      "/images/c.jpg",
+      "/images/d.jpg",
+      "/images/e.jpg"
+    ]
   }
 ]
