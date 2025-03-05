@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 import YouTube from "react-youtube";
 import { useState } from "react";
 
-// Lightbox Modal for viewing media
+// 🖼 Lightbox Modal for viewing images/videos
 function Lightbox({ src, type, onClose }: { src: string; type: "image" | "video"; onClose: () => void }) {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50" onClick={onClose}>
@@ -13,7 +13,7 @@ function Lightbox({ src, type, onClose }: { src: string; type: "image" | "video"
                     <X size={24} />
                 </button>
                 {type === "image" ? (
-                    <img src={src} alt="Preview" className="max-w-full max-h-screen object-contain" />
+                    <img src={src} alt="Preview" className="max-w-full max-h-screen object-contain rounded-lg shadow-lg" />
                 ) : (
                     <YouTube videoId={src.split("v=")[1]?.split("&")[0]} className="w-full max-w-4xl aspect-video" />
                 )}
@@ -58,7 +58,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     <X size={28} />
                 </button>
 
-                {/* Product Information */}
+                {/* 📌 Product Information */}
                 <div className="text-center mb-6">
                     <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{product.name}</h2>
                     <p className="text-gray-700 dark:text-gray-300 mt-2">{product.description}</p>
@@ -73,14 +73,14 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     <p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3">{product.price} лв</p>
                 </div>
 
-                {/* 🖼 Gallery Layout */}
+                {/* 🖼 **Gallery Layout** - Now with Fixed Aspect Ratio for Images & Videos */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {images.map((img, index) => (
-                        <div key={index} className="relative group cursor-pointer">
+                        <div key={index} className="relative group cursor-pointer overflow-hidden">
                             <img
                                 src={img}
                                 alt={`Product ${index}`}
-                                className="w-full h-auto object-cover rounded-lg shadow-md transition transform hover:scale-105"
+                                className="w-full h-[250px] object-cover rounded-lg shadow-md transition transform hover:scale-105"
                                 onClick={() => setLightbox({ src: img, type: "image" })}
                             />
                         </div>
@@ -88,18 +88,24 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     {videos.map((video, index) => {
                         const videoId = video.split("v=")[1]?.split("&")[0]; // Extract YouTube Video ID
                         return (
-                            <div key={index} className="relative group cursor-pointer">
-                                <YouTube
-                                    videoId={videoId}
-                                    className="w-full h-auto aspect-video rounded-lg shadow-md transition transform hover:scale-105"
-                                    onClick={() => setLightbox({ src: video, type: "video" })}
-                                />
+                            <div key={index} className="relative group cursor-pointer overflow-hidden">
+                                <div className="w-full h-[250px] rounded-lg shadow-md transition transform hover:scale-105 bg-black flex items-center justify-center">
+                                    <div className="relative w-full h-0" style={{ paddingBottom: "56.25%" }}>
+                                        {/* This makes sure the YouTube video fills the box properly */}
+                                        <YouTube
+                                            videoId={videoId}
+                                            className="absolute top-0 left-0 w-full h-full"
+                                            opts={{ width: "100%", height: "100%" }}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         );
                     })}
                 </div>
 
-                {/* Lightbox for viewing images/videos */}
+
+                {/* 🔍 **Lightbox for viewing images/videos** */}
                 {lightbox && <Lightbox src={lightbox.src} type={lightbox.type} onClose={() => setLightbox(null)} />}
             </motion.div>
         </motion.div>

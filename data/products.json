@@ -1,259 +1,106 @@
 [
   {
-    "id": "5",
-    "name": "Кантираща машина Holz-Her Sprint 1329",
-    "price": 12000,
-    "description": "Високопроизводителна кантираща машина за професионална употреба.",
-    "image": "https://images.pexels.com/photos/909256/pexels-photo-909256.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "id": "1741170717794",
+    "name": "CNC рутер MasterPro",
+    "price": 8500,
+    "description": "Високопроизводителен CNC рутер за прецизна обработка на дърво.",
+    "image": "/images/g.jpg",
     "category": "машини",
-    "subcategory": "кантиращи машини"
-  },
-  {
-    "id": "6",
-    "name": "CNC рутер Biesse Rover A",
-    "price": 50000,
-    "description": "Високоскоростен CNC рутер за обработка на дърво и други материали.",
-    "image": "https://images.pexels.com/photos/270640/pexels-photo-270640.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "машини",
-    "subcategory": "CNC рутери"
-  },
-  {
-    "id": "7",
-    "name": "Циркуляр Holzmann TS 250",
-    "price": 800,
-    "description": "Настолен циркуляр за рязане на дърво.",
-    "image": "https://images.pexels.com/photos/162631/blacksmith-tools-shop-rustic-162631.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "машини",
-    "subcategory": "циркуляри"
-  },
-  {
-    "id": "8",
-    "name": "Пробивна машина Proma B-16/40",
-    "price": 600,
-    "description": "Настолна пробивна машина за метал и дърво.",
-    "image": "https://images.pexels.com/photos/1409226/pexels-photo-1409226.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "машини",
-    "subcategory": "пробивни машини"
-  },
-  {
-    "id": "9",
-    "name": "Софтуер AutoCAD",
-    "price": 1500,
-    "description": "Софтуер за 2D и 3D CAD проектиране.",
-    "image": "https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "софтуер"
-  },
-  {
-    "id": "10",
-    "name": "Софтуер SolidWorks",
-    "price": 2000,
-    "description": "Софтуер за 3D CAD и CAE проектиране.",
-    "image": "https://images.pexels.com/photos/259988/pexels-photo-259988.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "софтуер"
-  },
-  {
-    "id": "11",
-    "name": "Софтуер SketchUp Pro",
-    "price": 700,
-    "description": "Софтуер за 3D моделиране и визуализация.",
-    "image": "https://images.pexels.com/photos/51320/drill-milling-milling-machine-drilling-51320.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "софтуер"
-  },
-  {
-    "id": "12",
-    "name": "Софтуер CorelDRAW Graphics Suite",
-    "price": 500,
-    "description": "Софтуерен пакет за графичен дизайн.",
-    "image": "https://images.pexels.com/photos/93396/pexels-photo-93396.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "софтуер"
-  },
-  {
-    "id": "13",
-    "name": "Ръчен циркуляр Bosch GKS 190",
-    "price": 280,
-    "description": "Ръчен циркуляр за рязане на дърво и други материали.",
-    "image": "https://images.pexels.com/photos/93396/pexels-photo-93396.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "инструменти",
-    "subcategory": "индивидуални инструменти"
-  },
-  {
-    "id": "14",
-    "name": "Диамантен диск за керамика Bosch",
-    "price": 60,
-    "description": "Диамантен диск за рязане на керамични плочки.",
-    "image": "https://images.pexels.com/photos/47091/drill-milling-milling-machine-drilling-47091.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "инструменти",
-    "subcategory": "дискове"
-  },
-  {
-    "id": "15",
-    "name": "Фреза за дърво Makita RT0700C",
-    "price": 320,
-    "description": "Ръчна фреза за обработка на дърво.",
-    "image": "https://images.pexels.com/photos/20791/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600",
-    "category": "инструменти",
-    "subcategory": "фрезери"
-  },
-  {
-    "id": "16",
-    "name": "Кантираща машина Felder G 500",
-    "price": 15000,
-    "description": "Автоматична кантираща машина за професионална употреба.",
-    "image": "https://images.pexels.com/photos/237997/pexels-photo-237997.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "машини",
-    "subcategory": "кантиращи машини"
-  },
-  {
-    "id": "17",
-    "name": "CNC рутер Weeke Venture 114",
-    "price": 60000,
-    "description": "Високопроизводителен CNC рутер за обработка на дърво и пластмаси.",
-    "image": "https://images.pexels.com/photos/1161929/pexels-photo-1161929.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "category": "машини",
-    "subcategory": "CNC рутери"
-  },
-  {
-    "id": "1740859860635",
-    "name": "gfdbdfs",
-    "price": 234,
-    "description": "http://localhost:3000/admin",
-    "image": "http://localhost:3000/admin",
-    "category": "софтуер",
-    "subcategory": null
-  },
-  {
-    "id": "1740861577057",
-    "name": "kur",
-    "price": 2345,
-    "description": "segrwergwerg",
-    "image": "http://localhost:3000/admin",
-    "category": "инструменти",
-    "subcategory": "индивидуални инструменти"
-  },
-  {
-    "id": "1740910622707",
-    "name": "jjjjjjjjjjjjjjjjjjjjjjjj",
-    "price": 2345,
-    "description": "http://localhost:3000/admin",
-    "image": "http://localhost:3000/admin",
-    "category": "инструменти",
-    "subcategory": "диамантени инструменти"
-  },
-  {
-    "id": "1740941958324",
-    "name": "ergwergwe",
-    "price": 45235243,
-    "description": "https://images.pexels.com/photos/30847375/pexels-photo-30847375/free-photo-of-stylish-man-walking-along-brick-wall-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "image": "https://images.pexels.com/photos/30847375/pexels-photo-30847375/free-photo-of-stylish-man-walking-along-brick-wall-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "category": "машини",
-    "subcategory": "CNC рутери"
-  },
-  {
-    "id": "1741104747538",
-    "name": "test",
-    "price": 999999999,
-    "description": "aslgneirgnwierngiwenrgiuwenrgoiuwerngioweurngoiwnegiue",
-    "image": "https://drive.google.com/file/d/1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S/view?usp=drive_link",
-    "category": "софтуер",
-    "subcategory": null
-  },
-  {
-    "id": "1741104809764",
-    "name": "test2025",
-    "price": 1542345,
-    "description": "https://drive.google.com/file/d/1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S/preview",
-    "image": "https://drive.google.com/file/d/1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S/preview",
-    "category": "машини",
-    "subcategory": "кантиращи машини"
-  },
-  {
-    "id": "1741104997824",
-    "name": "wewergwergwe",
-    "price": 2543523,
-    "description": "wergwergwerg",
-    "image": "https://www.youtube.com/watch?v=7rg9oD2-JLA",
-    "category": "софтуер",
-    "subcategory": null
-  },
-  {
-    "id": "1741105540049",
-    "name": "дадф",
-    "price": 234,
-    "description": "https://drive.google.com/uc?id=1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S",
-    "image": "https://drive.google.com/uc?id=1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S",
-    "category": "инструменти",
-    "subcategory": "дискове"
-  },
-  {
-    "id": "1741165140302",
-    "name": "34652345",
-    "price": 3456,
-    "description": "34563456345634563456345",
-    "image": "https://www.dropbox.com/scl/fi/4lysd5grjbfspc1zhclpv/received_1022811447798334.jpeg?rlkey=bwmyddizt57v0ms02u89hwskd&st=xxyb3xcc&dl=0",
-    "category": "софтуер",
-    "subcategory": null
-  },
-  {
-    "id": "1741165828032",
-    "name": "макита",
-    "price": 2345234,
-    "description": "nqma",
-    "image": "/images/makita.jpg",
-    "category": "софтуер",
-    "subcategory": null
-  },
-  {
-    "id": "1741167302091",
-    "name": "gffgdf",
-    "price": 4536,
-    "description": "hgndfdgfsghgmfnd",
-    "image": "/images/test-image (1).jpg",
-    "category": "софтуер",
-    "subcategory": null
-  },
-  {
-    "id": "1741167465649",
-    "name": "test image",
-    "price": 2323,
-    "description": "sdertrhertyertyert",
-    "image": "/images/test-image (2).jpg",
-    "category": "инструменти",
-    "subcategory": "дискове"
-  },
-  {
-    "id": "1741170504356",
-    "name": "dadada",
-    "price": 3245,
-    "description": "agwergwergwergwergwerg",
-    "image": "/images//images/e.jpg",
-    "category": "инструменти",
-    "subcategory": "дискове",
+    "subcategory": "CNC рутери",
     "media": [
-      "/images//images/e.jpg",
-      "/images//images/q.jpg",
-      "/images//images/w.jpg",
-      "/images//images/r.jpg"
+      "/images/g.jpg",
+      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "/images/c.jpg",
+      "https://www.youtube.com/watch?v=xvFZjo5PgG0",
+      "/images/b.jpg",
+      "/images/a.jpg",
+      "https://www.youtube.com/watch?v=y6120QOlsfU",
+      "/images/h.jpg",
+      "https://www.youtube.com/watch?v=CvBfHwUxHIk",
+      "/images/i.jpg"
     ]
   },
   {
-    "id": "1741170717789",
-    "name": "eeeeeeeeeeee",
-    "price": 2345,
-    "description": "e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",",
-    "image": "/images/e.jpg",
+    "id": "1741170717795",
+    "name": "Фреза за дърво Expert",
+    "price": 85,
+    "description": "Висококачествена фреза за прецизна обработка на дърво.",
+    "image": "/images/p.jpg",
     "category": "инструменти",
-    "subcategory": "дискове",
+    "subcategory": "фрезери",
     "media": [
+      "/images/p.jpg",
+      "https://www.youtube.com/watch?v=07FYdnEawAQ",
+      "/images/k.jpg",
+      "https://www.youtube.com/watch?v=mQZWm9lT2bQ",
+      "/images/l.jpg",
+      "/images/j.jpg",
+      "https://www.youtube.com/watch?v=rGxe83lXgJg",
+      "/images/n.jpg",
+      "https://www.youtube.com/watch?v=ub82Xb1C8os",
+      "/images/m.jpg"
+    ]
+  },
+  {
+    "id": "1741170717796",
+    "name": "Софтуер за дизайн WoodCraft",
+    "price": 350,
+    "description": "Мощен софтуер за 3D дизайн и визуализация на мебели.",
+    "image": "/images/logo.png",
+    "category": "софтуер",
+    "media": [
+      "/images/logo.png",
+      "https://www.youtube.com/watch?v=Wch3gJG2GJ4",
       "/images/e.jpg",
-      "/images/e.jpg",
-      "/images/e.jpg",
-      "/images/e.jpg",
-      "/images/e.jpg",
-      "/images/e.jpg",
-      "/images/e.jpg",
-      "/images/e.jpg",
-      "/images/e.jpg",
-      "https://www.youtube.com/watch?v=er5Q4IGtkLo"
+      "https://www.youtube.com/watch?v=kXYiU_JCYtU",
+      "/images/d.jpg",
+      "/images/f.jpg",
+      "https://www.youtube.com/watch?v=ZuHZSbPJhaY",
+      "/images/o.jpg",
+      "https://www.youtube.com/watch?v=YQHsXMglC9A",
+      "/images/y.jpg"
+    ]
+  },
+  {
+    "id": "1741170717797",
+    "name": "Пробивна машина DrillPro",
+    "price": 650,
+    "description": "Високопроизводителна пробивна машина за професионална употреба.",
+    "image": "/images/o.jpg",
+    "category": "машини",
+    "subcategory": "пробивни машини",
+    "media": [
+      "/images/o.jpg",
+      "https://www.youtube.com/watch?v=wZZ7oFKsKzY",
+      "/images/r.jpg",
+      "https://www.youtube.com/watch?v=sIlNIVXpIns",
+      "/images/q.jpg",
+      "/images/s.jpg",
+      "https://www.youtube.com/watch?v=5Mw9bFm2Lxc",
+      "/images/t.jpg",
+      "https://www.youtube.com/watch?v=iEPTlhBmwRg",
+      "/images/u.jpg"
+    ]
+  },
+  {
+    "id": "1741170717798",
+    "name": "Диамантен диск SuperCut",
+    "price": 150,
+    "description": "Висококачествен диамантен диск за прецизно рязане на твърди материали.",
+    "image": "/images/y.jpg",
+    "category": "инструменти",
+    "subcategory": "диамантени инструменти",
+    "media": [
+      "/images/y.jpg",
+      "https://www.youtube.com/watch?v=rSAaiYKF0cs",
+      "/images/v.jpg",
+      "https://www.youtube.com/watch?v=JGwWNGJdvx8",
+      "/images/x.jpg",
+      "/images/w.jpg",
+      "https://www.youtube.com/watch?v=z9Uz1icjwrM",
+      "/images/z.jpg",
+      "https://www.youtube.com/watch?v=TUVL8j6lvdg",
+      "/images/aa.jpg"
     ]
   }
 ]
