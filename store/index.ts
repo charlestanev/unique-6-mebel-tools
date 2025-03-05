@@ -1,5 +1,6 @@
 import { atom } from "jotai";
 import { Product } from "../types/product";
+import { atomWithStorage } from "jotai/utils";
 
 // Дали админът е логнат
 export const isAuthenticatedAtom = atom<boolean>(false);
@@ -8,6 +9,4 @@ export const isAuthenticatedAtom = atom<boolean>(false);
 export const productsAtom = atom<Product[]>([]);
 
 // Тъмен режим
-export const darkModeAtom = atom(
-    (typeof window !== "undefined" && localStorage.getItem("theme") === "dark") || false
-);
+export const darkModeAtom = atomWithStorage<boolean>("theme", false);

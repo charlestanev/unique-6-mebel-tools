@@ -53,7 +53,7 @@ export default function Navbar() {
                         <Mail className="w-5 h-5 mr-1" /> unique6.tools@gmail.com
                     </motion.a>
                     <motion.button
-                        onClick={() => setDarkMode(!darkMode)}
+                        onClick={() => setDarkMode(prev => !prev)}
                         className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent dark:hover:bg-accent transition-all"
                         whileTap={{ scale: 0.9 }}
                     >
