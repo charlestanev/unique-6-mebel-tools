@@ -6,8 +6,8 @@ import { z } from "zod";
 const productSchema = z.object({
     name: z.string().min(3, "Името трябва да бъде поне 3 символа."),
     price: z.number().min(1, "Цената трябва да бъде положително число."),
-    description: z.string().min(10, "Описанието трябва да съдържа поне 10 символа."),
-    image: z.string().url("URL-то за изображение е невалидно."),
+    description: z.string().min(3, "Описанието трябва да съдържа поне 10 символа."),
+    image: z.string().regex(/\.(jpg|jpeg|png|webp|gif)$/i, "Файлът трябва да бъде изображение (.jpg, .png, .webp, .gif)."),
     category: z.enum(["инструменти", "машини", "софтуер"]),
     subcategory: z.string().optional()
 });
@@ -32,6 +32,8 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
     async function handleAddProduct(e: React.FormEvent) {
         e.preventDefault();
 
+        const imagePath = `/images/${image}`;
+
         const validationResult = productSchema.safeParse({ name, price, description, image, category, subcategory });
 
         if (!validationResult.success) {
@@ -42,7 +44,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
         const res = await fetch("/api/products", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, price, description, image, category, subcategory }),
+            body: JSON.stringify({ name, price, description, image: imagePath, category, subcategory }),
         });
 
         if (res.ok) {
@@ -87,7 +89,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
                 <input
                     className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
                     type="text"
-                    placeholder="URL на изображение"
+                    placeholder="Въведете име на изображението (напр. makita.jpg)"
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                     required
@@ -128,31 +130,5 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
                 </button>
             </div>
         </form>
-
-
-
-
-        // <form onSubmit={handleAddProduct} className="mb-6 p-4 border rounded bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-        //     <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Добави нов продукт</h2>
-        //     <input className="border p-2 mb-2 w-full" type="text" placeholder="Име" value={name} onChange={(e) => setName(e.target.value)} required />
-        //     <input className="border p-2 mb-2 w-full" type="text" placeholder="Цена (напр. 450)" value={price !== "" ? `${price} лв` : ""}
-        //         onChange={(e) => setPrice(Number(e.target.value.replace(/\D/g, "")) || "")} required />
-        //     <input className="border p-2 mb-2 w-full" type="text" placeholder="URL на изображение" value={image} onChange={(e) => setImage(e.target.value)} required />
-        //     <textarea className="border p-2 mb-2 w-full" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
-
-        //     <select className="border p-2 mb-2 w-full" value={category} onChange={(e) => setCategory(e.target.value)} required>
-        //         <option value="">Избери категория</option>
-        //         {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
-        //     </select>
-
-        //     {category !== "софтуер" && subcategoriesMap[category] && (
-        //         <select className="border p-2 mb-2 w-full" value={subcategory} onChange={(e) => setSubcategory(e.target.value)}>
-        //             <option value="">Избери подкатегория</option>
-        //             {subcategoriesMap[category].map((sub) => <option key={sub} value={sub}>{sub}</option>)}
-        //         </select>
-        //     )}
-
-        //     <button className="bg-green-500 text-white px-4 py-2 rounded">Добави продукт</button>
-        // </form>
     );
 }

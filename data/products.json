@@ -147,5 +147,59 @@
     "image": "https://images.pexels.com/photos/30847375/pexels-photo-30847375/free-photo-of-stylish-man-walking-along-brick-wall-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
     "category": "машини",
     "subcategory": "CNC рутери"
+  },
+  {
+    "id": "1741104747538",
+    "name": "test",
+    "price": 999999999,
+    "description": "aslgneirgnwierngiwenrgiuwenrgoiuwerngioweurngoiwnegiue",
+    "image": "https://drive.google.com/file/d/1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S/view?usp=drive_link",
+    "category": "софтуер",
+    "subcategory": null
+  },
+  {
+    "id": "1741104809764",
+    "name": "test2025",
+    "price": 1542345,
+    "description": "https://drive.google.com/file/d/1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S/preview",
+    "image": "https://drive.google.com/file/d/1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S/preview",
+    "category": "машини",
+    "subcategory": "кантиращи машини"
+  },
+  {
+    "id": "1741104997824",
+    "name": "wewergwergwe",
+    "price": 2543523,
+    "description": "wergwergwerg",
+    "image": "https://www.youtube.com/watch?v=7rg9oD2-JLA",
+    "category": "софтуер",
+    "subcategory": null
+  },
+  {
+    "id": "1741105540049",
+    "name": "дадф",
+    "price": 234,
+    "description": "https://drive.google.com/uc?id=1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S",
+    "image": "https://drive.google.com/uc?id=1eIcJhl8XGU-1ilPbLDEkdtMC-zGgFi8S",
+    "category": "инструменти",
+    "subcategory": "дискове"
+  },
+  {
+    "id": "1741165140302",
+    "name": "34652345",
+    "price": 3456,
+    "description": "34563456345634563456345",
+    "image": "https://www.dropbox.com/scl/fi/4lysd5grjbfspc1zhclpv/received_1022811447798334.jpeg?rlkey=bwmyddizt57v0ms02u89hwskd&st=xxyb3xcc&dl=0",
+    "category": "софтуер",
+    "subcategory": null
+  },
+  {
+    "id": "1741165828032",
+    "name": "макита",
+    "price": 2345234,
+    "description": "nqma",
+    "image": "/images/makita.jpg",
+    "category": "софтуер",
+    "subcategory": null
   }
 ]
