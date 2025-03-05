@@ -6,10 +6,11 @@ import { z } from "zod";
 const productSchema = z.object({
     name: z.string().min(3, "Името трябва да бъде поне 3 символа."),
     price: z.number().min(1, "Цената трябва да бъде положително число."),
-    description: z.string().min(3, "Описанието трябва да съдържа поне 10 символа."),
+    description: z.string().min(10, "Описанието трябва да съдържа поне 10 символа."),
     image: z.string().regex(/\.(jpg|jpeg|png|webp|gif)$/i, "Файлът трябва да бъде изображение (.jpg, .png, .webp, .gif)."),
     category: z.enum(["инструменти", "машини", "софтуер"]),
-    subcategory: z.string().optional()
+    subcategory: z.string().optional(),
+    media: z.array(z.string()).optional()
 });
 
 const categories = ["инструменти", "машини", "софтуер"];
@@ -28,13 +29,26 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
     const [image, setImage] = useState("");
     const [category, setCategory] = useState("");
     const [subcategory, setSubcategory] = useState("");
+    const [media, setMedia] = useState<{ type: "image" | "video"; value: string }[]>(Array(10).fill({ type: "image", value: "" }));
+
+    function handleMediaChange(index: number, type: "image" | "video", value: string) {
+        const updatedMedia = [...media];
+        updatedMedia[index] = { type, value };
+        setMedia(updatedMedia);
+    }
 
     async function handleAddProduct(e: React.FormEvent) {
         e.preventDefault();
 
+        // Construct image path dynamically
         const imagePath = `/images/${image}`;
 
-        const validationResult = productSchema.safeParse({ name, price, description, image, category, subcategory });
+        // Filter out empty media entries & construct final media array
+        const mediaFiles = media
+            .filter(m => m.value.trim() !== "")
+            .map(m => (m.type === "image" ? `/images/${m.value}` : m.value)); // Convert images to paths
+
+        const validationResult = productSchema.safeParse({ name, price, description, image, category, subcategory, media: mediaFiles });
 
         if (!validationResult.success) {
             alert(validationResult.error.issues.map(issue => issue.message).join("\n"));
@@ -44,7 +58,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
         const res = await fetch("/api/products", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, price, description, image: imagePath, category, subcategory }),
+            body: JSON.stringify({ name, price, description, image: imagePath, category, subcategory, media: mediaFiles }),
         });
 
         if (res.ok) {
@@ -60,6 +74,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
             setImage("");
             setCategory("");
             setSubcategory("");
+            setMedia(Array(10).fill({ type: "image", value: "" })); // Reset media inputs
         } else {
             setSuccessMessage("⚠️ Грешка при добавянето на продукта!");
         }
@@ -73,7 +88,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
                 <input
                     className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
                     type="text"
-                    placeholder="Име"
+                    placeholder="Име на продукта"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -123,9 +138,29 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
                     </select>
                 )}
 
-                <button
-                    className="w-full bg-green-500 text-white font-medium py-3 rounded-md hover:bg-green-600 transition"
-                >
+                {/* Media Inputs */}
+                {media.map((m, index) => (
+                    <div key={index} className="flex items-center space-x-4">
+                        <select
+                            value={m.type || ""}
+                            onChange={(e) => handleMediaChange(index, e.target.value as "image" | "video", m.value)}
+                            className="border rounded-md p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                        >
+                            <option value="" disabled>Изберете тип медия</option>
+                            <option value="image">🖼 Изображение</option>
+                            <option value="video">📹 Видео</option>
+                        </select>
+
+                        <input
+                            type="text"
+                            placeholder={m.type === "image" ? "Името на файлът с разширението" : "YouTube линк"}
+                            value={m.value}
+                            onChange={(e) => handleMediaChange(index, m.type, e.target.value)}
+                        />
+                    </div>
+                ))}
+
+                <button className="w-full bg-green-500 text-white font-medium py-3 rounded-md hover:bg-green-600 transition">
                     Добави продукт
                 </button>
             </div>
