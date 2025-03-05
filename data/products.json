@@ -201,5 +201,59 @@
     "image": "/images/makita.jpg",
     "category": "софтуер",
     "subcategory": null
+  },
+  {
+    "id": "1741167302091",
+    "name": "gffgdf",
+    "price": 4536,
+    "description": "hgndfdgfsghgmfnd",
+    "image": "/images/test-image (1).jpg",
+    "category": "софтуер",
+    "subcategory": null
+  },
+  {
+    "id": "1741167465649",
+    "name": "test image",
+    "price": 2323,
+    "description": "sdertrhertyertyert",
+    "image": "/images/test-image (2).jpg",
+    "category": "инструменти",
+    "subcategory": "дискове"
+  },
+  {
+    "id": "1741170504356",
+    "name": "dadada",
+    "price": 3245,
+    "description": "agwergwergwergwergwerg",
+    "image": "/images//images/e.jpg",
+    "category": "инструменти",
+    "subcategory": "дискове",
+    "media": [
+      "/images//images/e.jpg",
+      "/images//images/q.jpg",
+      "/images//images/w.jpg",
+      "/images//images/r.jpg"
+    ]
+  },
+  {
+    "id": "1741170717789",
+    "name": "eeeeeeeeeeee",
+    "price": 2345,
+    "description": "e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",e.jpg\",",
+    "image": "/images/e.jpg",
+    "category": "инструменти",
+    "subcategory": "дискове",
+    "media": [
+      "/images/e.jpg",
+      "/images/e.jpg",
+      "/images/e.jpg",
+      "/images/e.jpg",
+      "/images/e.jpg",
+      "/images/e.jpg",
+      "/images/e.jpg",
+      "/images/e.jpg",
+      "/images/e.jpg",
+      "https://www.youtube.com/watch?v=er5Q4IGtkLo"
+    ]
   }
 ]

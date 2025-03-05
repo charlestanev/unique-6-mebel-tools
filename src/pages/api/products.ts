@@ -7,22 +7,28 @@ let products: any[] = [];
 
 const filePath = path.join(process.cwd(), "data", "products.json");
 
-// Function to read products (only works locally)
+// Function to read products (Local Only)
 function getProducts() {
     if (process.env.VERCEL) {
         return products; // Use in-memory storage on Vercel
     }
+    if (!fs.existsSync(filePath)) return [];
     const jsonData = fs.readFileSync(filePath, "utf-8");
     return JSON.parse(jsonData);
 }
 
-// Function to save products (only works locally)
+// Function to save products (Local Only)
 function saveProducts(updatedProducts: any) {
     if (process.env.VERCEL) {
-        products = updatedProducts; // Save in-memory
+        products = updatedProducts; // Save in-memory for Vercel
     } else {
         fs.writeFileSync(filePath, JSON.stringify(updatedProducts, null, 2), "utf-8");
     }
+}
+
+// ✅ Load products on startup (for local only)
+if (!process.env.VERCEL) {
+    products = getProducts();
 }
 
 // API Route Handler
@@ -32,28 +38,38 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     }
 
     if (req.method === "POST") {
-        const { name, price, description, image, category, subcategory } = req.body;
+        try {
+            const { name, price, description, image, category, subcategory, media } = req.body;
 
-        if (!name || !price || !description || !image || !category) {
-            return res.status(400).json({ message: "Всички полета са задължителни!" });
+            if (!name || !price || !description || !image || !category) {
+                return res.status(400).json({ message: "Всички полета са задължителни!" });
+            }
+
+            const formatPath = (path: string) => (path.startsWith("/images/") ? path : `/images/${path}`);
+
+            const newProduct = {
+                id: Date.now().toString(),
+                name,
+                price,
+                description,
+                image: formatPath(image), // Ensure correct image path
+                category,
+                subcategory: subcategory || null,
+                media: media && Array.isArray(media)
+                    ? media.map(m => m.includes("youtube") ? m : formatPath(m))
+                    : [] // Handle media paths correctly
+            };
+
+            const currentProducts = getProducts();
+            currentProducts.push(newProduct);
+            saveProducts(currentProducts);
+
+            return res.status(201).json(newProduct);
+        } catch (error) {
+            return res.status(500).json({ message: "Грешка при запазването на продукта!", error });
         }
-
-        const newProduct = {
-            id: Date.now().toString(),
-            name,
-            price,
-            description,
-            image,
-            category,
-            subcategory: subcategory || null
-        };
-
-        const currentProducts = getProducts();
-        currentProducts.push(newProduct);
-        saveProducts(currentProducts);
-
-        return res.status(201).json(newProduct);
     }
+
 
     if (req.method === "DELETE") {
         const { id } = req.body;
