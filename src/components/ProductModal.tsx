@@ -9,6 +9,25 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// Custom Arrow Components for Bigger Navigation Arrows
+const CustomPrevArrow = ({ onClick }: { onClick?: () => void }) => (
+    <button
+        onClick={onClick}
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-4 rounded-full z-10 hover:bg-black"
+    >
+        ◀
+    </button>
+);
+
+const CustomNextArrow = ({ onClick }: { onClick?: () => void }) => (
+    <button
+        onClick={onClick}
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-4 rounded-full z-10 hover:bg-black"
+    >
+        ▶
+    </button>
+);
+
 // 🖼 Lightbox Modal with Slider
 function Lightbox({ mediaItems, initialIndex, onClose }: { mediaItems: string[]; initialIndex: number; onClose: () => void }) {
     const settings = {
@@ -19,6 +38,8 @@ function Lightbox({ mediaItems, initialIndex, onClose }: { mediaItems: string[];
         slidesToScroll: 1,
         initialSlide: initialIndex,
         arrows: true,
+        prevArrow: <CustomPrevArrow />,
+        nextArrow: <CustomNextArrow />,
     };
 
     return (
@@ -30,12 +51,12 @@ function Lightbox({ mediaItems, initialIndex, onClose }: { mediaItems: string[];
                 <Slider {...settings}>
                     {mediaItems.map((item, index) =>
                         item.includes("youtube") ? (
-                            <div key={index} className="flex justify-center">
-                                <YouTube videoId={item.split("v=")[1]?.split("&")[0]} className="w-full max-w-4xl aspect-video" />
+                            <div key={index} className="flex justify-center items-center w-full h-[500px]">
+                                <YouTube videoId={item.split("v=")[1]?.split("&")[0]} className="w-full h-full" />
                             </div>
                         ) : (
-                            <div key={index} className="flex justify-center">
-                                <img src={item} alt="Preview" className="max-w-full max-h-screen object-contain rounded-lg shadow-lg" />
+                            <div key={index} className="flex justify-center items-center w-full h-[500px]">
+                                <img src={item} alt="Preview" className="max-w-full max-h-full object-contain rounded-lg shadow-lg" />
                             </div>
                         )
                     )}
@@ -55,8 +76,6 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
     // Extract images & YouTube links
     const mediaItems = product.media && product.media.length > 0 ? product.media : [product.image]; // Fallback to single image
-    const images = mediaItems.filter((item) => !item.includes("youtube"));
-    const videos = mediaItems.filter((item) => item.includes("youtube"));
 
     return (
         <motion.div
