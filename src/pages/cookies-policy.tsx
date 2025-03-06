@@ -1,49 +1,95 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 export default function CookiesPolicy() {
     return (
         <>
             <Navbar />
-            <div className="container mx-auto p-6 text-gray-900 dark:text-gray-100">
-                <h1 className="text-3xl font-bold mb-4">Политика за бисквитки</h1>
-                <p className="mb-4">
-                    Този уебсайт използва бисквитки, за да подобри потребителското изживяване.
-                    Продължавайки да използвате нашия уебсайт, вие се съгласявате с използването на бисквитки в съответствие с тази политика.
-                </p>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="max-w-5xl mx-auto px-6 py-10 text-gray-900 dark:text-gray-100 mt-14"
+            >
+                <motion.h1
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="text-4xl font-extrabold text-primary dark:text-secondary tracking-tight text-center"
+                >
+                    Политика за бисквитки
+                </motion.h1>
 
-                <h2 className="text-2xl font-semibold mb-2">Какво представляват бисквитките?</h2>
-                <p className="mb-4">
-                    Бисквитките са малки текстови файлове, които се съхраняват на вашето устройство, когато посещавате даден уебсайт.
-                    Те помагат за запазване на предпочитанията ви и подобряване на функционалността на сайта.
-                </p>
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="mt-4 text-lg text-center"
+                >
+                    Този уебсайт използва бисквитки, за да подобри потребителското изживяване. Продължавайки да използвате нашия уебсайт, вие се съгласявате с използването на бисквитки в съответствие с тази политика.
+                </motion.p>
 
-                <h2 className="text-2xl font-semibold mb-2">Какви бисквитки използваме?</h2>
-                <ul className="list-disc list-inside mb-4">
-                    <li><strong>Необходими бисквитки</strong> – Без тях сайтът не може да функционира правилно.</li>
-                    <li><strong>Аналитични бисквитки</strong> – Помагат ни да разберем как потребителите използват сайта.</li>
-                    <li><strong>Функционални бисквитки</strong> – Запазват вашите предпочитания (напр. езикови настройки).</li>
-                    <li><strong>Маркетингови бисквитки</strong> – Използват се за персонализирана реклама.</li>
-                </ul>
+                <div className="mt-8 space-y-6">
+                    <Section title="Какво представляват бисквитките?">
+                        <p>
+                            Бисквитките са малки текстови файлове, които се съхраняват на вашето устройство, когато посещавате даден уебсайт. Те помагат за запазване на предпочитанията ви и подобряване на функционалността на сайта.
+                        </p>
+                    </Section>
 
-                <h2 className="text-2xl font-semibold mb-2">Как да управлявате бисквитките?</h2>
-                <p className="mb-4">
-                    Можете да управлявате или изтривате бисквитките чрез настройките на вашия браузър.
-                    Повече информация можете да намерите на <a href="https://www.aboutcookies.org/" className="text-blue-500 hover:underline" target="_blank">www.aboutcookies.org</a>.
-                </p>
+                    <Section title="Какви бисквитки използваме?">
+                        <ul className="list-disc list-inside space-y-2">
+                            <li><strong>Необходими бисквитки</strong> – Без тях сайтът не може да функционира правилно.</li>
+                            <li><strong>Аналитични бисквитки</strong> – Помагат ни да разберем как потребителите използват сайта.</li>
+                            <li><strong>Функционални бисквитки</strong> – Запазват вашите предпочитания (напр. езикови настройки).</li>
+                            <li><strong>Маркетингови бисквитки</strong> – Използват се за персонализирана реклама.</li>
+                        </ul>
+                    </Section>
 
-                <h2 className="text-2xl font-semibold mb-2">Промени в политиката</h2>
-                <p className="mb-4">
-                    Запазваме си правото да променяме тази политика за бисквитки по всяко време.
-                    Всички промени ще бъдат публикувани на тази страница.
-                </p>
+                    <Section title="Как да управлявате бисквитките?">
+                        <p>
+                            Можете да управлявате или изтривате бисквитките чрез настройките на вашия браузър. Повече информация можете да намерите на
+                            <a href="https://www.aboutcookies.org/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                                {" "}www.aboutcookies.org
+                            </a>.
+                        </p>
+                    </Section>
 
-                <p className="mt-6">
-                    <Link href="/" className="text-blue-500 hover:underline">⬅ Върни се към началната страница</Link>
-                </p>
-            </div>
+                    <Section title="Промени в политиката">
+                        <p>
+                            Запазваме си правото да променяме тази политика за бисквитки по всяко време. Всички промени ще бъдат публикувани на тази страница.
+                        </p>
+                    </Section>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="mt-6 text-center"
+                    >
+                        <Link href="/" className="text-blue-500 hover:underline">
+                            ⬅ Върни се към началната страница
+                        </Link>
+                    </motion.p>
+                </div>
+            </motion.div>
             <Footer />
         </>
+    );
+}
+
+// **Reusable Animated Section Component**
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6"
+        >
+            <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+            {children}
+        </motion.div>
     );
 }
