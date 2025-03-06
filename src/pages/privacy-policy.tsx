@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="max-w-5xl mx-auto px-6 py-10 text-gray-900 dark:text-gray-100"
+                className="max-w-5xl mx-auto px-6 py-10 text-gray-900 dark:text-gray-100 mt-14 "
             >
                 <motion.h1
                     initial={{ y: -20, opacity: 0 }}
