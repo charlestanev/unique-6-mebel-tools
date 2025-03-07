@@ -31,7 +31,7 @@ export default function AdminProductList() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="border rounded-lg shadow-md bg-white dark:bg-gray-900 dark:border-gray-700 overflow-hidden"
+                        className="border rounded-lg shadow-md bg-white dark:bg-gray-900 dark:border-gray-700 overflow-hidden flex flex-col"
                     >
                         {/* Product Image */}
                         <img
@@ -41,24 +41,24 @@ export default function AdminProductList() {
                         />
 
                         {/* Product Info */}
-                        <div className="p-4 flex justify-between items-center">
-                            <div>
-                                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                                    {product.name} - {product.price} лв
-                                </h3>
-                                <p className="text-gray-600 dark:text-gray-400">
-                                    {product.category} {product.subcategory ? `> ${product.subcategory}` : ""}
-                                </p>
-                            </div>
+                        <div className="p-5 flex flex-col flex-grow">
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                {product.name} - {product.price} лв
+                            </h3>
+                            <p className="text-gray-600 dark:text-gray-400">
+                                {product.category} {product.subcategory ? `> ${product.subcategory}` : ""}
+                            </p>
+                        </div>
 
-                            {/* Delete Button with Hover Effect */}
+                        {/* Button Wrapper with Padding */}
+                        <footer className="p-4 pt-0">
                             <button
-                                className="bg-red-500 text-white font-medium px-4 py-2 rounded-md hover:bg-red-600 transition-all shadow-md"
+                                className="bg-red-500 text-white font-medium py-3 rounded-md hover:opacity-90 transition-all shadow-md w-full"
                                 onClick={() => handleDeleteProduct(product.id)}
                             >
                                 🗑 Изтрий
                             </button>
-                        </div>
+                        </footer>
                     </motion.div>
                 ))}
             </AnimatePresence>
