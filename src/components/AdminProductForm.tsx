@@ -4,9 +4,9 @@ import { productsAtom } from "@/store";
 import { z } from "zod";
 
 const productSchema = z.object({
-    name: z.string().min(3, "Името трябва да бъде поне 3 символа."),
+    name: z.string().min(1, "Името трябва да бъде поне 1 символ."),
     price: z.number().min(1, "Цената трябва да бъде положително число."),
-    description: z.string().min(10, "Описанието трябва да съдържа поне 10 символа."),
+    description: z.string().min(1, "Описанието трябва да съдържа поне 1 символ."),
     image: z.string().regex(/\.(jpg|jpeg|png|webp|gif)$/i, "Файлът трябва да бъде изображение (.jpg, .png, .webp, .gif)."),
     category: z.enum(["инструменти", "машини", "софтуер"]),
     subcategory: z.string().optional(),

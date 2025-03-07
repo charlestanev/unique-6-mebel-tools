@@ -247,5 +247,17 @@
     "category": "инструменти",
     "subcategory": "дискове",
     "media": []
+  },
+  {
+    "id": "1741363720882",
+    "name": "a1",
+    "price": 123,
+    "description": "nqma",
+    "image": "/images/b.jpg",
+    "category": "машини",
+    "subcategory": "пробивни машини",
+    "media": [
+      "https://www.youtube.com/watch?v=FR22FZTHSPI"
+    ]
   }
 ]
