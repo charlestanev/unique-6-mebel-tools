@@ -81,120 +81,90 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
     }
 
     return (
-        <form onSubmit={handleAddProduct} className="mb-6 p-6 rounded-lg border shadow-xl bg-white dark:bg-gray-900 dark:border-gray-700 animate-fade-in">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-center">➕ Добави нов продукт</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <input className="form-input" type="text" placeholder="Име на продукта" value={name} onChange={(e) => setName(e.target.value)} required />
-                <input className="form-input" type="text" placeholder="Цена (напр. 450)" value={price} onChange={(e) => setPrice(e.target.value.replace(/\D/g, ""))} required />
-                <input className="form-input" type="text" placeholder="Име на изображението (напр. makita.jpg)" value={image} onChange={(e) => setImage(e.target.value)} required />
-                <textarea className="form-input col-span-full" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
-                <select className="form-input" value={category} onChange={(e) => setCategory(e.target.value)} required>
+
+        <form onSubmit={handleAddProduct} className="mb-6 p-6 rounded-lg border shadow-lg bg-white dark:bg-gray-900 dark:border-gray-700">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Добави нов продукт</h2>
+
+            <div className="space-y-3">
+                <input
+                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
+                    type="text"
+                    placeholder="Име на продукта"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                />
+                <input
+                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
+                    type="text"
+                    placeholder="Цена (напр. 450)"
+                    value={price !== "" ? `${price} лв` : ""}
+                    onChange={(e) => setPrice(Number(e.target.value.replace(/\D/g, "")) || "")}
+                    required
+                />
+                <input
+                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
+                    type="text"
+                    placeholder="Въведете име на изображението (напр. makita.jpg)"
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
+                    required
+                />
+                <textarea
+                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
+                    placeholder="Описание"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                />
+
+                <select
+                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    required
+                >
                     <option value="">Избери категория</option>
-                    {categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
+                    {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
                 </select>
+
                 {category !== "софтуер" && subcategoriesMap[category] && (
-                    <select className="form-input" value={subcategory} onChange={(e) => setSubcategory(e.target.value)}>
+                    <select
+                        className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
+                        value={subcategory}
+                        onChange={(e) => setSubcategory(e.target.value)}
+                    >
                         <option value="">Избери подкатегория</option>
-                        {subcategoriesMap[category].map(sub => <option key={sub} value={sub}>{sub}</option>)}
+                        {subcategoriesMap[category].map((sub) => <option key={sub} value={sub}>{sub}</option>)}
                     </select>
                 )}
-            </div>
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                {/* Media Inputs */}
                 {media.map((m, index) => (
                     <div key={index} className="flex items-center space-x-4">
-                        <select className="form-input" value={m.type} onChange={(e) => handleMediaChange(index, e.target.value, m.value)}>
+                        <select
+                            value={m.type || ""}
+                            onChange={(e) => handleMediaChange(index, e.target.value as "image" | "video", m.value)}
+                            className="border rounded-md p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                        >
+                            <option value="" disabled>Изберете тип медия</option>
                             <option value="image">🖼 Изображение</option>
                             <option value="video">📹 Видео</option>
                         </select>
-                        <input className="form-input" type="text" placeholder={m.type === "image" ? "Името на файлът с разширението" : "YouTube линк"} value={m.value} onChange={(e) => handleMediaChange(index, m.type, e.target.value)} />
+
+                        <input
+                            type="text"
+                            placeholder={m.type === "image" ? "Името на файлът с разширението" : "YouTube линк"}
+                            value={m.value}
+                            onChange={(e) => handleMediaChange(index, m.type, e.target.value)}
+                        />
                     </div>
                 ))}
+
+                <button className="w-full bg-green-500 text-white font-medium py-3 rounded-md hover:bg-green-600 transition">
+                    Добави продукт
+                </button>
             </div>
-            <button className="w-full bg-green-500 text-white font-bold py-3 rounded-md hover:bg-green-600 transition-all mt-6 shadow-lg transform hover:scale-105">Добави продукт</button>
         </form>
-        // <form onSubmit={handleAddProduct} className="mb-6 p-6 rounded-lg border shadow-lg bg-white dark:bg-gray-900 dark:border-gray-700">
-        //     <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Добави нов продукт</h2>
-
-        //     <div className="space-y-3">
-        //         <input
-        //             className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-        //             type="text"
-        //             placeholder="Име на продукта"
-        //             value={name}
-        //             onChange={(e) => setName(e.target.value)}
-        //             required
-        //         />
-        //         <input
-        //             className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-        //             type="text"
-        //             placeholder="Цена (напр. 450)"
-        //             value={price !== "" ? `${price} лв` : ""}
-        //             onChange={(e) => setPrice(Number(e.target.value.replace(/\D/g, "")) || "")}
-        //             required
-        //         />
-        //         <input
-        //             className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-        //             type="text"
-        //             placeholder="Въведете име на изображението (напр. makita.jpg)"
-        //             value={image}
-        //             onChange={(e) => setImage(e.target.value)}
-        //             required
-        //         />
-        //         <textarea
-        //             className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-        //             placeholder="Описание"
-        //             value={description}
-        //             onChange={(e) => setDescription(e.target.value)}
-        //             required
-        //         />
-
-        //         <select
-        //             className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-        //             value={category}
-        //             onChange={(e) => setCategory(e.target.value)}
-        //             required
-        //         >
-        //             <option value="">Избери категория</option>
-        //             {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
-        //         </select>
-
-        //         {category !== "софтуер" && subcategoriesMap[category] && (
-        //             <select
-        //                 className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-        //                 value={subcategory}
-        //                 onChange={(e) => setSubcategory(e.target.value)}
-        //             >
-        //                 <option value="">Избери подкатегория</option>
-        //                 {subcategoriesMap[category].map((sub) => <option key={sub} value={sub}>{sub}</option>)}
-        //             </select>
-        //         )}
-
-        //         {/* Media Inputs */}
-        //         {media.map((m, index) => (
-        //             <div key={index} className="flex items-center space-x-4">
-        //                 <select
-        //                     value={m.type || ""}
-        //                     onChange={(e) => handleMediaChange(index, e.target.value as "image" | "video", m.value)}
-        //                     className="border rounded-md p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-        //                 >
-        //                     <option value="" disabled>Изберете тип медия</option>
-        //                     <option value="image">🖼 Изображение</option>
-        //                     <option value="video">📹 Видео</option>
-        //                 </select>
-
-        //                 <input
-        //                     type="text"
-        //                     placeholder={m.type === "image" ? "Името на файлът с разширението" : "YouTube линк"}
-        //                     value={m.value}
-        //                     onChange={(e) => handleMediaChange(index, m.type, e.target.value)}
-        //                 />
-        //             </div>
-        //         ))}
-
-        //         <button className="w-full bg-green-500 text-white font-medium py-3 rounded-md hover:bg-green-600 transition">
-        //             Добави продукт
-        //         </button>
-        //     </div>
-        // </form>
     );
 }
