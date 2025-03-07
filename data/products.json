@@ -272,5 +272,31 @@
       "/images/d.jpg",
       "https://www.youtube.com/watch?v=YJrW8Q5r4Yk"
     ]
+  },
+  {
+    "id": "1741365657920",
+    "name": "nmz",
+    "price": 11111,
+    "description": "opisanie",
+    "image": "/images/mkita.jpg",
+    "category": "инструменти",
+    "subcategory": "фрезери",
+    "media": [
+      "/images/a.jpg",
+      "https://www.youtube.com/watch?v=z0kTbHZCZno"
+    ]
+  },
+  {
+    "id": "1741366031944",
+    "name": "nqma",
+    "price": 9999,
+    "description": "nqma",
+    "image": "/images/q.jpg",
+    "category": "инструменти",
+    "subcategory": "дискове",
+    "media": [
+      "/images/w.jpg",
+      "https://www.youtube.com/watch?v=gSWSqfSbw9Q"
+    ]
   }
 ]

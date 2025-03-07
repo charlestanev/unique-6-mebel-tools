@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAtom } from "jotai";
 import { productsAtom } from "@/store";
 import { z } from "zod";
+import { motion } from "framer-motion";
 
 const productSchema = z.object({
     name: z.string().min(1, "Името трябва да бъде поне 1 символ."),
@@ -22,14 +23,13 @@ const subcategoriesMap: Record<string, string[]> = {
 
 export default function AdminProductForm({ setSuccessMessage }: { setSuccessMessage: (msg: string | null) => void }) {
     const [products, setProducts] = useAtom(productsAtom);
-
     const [name, setName] = useState("");
     const [price, setPrice] = useState<number | "">("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [category, setCategory] = useState("");
     const [subcategory, setSubcategory] = useState("");
-    const [media, setMedia] = useState<{ type: "image" | "video"; value: string }[]>(Array(10).fill({ type: "image", value: "" }));
+    const [media, setMedia] = useState<{ type: "image" | "video"; value: string }[]>(Array(5).fill({ type: "image", value: "" }));
 
     function handleMediaChange(index: number, type: "image" | "video", value: string) {
         const updatedMedia = [...media];
@@ -39,14 +39,11 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
 
     async function handleAddProduct(e: React.FormEvent) {
         e.preventDefault();
-
-        // Construct image path dynamically
         const imagePath = `/images/${image}`;
 
-        // Filter out empty media entries & construct final media array
         const mediaFiles = media
             .filter(m => m.value.trim() !== "")
-            .map(m => (m.type === "image" ? `/images/${m.value}` : m.value)); // Convert images to paths
+            .map(m => (m.type === "image" ? `/images/${m.value}` : m.value));
 
         const validationResult = productSchema.safeParse({ name, price, description, image, category, subcategory, media: mediaFiles });
 
@@ -64,107 +61,68 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
         if (res.ok) {
             const newProduct = await res.json();
             setProducts([...products, newProduct]);
-            setSuccessMessage("Продуктът е добавен успешно! ✅");
+            setSuccessMessage("✅ Продуктът е добавен успешно!");
 
             setTimeout(() => setSuccessMessage(null), 3000);
-
             setName("");
             setPrice("");
             setDescription("");
             setImage("");
             setCategory("");
             setSubcategory("");
-            setMedia(Array(10).fill({ type: "image", value: "" })); // Reset media inputs
+            setMedia(Array(5).fill({ type: "image", value: "" }));
         } else {
             setSuccessMessage("⚠️ Грешка при добавянето на продукта!");
         }
     }
 
     return (
+        <motion.form
+            onSubmit={handleAddProduct}
+            className="p-6 mx-auto max-w-2xl bg-white dark:bg-darkBg shadow-lg rounded-xl border border-gray-200 dark:border-gray-700 space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center flex items-center gap-2">
+                📦 Добави нов продукт
+            </h2>
 
-        <form onSubmit={handleAddProduct} className="mb-6 p-6 rounded-lg border shadow-lg bg-white dark:bg-gray-900 dark:border-gray-700">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Добави нов продукт</h2>
+            <div className="grid gap-4">
+                <input className="input-field w-full" type="text" placeholder="Име на продукта" value={name} onChange={(e) => setName(e.target.value)} required />
+                <input className="input-field w-full" type="text" placeholder="Цена (напр. 450)" value={price !== "" ? `${price} лв` : ""} onChange={(e) => setPrice(Number(e.target.value.replace(/\D/g, "")) || "")} required />
+                <input className="input-field w-full" type="text" placeholder="Изображение (напр. makita.jpg)" value={image} onChange={(e) => setImage(e.target.value)} required />
+                <textarea className="input-field w-full" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
 
-            <div className="space-y-3">
-                <input
-                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-                    type="text"
-                    placeholder="Име на продукта"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-                <input
-                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-                    type="text"
-                    placeholder="Цена (напр. 450)"
-                    value={price !== "" ? `${price} лв` : ""}
-                    onChange={(e) => setPrice(Number(e.target.value.replace(/\D/g, "")) || "")}
-                    required
-                />
-                <input
-                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-                    type="text"
-                    placeholder="Въведете име на изображението (напр. makita.jpg)"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                    required
-                />
-                <textarea
-                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-                    placeholder="Описание"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                />
-
-                <select
-                    className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    required
-                >
+                <select className="input-field w-full" value={category} onChange={(e) => setCategory(e.target.value)} required>
                     <option value="">Избери категория</option>
                     {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
                 </select>
 
                 {category !== "софтуер" && subcategoriesMap[category] && (
-                    <select
-                        className="border rounded-md p-3 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400"
-                        value={subcategory}
-                        onChange={(e) => setSubcategory(e.target.value)}
-                    >
+                    <select className="input-field w-full" value={subcategory} onChange={(e) => setSubcategory(e.target.value)}>
                         <option value="">Избери подкатегория</option>
                         {subcategoriesMap[category].map((sub) => <option key={sub} value={sub}>{sub}</option>)}
                     </select>
                 )}
 
-                {/* Media Inputs */}
-                {media.map((m, index) => (
-                    <div key={index} className="flex items-center space-x-4">
-                        <select
-                            value={m.type || ""}
-                            onChange={(e) => handleMediaChange(index, e.target.value as "image" | "video", m.value)}
-                            className="border rounded-md p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                        >
-                            <option value="" disabled>Изберете тип медия</option>
-                            <option value="image">🖼 Изображение</option>
-                            <option value="video">📹 Видео</option>
-                        </select>
-
-                        <input
-                            type="text"
-                            placeholder={m.type === "image" ? "Името на файлът с разширението" : "YouTube линк"}
-                            value={m.value}
-                            onChange={(e) => handleMediaChange(index, m.type, e.target.value)}
-                        />
-                    </div>
-                ))}
-
-                <button className="w-full bg-green-500 text-white font-medium py-3 rounded-md hover:bg-green-600 transition">
-                    Добави продукт
-                </button>
+                {/* Media Inputs - Fixed Layout */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                    {media.map((m, index) => (
+                        <div key={index} className="flex flex-col sm:flex-row items-center gap-2">
+                            <select className="input-field w-full sm:w-40" value={m.type || ""} onChange={(e) => handleMediaChange(index, e.target.value as "image" | "video", m.value)}>
+                                <option value="image">🖼 Изображение</option>
+                                <option value="video">📹 Видео</option>
+                            </select>
+                            <input className="input-field w-full" type="text" placeholder={m.type === "image" ? "Файл име" : "YouTube линк"} value={m.value} onChange={(e) => handleMediaChange(index, m.type, e.target.value)} />
+                        </div>
+                    ))}
+                </div>
             </div>
-        </form>
+
+            <button className="w-full bg-primary text-white font-bold py-3 rounded-md hover:bg-purple-600 transition-all">
+                ➕ Добави продукт
+            </button>
+        </motion.form>
     );
 }
