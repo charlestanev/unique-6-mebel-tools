@@ -227,5 +227,25 @@
       "/images/d.jpg",
       "/images/e.jpg"
     ]
+  },
+  {
+    "id": "1741363110456",
+    "name": "ujrytehg",
+    "price": 3654,
+    "description": "frgthnrthyjnrtyhj",
+    "image": "/images/w.jpg",
+    "category": "софтуер",
+    "subcategory": null,
+    "media": []
+  },
+  {
+    "id": "1741363365312",
+    "name": "deba",
+    "price": 436354,
+    "description": "sldfkjgnsldjfnjlkdsng",
+    "image": "/images/a.jpg",
+    "category": "инструменти",
+    "subcategory": "дискове",
+    "media": []
   }
 ]

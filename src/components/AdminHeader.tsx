@@ -1,27 +1,40 @@
-import { useRouter } from "next/router";
-import LogoutButton from "./LogoutButton";
+import Link from "next/link";
 import { useAtom } from "jotai";
-import { darkModeAtom } from "@/store";
+import { useRouter } from "next/router";
+import { isAuthenticatedAtom, darkModeAtom } from "@/store";
+import { LogOut, Moon, Sun } from "lucide-react";
 
 export default function AdminHeader() {
-    const router = useRouter();
     const [darkMode, setDarkMode] = useAtom(darkModeAtom);
+    const [, setIsAuthenticated] = useAtom(isAuthenticatedAtom);
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        try {
+            await fetch("/api/logout", { method: "POST" });
+            setIsAuthenticated(false); router.replace("/admin-login");
+        } catch (error) {
+            console.error("Logout failed:", error);
+        }
+    };
 
     return (
-        <div className="flex justify-between items-center bg-gray-100 dark:bg-gray-800 p-4 mb-6 shadow-md">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Админ Панел</h1>
-            <div className="flex gap-4">
-                <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => router.push("/")}>
-                    Към Продуктите
-                </button>
+        <header className="bg-white dark:bg-gray-900 shadow-md py-4 px-6 flex items-center justify-between">
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white">Админ Панел</h1>
+            <div className="flex items-center space-x-4">
                 <button
-                    className="bg-gray-700 text-white px-4 py-2 rounded"
+                    className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
                     onClick={() => setDarkMode(!darkMode)}
                 >
-                    {darkMode ? "Светла тема" : "Тъмна тема"}
+                    {darkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-500" />}
                 </button>
-                <LogoutButton />
+                <button
+                    onClick={handleLogout}
+                    className="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+                >
+                    <LogOut className="w-5 h-5 mr-2" /> Изход
+                </button>
             </div>
-        </div>
+        </header>
     );
 }

@@ -6,6 +6,7 @@ import AdminHeader from "@/components/AdminHeader";
 import AdminProductForm from "@/components/AdminProductForm";
 import AdminProductList from "@/components/AdminProductList";
 import fetchProducts from "../../utils/fetchProducts";
+import AdminFooter from "@/components/AdminFooter";
 
 export default function AdminPage() {
     const [isAuthenticated, setIsAuthenticated] = useAtom(isAuthenticatedAtom);
@@ -39,10 +40,10 @@ export default function AdminPage() {
     }, [setIsAuthenticated]);
 
     useEffect(() => {
-        if (!loading && isAuthenticated === false) {
+        if (isAuthenticated === false) {
             router.replace("/admin-login");
         }
-    }, [isAuthenticated, loading, router]);
+    }, [isAuthenticated, router]);
 
     useEffect(() => {
         async function loadProducts() {
@@ -58,20 +59,23 @@ export default function AdminPage() {
         }
     }, [isAuthenticated, setProducts]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <p className="text-center text-lg text-gray-600 dark:text-gray-300">🔄 Зареждане...</p>;
 
     if (!isAuthenticated) return null;
 
     return (
-        <div className="container mx-auto p-6">
+        <div className="flex flex-col min-h-screen bg-light text-light">
             <AdminHeader />
-            {successMessage && (
-                <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
-                    {successMessage}
-                </div>
-            )}
-            <AdminProductForm setSuccessMessage={setSuccessMessage} />
-            <AdminProductList />
+            <main className="flex-1 container mx-auto p-6">
+                {successMessage && (
+                    <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                        {successMessage}
+                    </div>
+                )}
+                <AdminProductForm setSuccessMessage={setSuccessMessage} />
+                <AdminProductList />
+            </main>
+            <AdminFooter />
         </div>
     );
 }
