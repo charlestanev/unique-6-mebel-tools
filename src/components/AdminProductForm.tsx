@@ -79,7 +79,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
     return (
         <motion.form
             onSubmit={handleAddProduct}
-            className="p-6 mx-auto max-w-2xl bg-white dark:bg-darkBg shadow-lg rounded-xl border border-gray-200 dark:border-gray-700 space-y-6"
+            className="p-6 bg-white dark:bg-darkBg shadow-lg rounded-xl border border-gray-200 dark:border-gray-700 space-y-6 col-span-full sm:col-span-2 lg:col-span-3 w-full mb-7"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
