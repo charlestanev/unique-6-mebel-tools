@@ -12,33 +12,33 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#7F56D9",  // Neon Purple - Modern & Fancy
-        secondary: "#10B981", // Emerald Green - Elegant & Luxurious
-        accent: "#EAB308", // Gold - Premium & Stylish
-        background: "#F8FAFC", // Light Background - Clean & Fresh
-        darkBg: "#0A0F1B", // Dark Mode Background - Sleek & Professional
-        darkText: "#E2E8F0", // Light Text in Dark Mode - High Contrast
-        highlight: "#3B82F6", // Electric Blue - Techy & Sharp
-        danger: "#EF4444", // Soft Red - Error & Warnings
-        success: "#22C55E", // Soft Green - Confirmation & Good Actions
-        warning: "#F59E0B", // Orange - Alerts & Warnings
-        info: "#38BDF8", // Sky Blue - Informational Messages
+        primary: "#7F5AF0",      // Electric Purple (Modern & Bold, futuristic glow)
+        secondary: "#00A6FB",    // Cyber Blue (Sharp & Premium, vibrant yet professional)
+        accent: "#FF7AC6",       // Neon Pink (Luxury & Trendy, eye-catching statement)
+        background: "#FAF8FF",   // Soft Lilac White (Sleek & Airy, high-end aesthetic)
+        darkBg: "#121826",       // Deep Onyx (Ultra Dark, cinematic and premium)
+        darkText: "#E5E7EB",     // Soft Platinum (High contrast yet easy on the eyes)
+        highlight: "#16BAC5",    // Aqua Mint (Sharp & Modern, sleek UI feedback)
+        danger: "#FF5A5F",       // Coral Red (Vibrant & Distinct, modern alert color)
+        success: "#2DD881",      // Emerald Green (Rich & Confident, refined confirmations)
+        warning: "#F4A261",      // Sunset Orange (Warm yet clear, premium attention color)
+        info: "#4F46E5",         // Royal Blue (Trustworthy & Deep, sophisticated branding)
+        neutral: "#94A3B8",      // Cool Gray (Smooth & Classy, balanced UI elements)
       },
       ringColor: {
-        primary: "#7F56D9",
+        primary: "#7F5AF0",
       },
       fontFamily: {
         sans: ['Poppins', 'Inter', 'sans-serif'],
       },
       boxShadow: {
-        custom: "0px 10px 30px rgba(0, 0, 0, 0.15)",
+        custom: "0px 10px 24px rgba(0, 0, 0, 0.15)", // Soft yet premium elevation
       },
       transitionTimingFunction: {
         'in-out-expo': 'cubic-bezier(0.87, 0, 0.13, 1)',
       },
     },
   },
-
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
