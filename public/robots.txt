@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.unique6.tools
+
+# Sitemaps
+Sitemap: https://www.unique6.tools/sitemap.xml
