@@ -208,27 +208,6 @@
     ]
   },
   {
-    "id": "1741175980059",
-    "name": "Фреза за фалцове Master",
-    "price": 12345,
-    "description": "Висококачествена фреза за изрязване на фалцове в дърво",
-    "image": "/images/a.jpg",
-    "category": "инструменти",
-    "subcategory": "фрезери",
-    "media": [
-      "https://www.youtube.com/watch?v=er5Q4IGtkLo&list=RDer5Q4IGtkLo&start_radio=1",
-      "https://www.youtube.com/watch?v=wnYKH2dO620",
-      "https://www.youtube.com/watch?v=SRXH9AbT280&list=RDGMEMJQXQAmqrnmK1SEjY_rKBGAVMSRXH9AbT280&start_radio=1",
-      "https://www.youtube.com/watch?v=ZYBxZhvqYts",
-      "https://www.youtube.com/watch?v=YlXPu9mWBHs",
-      "/images/a.jpg",
-      "/images/b.jpg",
-      "/images/c.jpg",
-      "/images/d.jpg",
-      "/images/e.jpg"
-    ]
-  },
-  {
     "id": "1741363110456",
     "name": "ujrytehg",
     "price": 3654,

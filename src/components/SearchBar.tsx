@@ -5,7 +5,7 @@ interface SearchBarProps {
 
 export default function SearchBar({ searchQuery, setSearchQuery }: SearchBarProps) {
     return (
-        <div className="relative w-full md:w-2/3">
+        <div className="relative w-full">
             <input
                 type="text"
                 placeholder="🔍 Търсене по описание..."
