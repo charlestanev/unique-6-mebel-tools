@@ -1,3 +1,12 @@
+type CategoryFilterProps = {
+    categories: string[];
+    subcategoriesMap: Record<string, string[]>;
+    selectedCategory: string | null;
+    setSelectedCategory: (value: string | null) => void;
+    selectedSubcategory: string | null;
+    setSelectedSubcategory: (value: string | null) => void;
+};
+
 export default function CategoryFilter({
     categories,
     subcategoriesMap,
@@ -5,7 +14,7 @@ export default function CategoryFilter({
     setSelectedCategory,
     selectedSubcategory,
     setSelectedSubcategory
-}) {
+}: CategoryFilterProps) {
     return (
         <div className="pb-4">
             <h3 className="text-lg font-semibold text-darkBg dark:text-darkText mb-2">Категории</h3>
