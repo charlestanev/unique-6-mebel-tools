@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { productsAtom } from "@/store";
@@ -31,83 +32,72 @@ export default function HomePage() {
     }, [setProducts]);
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-7xl mx-auto px-6 py-10"
-        >
-            <Navbar />
+        <>
+            <Head>
+                <title>Каталог за Машини за Мебелно Производство | Unique6 Tools</title>
+                <meta name="description" content="Продаваме CNC рутери, фрезери, пробивни машини, кантир машини и други машини за мебелно производство. Достъпни цени и професионално обслужване." />
+                <meta name="keywords" content="машини за мебелно производство, CNC рутери, фрезери, кантир машини, уник6, unique6 tools, продажба на машини, дървообработващи машини" />
+                <meta name="author" content="Unique6 Tools" />
+                <meta property="og:title" content="Каталог за Машини за Мебелно Производство | Unique6 Tools" />
+                <meta property="og:description" content="Продажба на машини за мебелна индустрия. Високо качество, достъпни цени." />
+                <meta property="og:url" content="https://www.unique6.tools" />
+                <meta property="og:type" content="website" />
+            </Head>
+
             <motion.div
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="text-center mb-8 mt-12"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="max-w-7xl mx-auto px-6 py-10"
             >
-                <h1 className="text-4xl font-extrabold text-primary dark:text-secondary tracking-tight">
-                    Каталог на Продуктите
-                </h1>
+                <Navbar />
+                <motion.div
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="text-center mb-8 mt-12"
+                >
+                    <h1 className="text-4xl font-extrabold text-primary dark:text-secondary tracking-tight">
+                        Каталог на Продуктите
+                    </h1>
+                </motion.div>
+
+                <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="mt-6"
+                    >
+                        <CategoryFilter
+                            categories={categories}
+                            subcategoriesMap={subcategoriesMap}
+                            selectedCategory={selectedCategory}
+                            setSelectedCategory={setSelectedCategory}
+                            selectedSubcategory={selectedSubcategory}
+                            setSelectedSubcategory={setSelectedSubcategory}
+                        />
+                    </motion.div>
+                </div>
+
+                <ProductList
+                    products={products}
+                    selectedCategory={selectedCategory}
+                    selectedSubcategory={selectedSubcategory}
+                    searchQuery={searchQuery}
+                />
+
+                <Footer />
+                <CookieConsent />
             </motion.div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-6">
-                <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4 }}
-                >
-                    <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-                </motion.div>
-
-                {/* Tabbed Navigation */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="mt-6"
-                >
-                    <CategoryFilter
-                        categories={categories}
-                        subcategoriesMap={subcategoriesMap}
-                        selectedCategory={selectedCategory}
-                        setSelectedCategory={setSelectedCategory}
-                        selectedSubcategory={selectedSubcategory}
-                        setSelectedSubcategory={setSelectedSubcategory}
-                    />
-                </motion.div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-            <ProductList
-                products={products}
-                selectedCategory={selectedCategory}
-                selectedSubcategory={selectedSubcategory}
-                searchQuery={searchQuery}
-            />
-
-            <Footer />
-            <CookieConsent />
-        </motion.div>
+        </>
     );
 }
