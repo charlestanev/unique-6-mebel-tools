@@ -29,7 +29,18 @@ const CustomNextArrow = ({ onClick }: { onClick?: () => void }) => (
 );
 
 // 🖼 Lightbox Modal with Slider
-function Lightbox({ mediaItems, initialIndex, onClose }: { mediaItems: string[]; initialIndex: number; onClose: () => void }) {
+function Lightbox({
+    mediaItems,
+    initialIndex,
+    onClose,
+    productName,
+}: {
+    mediaItems: string[];
+    initialIndex: number;
+    onClose: () => void;
+    productName: string;
+}) {
+
     const settings = {
         dots: true,
         infinite: true,
@@ -48,6 +59,11 @@ function Lightbox({ mediaItems, initialIndex, onClose }: { mediaItems: string[];
                 <button onClick={onClose} className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-md z-10">
                     <X size={24} />
                 </button>
+                {/* 
+                <h1 className="text-white text-center mb-4 text-xl font-semibold">
+                    {productName}
+                </h1> */}
+
                 <Slider {...settings}>
                     {mediaItems.map((item, index) =>
                         item.includes("youtube") ? (
@@ -109,20 +125,10 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 {/* 📌 Product Information */}
                 <div className="text-center mb-6">
                     <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{product.name}</h2>
-                    <p className="text-gray-700 dark:text-gray-300 mt-2">{product.description}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                        <strong>Категория:</strong> {product.category}
-                    </p>
-                    {product.subcategory && (
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                            <strong>Подкатегория:</strong> {product.subcategory}
-                        </p>
-                    )}
-                    <p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3">{product.price} лв</p>
                 </div>
 
                 {/* 🖼 **Gallery Layout** */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-4">
                     {mediaItems.map((item, index) => (
                         <div key={index} className="relative group cursor-pointer overflow-hidden">
                             {item.includes("youtube") ? (
@@ -146,10 +152,29 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     ))}
                 </div>
 
+                <div>
+                    <p className="text-gray-700 dark:text-gray-300 mt-2">{product.description}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                        <strong>Категория:</strong> {product.category}
+                    </p>
+                    {product.subcategory && (
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                            <strong>Подкатегория:</strong> {product.subcategory}
+                        </p>
+                    )}
+                    <p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3">{product.price} лв</p>
+                </div>
+
                 {/* 🔍 **Lightbox Slider for viewing images/videos** */}
                 {lightboxIndex !== null && (
-                    <Lightbox mediaItems={mediaItems} initialIndex={lightboxIndex} onClose={() => setLightboxIndex(null)} />
+                    <Lightbox
+                        mediaItems={mediaItems}
+                        initialIndex={lightboxIndex}
+                        onClose={() => setLightboxIndex(null)}
+                        productName={product.name}
+                    />
                 )}
+
             </motion.div>
         </motion.div>
     );

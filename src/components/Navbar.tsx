@@ -33,7 +33,7 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
                 <Link href="/" className="flex items-center">
                     <motion.div whileHover={{ scale: 1.1 }}>
-                        <Image src="/images/logo.png" alt="Уникат 6" width={150} height={40} className="cursor-pointer" />
+                        <Image src="/images/logo.svg" alt="Уникат 6" width={150} height={40} className="cursor-pointer" />
                     </motion.div>
                 </Link>
 
