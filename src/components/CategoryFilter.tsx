@@ -35,22 +35,24 @@ export default function CategoryFilter({
                     Всички
                 </button>
 
-                {categories.map((cat) => (
-                    <button
-                        key={cat}
-                        className={`px-4 py-2 text-md font-medium transition-all duration-300 ease-in-out rounded-lg 
-                            ${selectedCategory === cat
-                                ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg"
-                                : "bg-gray-300 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-700"
-                            }`}
-                        onClick={() => {
-                            setSelectedCategory(cat);
-                            setSelectedSubcategory(null);
-                        }}
-                    >
-                        {cat}
-                    </button>
-                ))}
+                {categories
+                    .filter(cat => !['машини', 'софтуер'].includes(cat))
+                    .map((cat) => (
+                        <button
+                            key={cat}
+                            className={`px-4 py-2 text-md font-medium transition-all duration-300 ease-in-out rounded-lg 
+                    ${selectedCategory === cat
+                                    ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg"
+                                    : "bg-gray-300 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-700"
+                                }`}
+                            onClick={() => {
+                                setSelectedCategory(cat);
+                                setSelectedSubcategory(null);
+                            }}
+                        >
+                            {cat}
+                        </button>
+                    ))}
             </div>
 
             {/* Subcategories Section (Styled Box Instead of Line) */}
