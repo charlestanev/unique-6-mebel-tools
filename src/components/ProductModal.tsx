@@ -52,11 +52,17 @@ function Lightbox({ mediaItems, initialIndex, onClose }: { mediaItems: string[];
                     {mediaItems.map((item, index) =>
                         item.includes("youtube") ? (
                             <div key={index} className="flex justify-center items-center w-full h-[500px]">
-                                <YouTube videoId={item.split("v=")[1]?.split("&")[0]} className="w-full h-full" />
+                                <YouTube
+                                    videoId={item.split("v=")[1]?.split("&")[0]}
+                                    className="w-full h-full"
+                                    iframeClassName="w-full h-full" />
                             </div>
                         ) : (
                             <div key={index} className="flex justify-center items-center w-full h-[500px]">
-                                <img src={item} alt="Preview" className="max-w-full max-h-full object-contain rounded-lg shadow-lg" />
+                                <img
+                                    src={item}
+                                    alt="Preview"
+                                    className="w-full h-full object-contain rounded-lg shadow-lg" />
                             </div>
                         )
                     )}
