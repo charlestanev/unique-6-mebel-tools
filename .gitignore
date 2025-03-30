@@ -39,3 +39,26 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# VSCode settings (ако използваш VSCode)
+.vscode/
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Environment variable backups (понякога правим копия)
+.env.backup
+.env.old
+
+# MacOS специфични (ако ползваш macOS)
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows специфични
+Thumbs.db
+ehthumbs.db
+Desktop.ini

@@ -18,6 +18,7 @@
     "@types/react-youtube": "^7.6.2",
     "cookie": "^1.0.2",
     "dotenv": "^16.4.7",
+    "dotenv-safe": "^9.1.0",
     "framer-motion": "^12.4.10",
     "jotai": "^2.12.1",
     "lucide-react": "^0.477.0",
