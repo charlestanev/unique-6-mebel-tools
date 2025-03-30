@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { transition } from "../../utils/animations";
 
 export default function CookieConsent() {
     const [showPopup, setShowPopup] = useState(false);
@@ -22,7 +23,7 @@ export default function CookieConsent() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                transition={transition}
                 className="fixed bottom-5 left-5 right-5 justify-center bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 md:p-6 rounded-lg shadow-xl flex flex-col items-center gap-4 border border-gray-200 dark:border-gray-700"
             >
                 <p className="text-sm md:text-base text-center md:text-left">

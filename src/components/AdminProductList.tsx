@@ -1,6 +1,7 @@
 import { useAtom } from "jotai";
 import { productsAtom } from "@/store";
 import { motion, AnimatePresence } from "framer-motion";
+import { transition } from "../../utils/animations";
 
 export default function AdminProductList() {
     const [products, setProducts] = useAtom(productsAtom);
@@ -30,15 +31,16 @@ export default function AdminProductList() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={transition}
                         className="border rounded-lg shadow-md bg-white dark:bg-gray-900 dark:border-gray-700 overflow-hidden flex flex-col"
                     >
                         {/* Product Image */}
                         <img
                             src={product.image}
                             alt={product.name}
-                            className="w-full max-h-72 object-cover rounded-t-lg"
+                            className="w-full h-48 sm:h-60 md:h-72 lg:h-80 xl:h-96 object-cover rounded-t-lg"
                         />
+
 
                         {/* Product Info */}
                         <div className="p-5 flex flex-col flex-grow">

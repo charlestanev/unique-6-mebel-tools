@@ -10,22 +10,23 @@ export default function ProductCard({ product }: { product: Product }) {
     return (
         <>
             <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                whileHover={{ scale: 1.07, boxShadow: "0px 8px 16px rgba(0,0,0,0.15)" }}
-                className="border p-4 shadow-lg rounded-lg bg-white dark:bg-gray-900 dark:border-gray-700 transition-all duration-200 cursor-pointer overflow-hidden"
+                transition={{ duration: 0.2, ease: [0.65, 0, 0.35, 1] }}
+                whileHover={{ scale: 1.08, boxShadow: "0px 10px 24px rgba(0,0,0,0.2)" }}
+                className="border p-4 rounded-lg bg-white dark:bg-gray-900 dark:border-gray-700 transition-transform duration-50 ease-out hover:scale-[1.05] hover:shadow-2xl cursor-pointer overflow-hidden"
                 onClick={() => setIsModalOpen(true)}
             >
+
                 {/* Product Image */}
                 <img
                     src={product.image}
                     alt={product.name}
-                    className="h-40 object-cover rounded-t-lg w-full"
+                    className="h-40 object-cover rounded-lg w-full"
                 />
 
                 {/* Product Details */}
-                <div className="py-4">
+                <div className="pt-4">
                     <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 truncate">{product.name}</h2>
 
                     {/* Shortened description to prevent overflow */}
@@ -37,7 +38,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Категория: {product.category}</p>
                     {product.subcategory && (
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Подкатегория: {product.subcategory}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 h-[40px]">Подкатегория: {product.subcategory}</p>
                     )}
 
                     {/* Price formatted to always be on one line */}

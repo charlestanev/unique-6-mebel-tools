@@ -8,6 +8,7 @@ import Slider from "react-slick";
 // Import slick styles
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { transition } from "../../utils/animations";
 
 // Custom Arrow Components for Bigger Navigation Arrows
 const CustomPrevArrow = ({ onClick }: { onClick?: () => void }) => (
@@ -111,7 +112,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -50, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                transition={transition}
                 className="bg-white dark:bg-gray-900 rounded-lg shadow-xl p-6 w-[90vw] max-w-5xl max-h-[90vh] overflow-y-auto"
             >
                 {/* Close Button */}

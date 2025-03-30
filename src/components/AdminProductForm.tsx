@@ -3,6 +3,7 @@ import { useAtom } from "jotai";
 import { productsAtom } from "@/store";
 import { z } from "zod";
 import { motion } from "framer-motion";
+import { transition } from "../../utils/animations";
 
 const productSchema = z.object({
     name: z.string().min(1, "Името трябва да бъде поне 1 символ."),
@@ -82,7 +83,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
             className="p-6 bg-white dark:bg-darkBg shadow-lg rounded-xl border border-gray-200 dark:border-gray-700 space-y-6 col-span-full sm:col-span-2 lg:col-span-3 w-full mb-7"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={transition}
         >
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center flex items-center gap-2">
                 📦 Добави нов продукт
