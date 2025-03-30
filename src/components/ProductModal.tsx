@@ -1,6 +1,6 @@
 import { Product } from "../../types/product";
 import { motion } from "framer-motion";
-import { X } from "lucide-react";
+import { Phone, X } from "lucide-react";
 import YouTube from "react-youtube";
 import { useState } from "react";
 import Slider from "react-slick";
@@ -152,7 +152,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     ))}
                 </div>
 
-                <div>
+                <div className="justify-items-center">
                     <p className="text-gray-700 dark:text-gray-300 mt-2">{product.description}</p>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                         <strong>Категория:</strong> {product.category}
@@ -163,6 +163,17 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                         </p>
                     )}
                     <p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3">{product.price} лв</p>
+
+
+                    {/* Call Button */}
+                    <a
+                        href="tel:+359898447853"
+                        onClick={(e) => e.stopPropagation()}
+                        className="mt-3 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition duration-150 w-full justify-center"
+                    >
+                        <Phone size={16} />
+                        +359 89 844 7853
+                    </a>
                 </div>
 
                 {/* 🔍 **Lightbox Slider for viewing images/videos** */}
