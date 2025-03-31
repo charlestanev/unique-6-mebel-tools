@@ -5,6 +5,7 @@ export default function Document() {
     return (
         <Html lang="bg">
             <Head>
+                <meta name="google-site-verification" content="lFIEqLuWRExrbGVq7ZXQT9Q8M3yE-jhWYQ5U5bPKRC4" />
                 {/* Google Analytics */}
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8LZ8WJQ3L"></script>
                 <script
