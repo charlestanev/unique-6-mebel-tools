@@ -9,7 +9,7 @@ export default function Footer() {
                 {/* Logo Section */}
                 <div className="flex flex-col items-center md:items-start">
                     <Link href="/" className="flex items-center">
-                        <Image src="/images/logo.png" alt="Уникат 6" width={160} height={50} />
+                        <Image src="/images/logo.svg" alt="Уникат 6" width={160} height={50} />
                     </Link>
                     <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Уникат 6 © {new Date().getFullYear()} Всички права запазени.</p>
                 </div>
