@@ -42,11 +42,12 @@ export default function ProductCard({ product }: { product: Product }) {
                     )}
 
                     {/* Price formatted to always be on one line */}
-                    {typeof product.price === "number" && (
-                        <p className="font-bold text-green-600 dark:text-green-400 text-lg whitespace-nowrap overflow-hidden text-ellipsis">
+                    {typeof product.price === "number"
+                        ? (<p className="font-bold text-green-600 dark:text-green-400 text-lg whitespace-nowrap overflow-hidden text-ellipsis">
                             {new Intl.NumberFormat("bg-BG", { style: "currency", currency: "BGN" }).format(product.price)}
-                        </p>
-                    )}
+                        </p>)
+                        : (<p className="font-bold text-green-600 dark:text-green-400 text-lg whitespace-nowrap overflow-hidden text-ellipsis min-h-7"></p>)
+                    }
 
 
                     {/* Call Button */}

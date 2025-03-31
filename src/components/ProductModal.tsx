@@ -163,8 +163,12 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                             <strong>Подкатегория:</strong> {product.subcategory}
                         </p>
                     )}
-                    <p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3">{product.price} лв</p>
 
+
+                    {typeof product.price === "number"
+                        ? (<p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3">{product.price} лв</p>)
+                        : (<p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3"></p>)
+                    }
 
                     {/* Call Button */}
                     <a
