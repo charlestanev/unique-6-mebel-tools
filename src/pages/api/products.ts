@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient } from "@prisma/client";
 import { isAuthenticated } from "@/utils/auth";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const { name, price, description, image, category, subcategory, media } = req.body;
 
-        if (!name || !price || !description || !image || !category) {
+        if (!name || !description || !image || !category) {
             return res.status(400).json({ message: "Всички задължителни полета трябва да бъдат попълнени!" });
         }
 
@@ -35,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const newProduct = await prisma.product.create({
                 data: {
                     name,
-                    price: Number(price),
+                    price: price !== undefined ? Number(price) : undefined,
                     description,
                     image: normalizePath(image),
                     category,

@@ -13,7 +13,7 @@ const subcategoriesMap: Record<string, string[]> = {
 export default function ProductForm() {
     const [products, setProducts] = useAtom(productsAtom);
     const [name, setName] = useState("");
-    const [price, setPrice] = useState<number | "">("");
+    const [price, setPrice] = useState<number | undefined>(undefined);
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [category, setCategory] = useState("");
@@ -38,7 +38,7 @@ export default function ProductForm() {
             const newProduct = await res.json();
             setProducts([...products, newProduct.product]);
             setName("");
-            setPrice("");
+            setPrice(undefined);
             setDescription("");
             setImage("");
             setCategory("");
@@ -56,10 +56,16 @@ export default function ProductForm() {
             />
 
             <input
-                className="border p-2 mb-2 w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 dark:border-gray-600 rounded placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500"
-                type="text" placeholder="Цена (напр. 450)" value={price !== "" ? `${price} лв` : ""}
-                onChange={(e) => setPrice(Number(e.target.value.replace(/\D/g, "")) || "")} required
+                className="input-field w-full"
+                type="text"
+                placeholder="Цена (напр. 450)"
+                value={typeof price === "number" ? `${price} лв` : ""}
+                onChange={(e) => {
+                    const val = e.target.value.replace(/\D/g, "");
+                    setPrice(val === "" ? undefined : Number(val));
+                }}
             />
+
 
             <input
                 className="border p-2 mb-2 w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 dark:border-gray-600 rounded placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500"

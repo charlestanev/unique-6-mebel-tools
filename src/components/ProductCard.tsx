@@ -42,9 +42,12 @@ export default function ProductCard({ product }: { product: Product }) {
                     )}
 
                     {/* Price formatted to always be on one line */}
-                    <p className="font-bold text-green-600 dark:text-green-400 text-lg whitespace-nowrap overflow-hidden text-ellipsis">
-                        {new Intl.NumberFormat("bg-BG", { style: "currency", currency: "BGN" }).format(product.price)}
-                    </p>
+                    {typeof product.price === "number" && (
+                        <p className="font-bold text-green-600 dark:text-green-400 text-lg whitespace-nowrap overflow-hidden text-ellipsis">
+                            {new Intl.NumberFormat("bg-BG", { style: "currency", currency: "BGN" }).format(product.price)}
+                        </p>
+                    )}
+
 
                     {/* Call Button */}
                     <a

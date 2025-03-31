@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const productSchema = z.object({
     name: z.string().min(3, "Името трябва да бъде поне 3 символа."),
-    price: z.number().min(1, "Цената трябва да бъде положително число."),
+    price: z.number().min(1, "Цената трябва да бъде положително число.").optional(),
     description: z.string().min(10, "Описанието трябва да съдържа поне 10 символа."),
     image: z.string().url("URL-то за изображение е невалидно."),
     category: z.enum(["инструменти", "машини", "софтуер"]),

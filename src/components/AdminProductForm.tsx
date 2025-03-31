@@ -7,7 +7,7 @@ import { transition } from "../../utils/animations";
 
 const productSchema = z.object({
     name: z.string().min(1, "Името трябва да бъде поне 1 символ."),
-    price: z.number().min(1, "Цената трябва да бъде положително число."),
+    price: z.number().min(1, "Цената трябва да бъде положително число.").optional(),
     description: z.string().min(1, "Описанието трябва да съдържа поне 1 символ."),
     image: z.string().regex(/\.(jpg|jpeg|png|webp|gif)$/i, "Файлът трябва да бъде изображение (.jpg, .png, .webp, .gif)."),
     category: z.enum(["инструменти", "машини", "софтуер"]),
@@ -25,7 +25,7 @@ const subcategoriesMap: Record<string, string[]> = {
 export default function AdminProductForm({ setSuccessMessage }: { setSuccessMessage: (msg: string | null) => void }) {
     const [products, setProducts] = useAtom(productsAtom);
     const [name, setName] = useState("");
-    const [price, setPrice] = useState<number | "">("");
+    const [price, setPrice] = useState<number | undefined>(undefined);
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [category, setCategory] = useState("");
@@ -66,7 +66,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
 
             setTimeout(() => setSuccessMessage(null), 3000);
             setName("");
-            setPrice("");
+            setPrice(undefined);
             setDescription("");
             setImage("");
             setCategory("");
@@ -91,7 +91,16 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
 
             <div className="grid gap-4">
                 <input className="input-field w-full" type="text" placeholder="Име на продукта" value={name} onChange={(e) => setName(e.target.value)} required />
-                <input className="input-field w-full" type="text" placeholder="Цена (напр. 450)" value={price !== "" ? `${price} лв` : ""} onChange={(e) => setPrice(Number(e.target.value.replace(/\D/g, "")) || "")} required />
+                <input
+                    className="input-field w-full"
+                    type="text"
+                    placeholder="Цена (напр. 450)"
+                    value={typeof price === "number" ? `${price} лв` : ""}
+                    onChange={(e) => {
+                        const val = e.target.value.replace(/\D/g, "");
+                        setPrice(val === "" ? undefined : Number(val));
+                    }}
+                />
                 <input className="input-field w-full" type="text" placeholder="Изображение (напр. makita.jpg)" value={image} onChange={(e) => setImage(e.target.value)} required />
                 <textarea className="input-field w-full" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
 
