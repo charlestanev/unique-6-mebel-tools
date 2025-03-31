@@ -30,7 +30,7 @@ export default function ProductCard({ product }: { product: Product }) {
                     <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 truncate">{product.name}</h2>
 
                     {/* Shortened description to prevent overflow */}
-                    <p className="text-gray-700 dark:text-gray-300 text-sm line-clamp-2">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm line-clamp-2 min-h-10">
                         {product.description.length > 100
                             ? product.description.substring(0, 100) + "..."
                             : product.description}
