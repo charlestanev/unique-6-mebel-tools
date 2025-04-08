@@ -80,7 +80,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
     return (
         <motion.form
             onSubmit={handleAddProduct}
-            className="p-6 bg-white dark:bg-darkBg shadow-lg rounded-xl border border-gray-200 dark:border-gray-700 space-y-6 col-span-full sm:col-span-2 lg:col-span-3 w-full mb-7"
+            className="p-6 bg-red dark:bg-darkBg shadow-lg rounded-xl border border-gray-200 dark:border-gray-700 space-y-6 col-span-full sm:col-span-2 lg:col-span-3 w-full mb-7"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={transition}
@@ -90,44 +90,104 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
             </h2>
 
             <div className="grid gap-4">
-                <input className="input-field w-full" type="text" placeholder="Име на продукта" value={name} onChange={(e) => setName(e.target.value)} required />
-                <input
-                    className="input-field w-full"
-                    type="text"
-                    placeholder="Цена (напр. 450)"
-                    value={typeof price === "number" ? `${price} лв` : ""}
-                    onChange={(e) => {
-                        const val = e.target.value.replace(/\D/g, "");
-                        setPrice(val === "" ? undefined : Number(val));
-                    }}
-                />
-                <input className="input-field w-full" type="text" placeholder="Изображение (напр. makita.jpg)" value={image} onChange={(e) => setImage(e.target.value)} required />
-                <textarea className="input-field w-full" placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required />
+                <div className="space-y-4">
+                    {/* Row 1: Име + Цена */}
+                    <div className="grid gap-4 lg:grid-cols-2">
+                        <input
+                            className="input-field w-full"
+                            type="text"
+                            placeholder="Име на продукта"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
 
-                <select className="input-field w-full" value={category} onChange={(e) => setCategory(e.target.value)} required>
-                    <option value="">Избери категория</option>
-                    {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
-                </select>
+                        <input
+                            className="input-field w-full"
+                            type="text"
+                            placeholder="Цена (напр. 450)"
+                            value={typeof price === "number" ? `${price} лв` : ""}
+                            onChange={(e) => {
+                                const val = e.target.value.replace(/\D/g, "");
+                                setPrice(val === "" ? undefined : Number(val));
+                            }}
+                        />
+                    </div>
 
-                {category !== "софтуер" && subcategoriesMap[category] && (
-                    <select className="input-field w-full" value={subcategory} onChange={(e) => setSubcategory(e.target.value)}>
-                        <option value="">Избери подкатегория</option>
-                        {subcategoriesMap[category].map((sub) => <option key={sub} value={sub}>{sub}</option>)}
-                    </select>
-                )}
+                    {/* Row 2: Изображение + Категория */}
+                    <div className="grid gap-4 lg:grid-cols-2">
+                        <input
+                            className="input-field w-full"
+                            type="text"
+                            placeholder="Изображение (напр. makita.jpg)"
+                            value={image}
+                            onChange={(e) => setImage(e.target.value)}
+                            required
+                        />
 
-                {/* Media Inputs - Fixed Layout */}
-                <div className="grid sm:grid-cols-2 gap-4">
-                    {media.map((m, index) => (
-                        <div key={index} className="flex flex-col sm:flex-row items-center gap-2">
-                            <select className="input-field w-full sm:w-40" value={m.type || ""} onChange={(e) => handleMediaChange(index, e.target.value as "image" | "video", m.value)}>
-                                <option value="image">🖼 Изображение</option>
-                                <option value="video">📹 Видео</option>
-                            </select>
-                            <input className="input-field w-full" type="text" placeholder={m.type === "image" ? "Файл име" : "YouTube линк"} value={m.value} onChange={(e) => handleMediaChange(index, m.type, e.target.value)} />
-                        </div>
-                    ))}
+                        <select
+                            className="input-field w-full"
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
+                            required
+                        >
+                            <option value="">Избери категория</option>
+                            {categories.map((cat) => (
+                                <option key={cat} value={cat}>{cat}</option>
+                            ))}
+                        </select>
+                    </div>
+
+                    {/* Описание */}
+                    <textarea
+                        className="input-field w-full"
+                        placeholder="Описание"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        required
+                    />
+
+                    {/* Подкатегория */}
+                    {category !== "софтуер" && subcategoriesMap[category] && (
+                        <select
+                            className="input-field w-full"
+                            value={subcategory}
+                            onChange={(e) => setSubcategory(e.target.value)}
+                        >
+                            <option value="">Избери подкатегория</option>
+                            {subcategoriesMap[category].map((sub) => (
+                                <option key={sub} value={sub}>{sub}</option>
+                            ))}
+                        </select>
+                    )}
+
+                    {/* Media Inputs */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        {media.map((m, index) => (
+                            <div key={index} className="flex flex-col sm:flex-row items-center gap-2">
+                                <select
+                                    className="input-field w-full sm:w-40"
+                                    value={m.type || ""}
+                                    onChange={(e) =>
+                                        handleMediaChange(index, e.target.value as "image" | "video", m.value)
+                                    }
+                                >
+                                    <option value="image">🖼 Изображение</option>
+                                    <option value="video">📹 Видео</option>
+                                </select>
+
+                                <input
+                                    className="input-field w-full"
+                                    type="text"
+                                    placeholder={m.type === "image" ? "Файл име" : "YouTube линк"}
+                                    value={m.value}
+                                    onChange={(e) => handleMediaChange(index, m.type, e.target.value)}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
+
             </div>
 
             <button className="w-full bg-primary text-white font-bold py-3 rounded-md hover:bg-purple-600 transition-all">

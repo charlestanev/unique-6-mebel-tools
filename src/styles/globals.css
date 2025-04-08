@@ -149,7 +149,7 @@ button:focus {
 
 /* 🎨 Scrollbar Customization */
 ::-webkit-scrollbar {
-  width: 8px;
+  @apply w-0;
 }
 
 ::-webkit-scrollbar-track {

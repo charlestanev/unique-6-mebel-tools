@@ -38,19 +38,24 @@ export default function AdminProductList() {
                         <img
                             src={product.image}
                             alt={product.name}
-                            className="w-full h-48 sm:h-60 md:h-72 lg:h-80 xl:h-96 object-cover rounded-t-lg"
+                            className="w-full h-50 sm:h-56 md:h-64 lg:h-72 object-cover rounded-lg"
                         />
 
-
                         {/* Product Info */}
-                        <div className="p-5 flex flex-col flex-grow">
-                            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                                {product.name} - {product.price} лв
+                        <div className="p-5 flex flex-col flex-grow space-y-1">
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 min-h-[84px]">
+                                {product.name}
                             </h3>
-                            <p className="text-gray-600 dark:text-gray-400">
+
+                            <p className="text-base font-bold text-green-600 dark:text-green-400">
+                                {product.price} лв
+                            </p>
+
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
                                 {product.category} {product.subcategory ? `> ${product.subcategory}` : ""}
                             </p>
                         </div>
+
 
                         {/* Button Wrapper with Padding */}
                         <footer className="p-4 pt-0">

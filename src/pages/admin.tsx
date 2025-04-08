@@ -66,7 +66,7 @@ export default function AdminPage() {
     return (
         <div className="flex flex-col min-h-screen bg-light text-light">
             <AdminHeader />
-            <main className="flex-1 container mx-auto p-6">
+            <main className="max-w-7xl mx-auto px-6 py-10">
                 {successMessage && (
                     <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
                         {successMessage}
