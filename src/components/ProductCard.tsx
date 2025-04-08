@@ -18,12 +18,12 @@ export default function ProductCard({ product }: { product: Product }) {
                 onClick={() => setIsModalOpen(true)}
             >
 
-                {/* Product Image */}
                 <img
                     src={product.image}
                     alt={product.name}
-                    className="h-40 object-cover rounded-lg w-full"
+                    className="w-full h-50 sm:h-56 md:h-64 lg:h-72 object-cover rounded-lg"
                 />
+
 
                 {/* Product Details */}
                 <div className="pt-4">
