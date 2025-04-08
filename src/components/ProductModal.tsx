@@ -123,12 +123,12 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     <X size={28} />
                 </button>
 
-                {/* 📌 Product Information */}
+                {/* Product Information */}
                 <div className="text-center mb-6">
                     <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{product.name}</h2>
                 </div>
 
-                {/* 🖼 **Gallery Layout** */}
+                {/* **Gallery Layout** */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-4">
                     {mediaItems.map((item, index) => (
                         <div key={index} className="relative group cursor-pointer overflow-hidden">
@@ -181,7 +181,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     </a>
                 </div>
 
-                {/* 🔍 **Lightbox Slider for viewing images/videos** */}
+                {/* **Lightbox Slider for viewing images/videos** */}
                 {lightboxIndex !== null && (
                     <Lightbox
                         mediaItems={mediaItems}
