@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 import { motion } from "framer-motion";
 import { transition } from "@/utils/animations";
 
 export default function CookieConsent() {
+    const { t } = useTranslation("common");
     const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
@@ -28,9 +30,9 @@ export default function CookieConsent() {
                 className="fixed bottom-5 left-5 right-5 justify-center bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 md:p-6 rounded-lg shadow-xl flex flex-col items-center gap-4 border border-gray-200 dark:border-gray-700"
             >
                 <p className="text-sm md:text-base text-center md:text-left">
-                    🍪 Този сайт използва бисквитки за подобряване на потребителското изживяване. Продължавайки, вие се съгласявате с нашата{" "}
+                    {t("cookies.message")}{" "}
                     <Link href="/cookies-policy" className="underline text-primary hover:text-primary/80 transition-colors">
-                        Политика за бисквитки
+                        {t("cookies.policyLink")}
                     </Link>.
                 </p>
 
@@ -38,7 +40,7 @@ export default function CookieConsent() {
                     onClick={acceptCookies}
                     className="bg-primary text-white font-medium px-5 py-2 rounded-md hover:bg-purple-600 transition-all shadow-md"
                 >
-                    Приемам
+                    {t("cookies.acceptButton")}
                 </button>
             </motion.div>
         )

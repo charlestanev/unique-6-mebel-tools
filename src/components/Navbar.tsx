@@ -2,12 +2,16 @@ import { useState, useEffect } from "react";
 import { useAtom } from "jotai";
 import { darkModeAtom } from "@/store";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Image from "next/image";
-import { Sun, Moon, Phone, Mail, Menu, X } from "lucide-react";
+import { useTranslation } from "next-i18next";
+import { Sun, Moon, Phone, Mail, Menu, X, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { transition } from "@/utils/animations";
 
 export default function Navbar() {
+    const { t } = useTranslation("common");
+    const router = useRouter();
     const [darkMode, setDarkMode] = useAtom(darkModeAtom);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,6 +28,11 @@ export default function Navbar() {
         document.documentElement.classList.toggle("dark", darkMode);
     }, [darkMode]);
 
+    const toggleLocale = () => {
+        const newLocale = router.locale === "bg" ? "en" : "bg";
+        router.push(router.pathname, router.asPath, { locale: newLocale });
+    };
+
     return (
         <motion.nav
             initial={{ y: -100, opacity: 0 }}
@@ -36,10 +45,10 @@ export default function Navbar() {
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
                 <Link href="/" className="flex items-center hover:rounded-lg">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={transition} >
+                    <motion.div whileHover={{ scale: 1.1 }} transition={transition}>
                         <Image
                             src="/images/logo.svg"
-                            alt="Уникат 6"
+                            alt={t("brand.logoAlt")}
                             width={150}
                             height={40}
                             className="cursor-pointer hover:px-4 hover:py-3 hover:rounded-lg"
@@ -52,6 +61,8 @@ export default function Navbar() {
                         whileTap={{ scale: 0.9 }}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="p-2 rounded-md focus:outline-none"
+                        aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isMobileMenuOpen}
                     >
                         {isMobileMenuOpen ? (
                             <X className="w-6 h-6 text-primary" />
@@ -61,8 +72,7 @@ export default function Navbar() {
                     </motion.button>
                 </div>
 
-                <div
-                    className="hidden md:flex items-center space-x-6">
+                <div className="hidden md:flex items-center space-x-6">
                     <motion.a
                         href="tel:+359898447853"
                         className="flex items-center text-primary dark:text-secondary transition hover:px-3 hover:py-2 hover:rounded-lg"
@@ -79,6 +89,15 @@ export default function Navbar() {
                     >
                         <Mail className="w-5 h-5 mr-1" /> unique6.tools@gmail.com
                     </motion.a>
+                    <motion.button
+                        onClick={toggleLocale}
+                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-all"
+                        whileTap={{ scale: 0.9 }}
+                        title={router.locale === "bg" ? "Switch to English" : "Превключи на български"}
+                    >
+                        <Globe className="w-4 h-4" />
+                        {router.locale === "bg" ? "EN" : "BG"}
+                    </motion.button>
                     <motion.button
                         onClick={() => setDarkMode((prev) => !prev)}
                         className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-all"
@@ -100,6 +119,8 @@ export default function Navbar() {
                     exit={{ y: -30, opacity: 0 }}
                     transition={transition}
                     className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-darkBg shadow-lg flex flex-col items-center py-4 space-y-4"
+                    role="navigation"
+                    aria-label="Mobile navigation"
                 >
                     <a
                         href="tel:+359898447853"
@@ -113,6 +134,13 @@ export default function Navbar() {
                     >
                         <Mail className="w-5 h-5 mr-1" /> unique6.tools@gmail.com
                     </a>
+                    <button
+                        onClick={toggleLocale}
+                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+                    >
+                        <Globe className="w-4 h-4" />
+                        {router.locale === "bg" ? "EN" : "BG"}
+                    </button>
                     <button
                         onClick={() => setDarkMode(!darkMode)}
                         className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-all"

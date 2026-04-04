@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "next-i18next";
 import { transition } from "@/utils/animations";
 
 type CategoryFilterProps = {
@@ -18,9 +19,11 @@ export default function CategoryFilter({
     selectedSubcategory,
     setSelectedSubcategory,
 }: CategoryFilterProps) {
+    const { t } = useTranslation("common");
+
     return (
         <div className="pb-4">
-            <h3 className="text-lg font-semibold text-darkBg dark:text-darkText mb-2">Категории</h3>
+            <h3 className="text-lg font-semibold text-darkBg dark:text-darkText mb-2">{t("filter.categoriesHeading")}</h3>
 
             {/* Categories Section */}
             <div className="flex flex-wrap gap-2 justify-center md:justify-start pb-3">
@@ -38,7 +41,7 @@ export default function CategoryFilter({
                         setSelectedSubcategory(null);
                     }}
                 >
-                    Всички
+                    {t("filter.allCategories")}
                 </motion.button>
 
                 {categories.map((cat) => (
@@ -65,7 +68,7 @@ export default function CategoryFilter({
             {/* Subcategories Section */}
             {selectedCategory && subcategoriesMap[selectedCategory]?.length > 0 && (
                 <div className="mt-3 p-4 rounded-lg shadow-md border bg-gray-100 dark:bg-gray-900 border-gray-300 dark:border-gray-700">
-                    <h4 className="text-md font-semibold text-gray-800 dark:text-gray-100 mb-3">Подкатегории</h4>
+                    <h4 className="text-md font-semibold text-gray-800 dark:text-gray-100 mb-3">{t("filter.subcategoriesHeading")}</h4>
                     <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                         {subcategoriesMap[selectedCategory].map((sub) => {
                             const isActive = selectedSubcategory === sub;

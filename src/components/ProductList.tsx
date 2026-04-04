@@ -1,4 +1,5 @@
 import { Product } from "@/types/product";
+import { useTranslation } from "next-i18next";
 import ProductCard from "./ProductCard";
 
 interface ProductListProps {
@@ -14,6 +15,7 @@ export default function ProductList({
     selectedSubcategory,
     searchQuery,
 }: ProductListProps) {
+    const { t } = useTranslation("common");
     const query = searchQuery.toLowerCase();
     const filteredProducts = products
         .filter((product) => !selectedCategory || product.category === selectedCategory)
@@ -31,7 +33,7 @@ export default function ProductList({
                 ))
             ) : (
                 <p className="col-span-full text-center text-gray-600 dark:text-gray-400 text-lg">
-                    Няма намерени продукти
+                    {t("product.noResults")}
                 </p>
             )}
         </div>

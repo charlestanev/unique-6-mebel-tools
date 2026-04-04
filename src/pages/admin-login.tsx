@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useAtom } from "jotai";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import type { GetStaticProps } from "next";
 import { isAuthenticatedAtom } from "@/store";
 
 export default function AdminLogin() {
+    const { t } = useTranslation("common");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -25,7 +29,7 @@ export default function AdminLogin() {
             setIsAuthenticated(true);
             router.replace("/admin");
         } else {
-            setError("❌ Невалидни данни за вход");
+            setError(t("login.errorInvalid"));
         }
         setIsLoading(false);
     }
@@ -33,7 +37,7 @@ export default function AdminLogin() {
     return (
         <div className="flex min-h-screen items-center justify-center bg-light p-6">
             <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-                <h1 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">🔑 Вход за администратори</h1>
+                <h1 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">{t("login.title")}</h1>
                 {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
                 <form onSubmit={handleLogin} className="space-y-4">
@@ -41,7 +45,7 @@ export default function AdminLogin() {
                         <input
                             className="w-full px-4 py-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
                             type="text"
-                            placeholder="Потребителско име"
+                            placeholder={t("login.usernamePlaceholder")}
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
@@ -52,7 +56,7 @@ export default function AdminLogin() {
                         <input
                             className="w-full px-4 py-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
                             type="password"
-                            placeholder="Парола"
+                            placeholder={t("login.passwordPlaceholder")}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -64,10 +68,16 @@ export default function AdminLogin() {
                         type="submit"
                         disabled={isLoading}
                     >
-                        {isLoading ? "🔄 Влизане..." : "🔓 Вход"}
+                        {isLoading ? t("login.loadingButton") : t("login.submitButton")}
                     </button>
                 </form>
             </div>
         </div>
     );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale ?? "bg", ["common"])),
+    },
+});

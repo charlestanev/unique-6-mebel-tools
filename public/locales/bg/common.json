@@ -1,0 +1,99 @@
+{
+  "page": {
+    "title": "Каталог за Машини за Мебелно Производство | Unique6 Tools",
+    "description": "Продаваме CNC рутери, фрезери, пробивни машини, кантир машини и други машини за мебелно производство. Достъпни цени и професионално обслужване.",
+    "keywords": "машини за мебелно производство, CNC рутери, фрезери, кантир машини, уник6, unique6 tools, продажба на машини, дървообработващи машини"
+  },
+  "og": {
+    "title": "Каталог за Машини за Мебелно Производство | Unique6 Tools",
+    "description": "Продажба на машини за мебелна индустрия. Високо качество, достъпни цени."
+  },
+  "home": {
+    "catalogTitle": "Каталог на Продуктите"
+  },
+  "category": {
+    "tools": "инструменти",
+    "machines": "машини",
+    "software": "софтуер"
+  },
+  "subcategory": {
+    "individual_tools": "индивидуални инструменти",
+    "diamond_tools": "диамантени инструменти",
+    "discs": "дискове",
+    "routers": "фрезери",
+    "edge_banding": "кантиращи машини",
+    "cnc_routers": "CNC рутери",
+    "circular_saws": "циркуляри",
+    "drilling_machines": "пробивни машини"
+  },
+  "filter": {
+    "categoriesHeading": "Категории",
+    "allCategories": "Всички",
+    "subcategoriesHeading": "Подкатегории"
+  },
+  "search": {
+    "placeholder": "🔍 Търсене по име или описание..."
+  },
+  "product": {
+    "categoryLabel": "Категория:",
+    "subcategoryLabel": "Подкатегория:",
+    "noResults": "Няма намерени продукти"
+  },
+  "brand": {
+    "logoAlt": "Уникат 6"
+  },
+  "footer": {
+    "copyright": "Уникат 6 © {{year}} Всички права запазени.",
+    "infoHeading": "Информация",
+    "privacyPolicy": "Политика за поверителност",
+    "terms": "Общи условия",
+    "cookiesPolicy": "Политика за бисквитки",
+    "contactHeading": "Контакт"
+  },
+  "cookies": {
+    "message": "🍪 Този сайт използва бисквитки за подобряване на потребителското изживяване. Продължавайки, вие се съгласявате с нашата",
+    "policyLink": "Политика за бисквитки",
+    "acceptButton": "Приемам"
+  },
+  "error": {
+    "pageNotFound": "Страницата не е намерена.",
+    "backToHome": "Към началната страница"
+  },
+  "login": {
+    "title": "🔑 Вход за администратори",
+    "usernamePlaceholder": "Потребителско име",
+    "passwordPlaceholder": "Парола",
+    "submitButton": "🔓 Вход",
+    "loadingButton": "🔄 Влизане...",
+    "errorInvalid": "❌ Невалидни данни за вход"
+  },
+  "admin": {
+    "panelTitle": "Админ Панел",
+    "toProducts": "Към Продуктите",
+    "logout": "Изход",
+    "loading": "🔄 Зареждане...",
+    "formTitle": "📦 Добави нов продукт",
+    "namePlaceholder": "Име на продукта",
+    "pricePlaceholder": "Цена (напр. 450)",
+    "imagePlaceholder": "Изображение (напр. makita.jpg)",
+    "categoryPlaceholder": "Избери категория",
+    "descriptionPlaceholder": "Описание",
+    "subcategoryPlaceholder": "Избери подкатегория",
+    "mediaImage": "🖼 Изображение",
+    "mediaVideo": "📹 Видео",
+    "imageFilenamePlaceholder": "Файл име",
+    "youtubeLinkPlaceholder": "YouTube линк",
+    "submitButton": "➕ Добави продукт",
+    "successAdded": "✅ Продуктът е добавен успешно!",
+    "errorAdding": "⚠️ Грешка при добавянето на продукта!",
+    "deleteConfirm": "Сигурни ли сте, че искате да изтриете този продукт?",
+    "deleteButton": "🗑 Изтрий",
+    "errorDeleting": "Грешка при изтриване на продукта."
+  },
+  "validation": {
+    "nameRequired": "Името трябва да бъде поне 1 символ.",
+    "pricePositive": "Цената трябва да бъде положително число.",
+    "descriptionRequired": "Описанието трябва да съдържа поне 1 символ.",
+    "imageFormat": "Файлът трябва да бъде изображение (.jpg, .png, .webp, .gif)."
+  }
+}

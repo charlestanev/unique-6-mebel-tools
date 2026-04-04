@@ -1,0 +1,99 @@
+{
+  "page": {
+    "title": "Woodworking Machinery & Tools Catalog | Unique6 Tools",
+    "description": "We sell CNC routers, milling machines, drilling machines, edge banders and other woodworking machinery. Affordable prices and professional service.",
+    "keywords": "woodworking machinery, CNC routers, milling machines, edge banding machines, unique6, unique6 tools, machinery sales, woodworking tools"
+  },
+  "og": {
+    "title": "Woodworking Machinery & Tools Catalog | Unique6 Tools",
+    "description": "Sale of furniture industry machinery. High quality, affordable prices."
+  },
+  "home": {
+    "catalogTitle": "Product Catalog"
+  },
+  "category": {
+    "tools": "Tools",
+    "machines": "Machines",
+    "software": "Software"
+  },
+  "subcategory": {
+    "individual_tools": "Individual Tools",
+    "diamond_tools": "Diamond Tools",
+    "discs": "Discs",
+    "routers": "Routers",
+    "edge_banding": "Edge Banding Machines",
+    "cnc_routers": "CNC Routers",
+    "circular_saws": "Circular Saws",
+    "drilling_machines": "Drilling Machines"
+  },
+  "filter": {
+    "categoriesHeading": "Categories",
+    "allCategories": "All",
+    "subcategoriesHeading": "Subcategories"
+  },
+  "search": {
+    "placeholder": "🔍 Search by name or description..."
+  },
+  "product": {
+    "categoryLabel": "Category:",
+    "subcategoryLabel": "Subcategory:",
+    "noResults": "No products found"
+  },
+  "brand": {
+    "logoAlt": "Unique 6"
+  },
+  "footer": {
+    "copyright": "Unique 6 © {{year}} All rights reserved.",
+    "infoHeading": "Information",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookiesPolicy": "Cookie Policy",
+    "contactHeading": "Contact"
+  },
+  "cookies": {
+    "message": "🍪 This site uses cookies to improve your experience. By continuing, you agree to our",
+    "policyLink": "Cookie Policy",
+    "acceptButton": "Accept"
+  },
+  "error": {
+    "pageNotFound": "Page not found.",
+    "backToHome": "Back to homepage"
+  },
+  "login": {
+    "title": "🔑 Admin Login",
+    "usernamePlaceholder": "Username",
+    "passwordPlaceholder": "Password",
+    "submitButton": "🔓 Log In",
+    "loadingButton": "🔄 Logging in...",
+    "errorInvalid": "❌ Invalid credentials"
+  },
+  "admin": {
+    "panelTitle": "Admin Panel",
+    "toProducts": "To Products",
+    "logout": "Log Out",
+    "loading": "🔄 Loading...",
+    "formTitle": "📦 Add New Product",
+    "namePlaceholder": "Product name",
+    "pricePlaceholder": "Price (e.g. 450)",
+    "imagePlaceholder": "Image (e.g. makita.jpg)",
+    "categoryPlaceholder": "Select category",
+    "descriptionPlaceholder": "Description",
+    "subcategoryPlaceholder": "Select subcategory",
+    "mediaImage": "🖼 Image",
+    "mediaVideo": "📹 Video",
+    "imageFilenamePlaceholder": "File name",
+    "youtubeLinkPlaceholder": "YouTube link",
+    "submitButton": "➕ Add product",
+    "successAdded": "✅ Product added successfully!",
+    "errorAdding": "⚠️ Error adding the product!",
+    "deleteConfirm": "Are you sure you want to delete this product?",
+    "deleteButton": "🗑 Delete",
+    "errorDeleting": "Error deleting the product."
+  },
+  "validation": {
+    "nameRequired": "Name must be at least 1 character.",
+    "pricePositive": "Price must be a positive number.",
+    "descriptionRequired": "Description must be at least 1 character.",
+    "imageFormat": "File must be an image (.jpg, .png, .webp, .gif)."
+  }
+}

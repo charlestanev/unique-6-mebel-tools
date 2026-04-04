@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import Script from "next/script";
+import { appWithTranslation } from "next-i18next";
 import { Provider, useAtom } from "jotai";
 import { darkModeAtom } from "@/store";
 import "../styles/globals.css";
@@ -17,7 +18,7 @@ function ThemeWrapper() {
     return null;
 }
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Provider>
             <ThemeWrapper />
@@ -35,3 +36,5 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         </Provider>
     );
 }
+
+export default appWithTranslation(MyApp);

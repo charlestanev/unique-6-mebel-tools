@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import type { GetStaticProps } from "next";
 import { productsAtom } from "@/store";
 import CategoryFilter from "@/components/CategoryFilter";
 import ProductList from "@/components/ProductList";
@@ -15,10 +18,11 @@ const categories = ["инструменти", "машини", "софтуер"];
 const subcategoriesMap: Record<string, string[]> = {
     "инструменти": ["индивидуални инструменти", "диамантени инструменти", "дискове", "фрезери"],
     "машини": ["кантиращи машини", "CNC рутери", "циркуляри", "пробивни машини"],
-    "софтуер": []
+    "софтуер": [],
 };
 
 export default function HomePage() {
+    const { t } = useTranslation("common");
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState("");
@@ -26,7 +30,7 @@ export default function HomePage() {
 
     useEffect(() => {
         async function loadProducts() {
-            const data = await fetch("/api/products").then(res => res.json());
+            const data = await fetch("/api/products").then((res) => res.json());
             setProducts(data);
         }
         loadProducts();
@@ -35,24 +39,12 @@ export default function HomePage() {
     return (
         <>
             <Head>
-                <title>Каталог за Машини за Мебелно Производство | Unique6 Tools</title>
-                <meta
-                    name="description"
-                    content="Продаваме CNC рутери, фрезери, пробивни машини, кантир машини и други машини за мебелно производство. Достъпни цени и професионално обслужване."
-                />
-                <meta
-                    name="keywords"
-                    content="машини за мебелно производство, CNC рутери, фрезери, кантир машини, уник6, unique6 tools, продажба на машини, дървообработващи машини"
-                />
+                <title>{t("page.title")}</title>
+                <meta name="description" content={t("page.description")} />
+                <meta name="keywords" content={t("page.keywords")} />
                 <meta name="author" content="Unique6 Tools" />
-                <meta
-                    property="og:title"
-                    content="Каталог за Машини за Мебелно Производство | Unique6 Tools"
-                />
-                <meta
-                    property="og:description"
-                    content="Продажба на машини за мебелна индустрия. Високо качество, достъпни цени."
-                />
+                <meta property="og:title" content={t("og.title")} />
+                <meta property="og:description" content={t("og.description")} />
                 <meta property="og:url" content="https://www.unique6.tools" />
                 <meta property="og:type" content="website" />
             </Head>
@@ -72,7 +64,7 @@ export default function HomePage() {
                     className="text-center mb-8 mt-12"
                 >
                     <h1 className="text-4xl font-extrabold text-primary dark:text-secondary tracking-tight">
-                        Каталог на Продуктите
+                        {t("home.catalogTitle")}
                     </h1>
                 </motion.div>
 
@@ -115,3 +107,9 @@ export default function HomePage() {
         </>
     );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale ?? "bg", ["common"])),
+    },
+});
