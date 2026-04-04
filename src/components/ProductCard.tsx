@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import { motion } from "framer-motion";
 import ProductModal from "./ProductModal";
 import { Phone } from "lucide-react";
+import { CATEGORY_KEYS, SUBCATEGORY_KEYS } from "@/utils/categoryMapping";
 
 export default function ProductCard({ product }: { product: Product }) {
     const { t } = useTranslation("common");
@@ -38,9 +39,9 @@ export default function ProductCard({ product }: { product: Product }) {
                             : product.description}
                     </p>
 
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t("product.categoryLabel")} {product.category}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t("product.categoryLabel")} {CATEGORY_KEYS[product.category] ? t(CATEGORY_KEYS[product.category]) : product.category}</p>
                     {product.subcategory && (
-                        <p className="text-sm text-gray-500 dark:text-gray-400 h-[40px]">{t("product.subcategoryLabel")} {product.subcategory}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 h-[40px]">{t("product.subcategoryLabel")} {SUBCATEGORY_KEYS[product.subcategory] ? t(SUBCATEGORY_KEYS[product.subcategory]) : product.subcategory}</p>
                     )}
 
                     {/* Price formatted to always be on one line */}

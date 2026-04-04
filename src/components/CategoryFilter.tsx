@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { transition } from "@/utils/animations";
+import { CATEGORY_KEYS, SUBCATEGORY_KEYS } from "@/utils/categoryMapping";
 
 type CategoryFilterProps = {
     categories: string[];
@@ -60,7 +61,7 @@ export default function CategoryFilter({
                                 setSelectedSubcategory(null);
                             }}
                         >
-                            {cat}
+                            {CATEGORY_KEYS[cat] ? t(CATEGORY_KEYS[cat]) : cat}
                         </motion.button>
                     ))}
             </div>
@@ -85,7 +86,7 @@ export default function CategoryFilter({
                                             : "bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
                                         }`}
                                 >
-                                    {sub}
+                                    {SUBCATEGORY_KEYS[sub] ? t(SUBCATEGORY_KEYS[sub]) : sub}
                                 </motion.button>
                             );
                         })}

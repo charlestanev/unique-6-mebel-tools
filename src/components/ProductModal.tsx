@@ -1,5 +1,6 @@
 import { Product } from "@/types/product";
 import { motion } from "framer-motion";
+import { useTranslation } from "next-i18next";
 import { Phone, X } from "lucide-react";
 import YouTube from "react-youtube";
 import { useState } from "react";
@@ -9,6 +10,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { transition } from "@/utils/animations";
+import { CATEGORY_KEYS, SUBCATEGORY_KEYS } from "@/utils/categoryMapping";
 
 // Custom Arrow Components for Bigger Navigation Arrows
 const CustomPrevArrow = ({ onClick }: { onClick?: () => void }) => (
@@ -95,6 +97,7 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
+    const { t } = useTranslation("common");
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
     // Extract images & YouTube links
@@ -156,17 +159,18 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 <div className="justify-items-center">
                     <p className="text-gray-700 dark:text-gray-300 mt-2">{product.description}</p>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                        <strong>Категория:</strong> {product.category}
+                        <strong>{t("product.categoryLabel")}</strong> {CATEGORY_KEYS[product.category] ? t(CATEGORY_KEYS[product.category]) : product.category}
                     </p>
                     {product.subcategory && (
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                            <strong>Подкатегория:</strong> {product.subcategory}
+                            <strong>{t("product.subcategoryLabel")}</strong> {SUBCATEGORY_KEYS[product.subcategory] ? t(SUBCATEGORY_KEYS[product.subcategory]) : product.subcategory}
                         </p>
                     )}
 
-
                     {typeof product.price === "number"
-                        ? (<p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3">{product.price} лв</p>)
+                        ? (<p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3">
+                            {new Intl.NumberFormat("bg-BG", { style: "currency", currency: "BGN" }).format(product.price)}
+                        </p>)
                         : (<p className="font-bold text-green-600 dark:text-green-400 text-xl mt-3"></p>)
                     }
 
