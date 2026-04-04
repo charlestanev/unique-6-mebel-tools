@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript, DocumentProps } from "next/document";
 
-const GA_ID = "G-C8LZ8WJQ3L";
+const GA_ID = "G-CHLHZ9VGJB";
 
 export default function Document(props: DocumentProps) {
     const locale = props.__NEXT_DATA__?.locale || "bg";
