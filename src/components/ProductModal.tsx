@@ -1,4 +1,5 @@
 import { Product } from "@/types/product";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
@@ -79,11 +80,14 @@ function Lightbox({
                                     iframeClassName="w-full h-full" />
                             </div>
                         ) : (
-                            <div key={index} className="flex justify-center items-center w-full h-[500px]">
-                                <img
+                            <div key={index} className="relative w-full h-[500px]">
+                                <Image
                                     src={item}
-                                    alt="Preview"
-                                    className="w-full h-full object-contain rounded-lg shadow-lg" />
+                                    alt={productName}
+                                    fill
+                                    sizes="90vw"
+                                    className="object-contain rounded-lg shadow-lg"
+                                />
                             </div>
                         )
                     )}
@@ -150,12 +154,18 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                                     />
                                 </div>
                             ) : (
-                                <img
-                                    src={item}
-                                    alt={`Product ${index}`}
-                                    className="w-full h-[200px] object-cover rounded-lg shadow-md transition transform hover:scale-105"
+                                <div
+                                    className="relative w-full h-[200px] cursor-pointer"
                                     onClick={() => setLightboxIndex(index)}
-                                />
+                                >
+                                    <Image
+                                        src={item}
+                                        alt={`${name} ${index + 1}`}
+                                        fill
+                                        sizes="(max-width: 768px) 50vw, 33vw"
+                                        className="object-cover rounded-lg shadow-md transition transform hover:scale-105"
+                                    />
+                                </div>
                             )}
                         </div>
                     ))}

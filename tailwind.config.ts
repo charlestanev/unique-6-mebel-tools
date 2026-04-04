@@ -29,7 +29,7 @@ const config: Config = {
         primary: "#7F5AF0",
       },
       fontFamily: {
-        sans: ['Poppins', 'Inter', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'Poppins', 'Inter', 'sans-serif'],
       },
       boxShadow: {
         custom: "0px 10px 24px rgba(0, 0, 0, 0.15)", // Soft yet premium elevation

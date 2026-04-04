@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import { Product } from "@/types/product";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
@@ -26,11 +27,16 @@ export default function ProductCard({ product }: { product: Product }) {
                 onClick={() => setIsModalOpen(true)}
             >
 
-                <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-50 sm:h-56 md:h-64 lg:h-72 object-cover rounded-lg"
-                />
+                <div className="relative w-full h-50 sm:h-56 md:h-64 lg:h-72">
+                    <Image
+                        src={product.image}
+                        alt={name}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        className="object-cover rounded-lg"
+                        loading="lazy"
+                    />
+                </div>
 
 
                 {/* Product Details */}

@@ -1,4 +1,5 @@
 import { useAtom } from "jotai";
+import Image from "next/image";
 import { productsAtom } from "@/store";
 import { motion, AnimatePresence } from "framer-motion";
 import { transition } from "@/utils/animations";
@@ -35,11 +36,16 @@ export default function AdminProductList() {
                         className="border rounded-lg shadow-md bg-white dark:bg-gray-900 dark:border-gray-700 overflow-hidden flex flex-col"
                     >
                         {/* Product Image */}
-                        <img
-                            src={product.image}
-                            alt={product.name}
-                            className="w-full h-50 sm:h-56 md:h-64 lg:h-72 object-cover rounded-lg"
-                        />
+                        <div className="relative w-full h-50 sm:h-56 md:h-64 lg:h-72">
+                            <Image
+                                src={product.image}
+                                alt={product.name}
+                                fill
+                                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
+                                className="object-cover rounded-lg"
+                                loading="lazy"
+                            />
+                        </div>
 
                         {/* Product Info */}
                         <div className="p-5 flex flex-col flex-grow space-y-1">
