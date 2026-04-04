@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAtom } from "jotai";
 import { productsAtom } from "@/store";
-import validateProduct from "../../utils/validateProduct";
+import validateProduct from "@/utils/validateProduct";
 
 const categories = ["инструменти", "машини", "софтуер"];
 const subcategoriesMap: Record<string, string[]> = {

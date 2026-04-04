@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { transition } from "../../utils/animations";
+import { transition } from "@/utils/animations";
 
 type CategoryFilterProps = {
     categories: string[];

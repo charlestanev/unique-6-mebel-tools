@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { transition } from "../../utils/animations";
+import { transition } from "@/utils/animations";
 
 export default function CookieConsent() {
     const [showPopup, setShowPopup] = useState(false);
@@ -28,9 +29,9 @@ export default function CookieConsent() {
             >
                 <p className="text-sm md:text-base text-center md:text-left">
                     🍪 Този сайт използва бисквитки за подобряване на потребителското изживяване. Продължавайки, вие се съгласявате с нашата{" "}
-                    <a href="/cookies-policy" className="underline text-primary hover:text-primary/80 transition-colors">
+                    <Link href="/cookies-policy" className="underline text-primary hover:text-primary/80 transition-colors">
                         Политика за бисквитки
-                    </a>.
+                    </Link>.
                 </p>
 
                 <button

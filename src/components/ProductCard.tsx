@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Product } from "../../types/product";
+import { Product } from "@/types/product";
 import { motion } from "framer-motion";
 import ProductModal from "./ProductModal";
 import { Phone } from "lucide-react";

@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import { motion } from "framer-motion";
 import SearchBar from "@/components/SearchBar";
-import { transition } from "../../utils/animations";
+import { transition } from "@/utils/animations";
 
 const categories = ["инструменти", "машини", "софтуер"];
 const subcategoriesMap: Record<string, string[]> = {

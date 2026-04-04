@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import { productsAtom } from "@/store";
 import { z } from "zod";
 import { motion } from "framer-motion";
-import { transition } from "../../utils/animations";
+import { transition } from "@/utils/animations";
 
 const productSchema = z.object({
     name: z.string().min(1, "Името трябва да бъде поне 1 символ."),

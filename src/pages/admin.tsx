@@ -5,7 +5,7 @@ import { isAuthenticatedAtom, productsAtom, darkModeAtom } from "@/store";
 import AdminHeader from "@/components/AdminHeader";
 import AdminProductForm from "@/components/AdminProductForm";
 import AdminProductList from "@/components/AdminProductList";
-import fetchProducts from "../../utils/fetchProducts";
+import fetchProducts from "@/utils/fetchProducts";
 import AdminFooter from "@/components/AdminFooter";
 
 export default function AdminPage() {

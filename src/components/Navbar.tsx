@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Sun, Moon, Phone, Mail, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
-import { transition } from "../../utils/animations";
+import { transition } from "@/utils/animations";
 
 export default function Navbar() {
     const [darkMode, setDarkMode] = useAtom(darkModeAtom);

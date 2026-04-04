@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import { productsAtom } from "@/store";
 import { motion, AnimatePresence } from "framer-motion";
-import { transition } from "../../utils/animations";
+import { transition } from "@/utils/animations";
 
 export default function AdminProductList() {
     const [products, setProducts] = useAtom(productsAtom);

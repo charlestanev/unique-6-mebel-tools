@@ -1,4 +1,4 @@
-import { Product } from "../../types/product";
+import { Product } from "@/types/product";
 import { motion } from "framer-motion";
 import { Phone, X } from "lucide-react";
 import YouTube from "react-youtube";
@@ -8,7 +8,7 @@ import Slider from "react-slick";
 // Import slick styles
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { transition } from "../../utils/animations";
+import { transition } from "@/utils/animations";
 
 // Custom Arrow Components for Bigger Navigation Arrows
 const CustomPrevArrow = ({ onClick }: { onClick?: () => void }) => (
