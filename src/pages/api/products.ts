@@ -7,8 +7,10 @@ const VALID_CATEGORIES = ["инструменти", "машини", "софту�
 
 const createProductSchema = z.object({
     name: z.string().min(3, "Името трябва да бъде поне 3 символа."),
+    nameEn: z.string().optional(),
     price: z.number().min(1).optional(),
     description: z.string().min(10, "Описанието трябва да съдържа поне 10 символа."),
+    descriptionEn: z.string().optional(),
     image: z.string().min(1, "Изображението е задължително."),
     category: z.enum(VALID_CATEGORIES),
     subcategory: z.string().optional(),
@@ -41,7 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
 
         try {
-            const { name, price, description, image, category, subcategory, media } = parsed.data;
+            const { name, nameEn, price, description, descriptionEn, image, category, subcategory, media } = parsed.data;
 
             const normalizePath = (value: string) => {
                 return value.startsWith("/images/") || value.startsWith("https://") ? value : `/images/${value}`;
@@ -50,8 +52,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const newProduct = await prisma.product.create({
                 data: {
                     name,
+                    nameEn: nameEn || null,
                     price: price ?? null,
                     description,
+                    descriptionEn: descriptionEn || null,
                     image: normalizePath(image),
                     category,
                     subcategory: subcategory || null,

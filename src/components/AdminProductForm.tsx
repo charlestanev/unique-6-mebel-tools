@@ -25,8 +25,10 @@ const subcategoriesMap: Record<string, string[]> = {
 export default function AdminProductForm({ setSuccessMessage }: { setSuccessMessage: (msg: string | null) => void }) {
     const [products, setProducts] = useAtom(productsAtom);
     const [name, setName] = useState("");
+    const [nameEn, setNameEn] = useState("");
     const [price, setPrice] = useState<number | undefined>(undefined);
     const [description, setDescription] = useState("");
+    const [descriptionEn, setDescriptionEn] = useState("");
     const [image, setImage] = useState("");
     const [category, setCategory] = useState("");
     const [subcategory, setSubcategory] = useState("");
@@ -56,7 +58,7 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
         const res = await fetch("/api/products", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, price, description, image: imagePath, category, subcategory, media: mediaFiles }),
+            body: JSON.stringify({ name, nameEn: nameEn || undefined, price, description, descriptionEn: descriptionEn || undefined, image: imagePath, category, subcategory, media: mediaFiles }),
         });
 
         if (res.ok) {
@@ -96,12 +98,21 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
                         <input
                             className="input-field w-full"
                             type="text"
-                            placeholder="Име на продукта"
+                            placeholder="Име на продукта (BG)"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
                         />
+                        <input
+                            className="input-field w-full"
+                            type="text"
+                            placeholder="Product name (EN)"
+                            value={nameEn}
+                            onChange={(e) => setNameEn(e.target.value)}
+                        />
+                    </div>
 
+                    <div className="grid gap-4 lg:grid-cols-2">
                         <input
                             className="input-field w-full"
                             type="text"
@@ -141,10 +152,16 @@ export default function AdminProductForm({ setSuccessMessage }: { setSuccessMess
                     {/* Описание */}
                     <textarea
                         className="input-field w-full"
-                        placeholder="Описание"
+                        placeholder="Описание (BG)"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
+                    />
+                    <textarea
+                        className="input-field w-full"
+                        placeholder="Description (EN)"
+                        value={descriptionEn}
+                        onChange={(e) => setDescriptionEn(e.target.value)}
                     />
 
                     {/* Подкатегория */}

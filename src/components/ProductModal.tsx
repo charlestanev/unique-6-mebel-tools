@@ -1,6 +1,7 @@
 import { Product } from "@/types/product";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import { Phone, X } from "lucide-react";
 import YouTube from "react-youtube";
 import { useState } from "react";
@@ -11,6 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { transition } from "@/utils/animations";
 import { CATEGORY_KEYS, SUBCATEGORY_KEYS } from "@/utils/categoryMapping";
+import { getProductName, getProductDescription } from "@/utils/localized";
 
 // Custom Arrow Components for Bigger Navigation Arrows
 const CustomPrevArrow = ({ onClick }: { onClick?: () => void }) => (
@@ -98,7 +100,10 @@ interface ProductModalProps {
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
     const { t } = useTranslation("common");
+    const { locale } = useRouter();
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+    const name = getProductName(product, locale);
+    const description = getProductDescription(product, locale);
 
     // Extract images & YouTube links
     const mediaItems = product.media && product.media.length > 0 ? product.media : [product.image]; // Fallback to single image
@@ -128,7 +133,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
                 {/* Product Information */}
                 <div className="text-center mb-6">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{product.name}</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{name}</h2>
                 </div>
 
                 {/* **Gallery Layout** */}
@@ -157,7 +162,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 </div>
 
                 <div className="justify-items-center">
-                    <p className="text-gray-700 dark:text-gray-300 mt-2">{product.description}</p>
+                    <p className="text-gray-700 dark:text-gray-300 mt-2">{description}</p>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                         <strong>{t("product.categoryLabel")}</strong> {CATEGORY_KEYS[product.category] ? t(CATEGORY_KEYS[product.category]) : product.category}
                     </p>
@@ -191,7 +196,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                         mediaItems={mediaItems}
                         initialIndex={lightboxIndex}
                         onClose={() => setLightboxIndex(null)}
-                        productName={product.name}
+                        productName={name}
                     />
                 )}
 

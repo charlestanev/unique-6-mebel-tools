@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { Product } from "@/types/product";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import ProductModal from "./ProductModal";
 import { Phone } from "lucide-react";
 import { CATEGORY_KEYS, SUBCATEGORY_KEYS } from "@/utils/categoryMapping";
+import { getProductName, getProductDescription } from "@/utils/localized";
 
 export default function ProductCard({ product }: { product: Product }) {
     const { t } = useTranslation("common");
+    const { locale } = useRouter();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const name = getProductName(product, locale);
+    const description = getProductDescription(product, locale);
 
     return (
         <>
@@ -30,13 +35,12 @@ export default function ProductCard({ product }: { product: Product }) {
 
                 {/* Product Details */}
                 <div className="pt-4">
-                    <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 truncate">{product.name}</h2>
+                    <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 truncate">{name}</h2>
 
-                    {/* Shortened description to prevent overflow */}
                     <p className="text-gray-700 dark:text-gray-300 text-sm line-clamp-2 min-h-10">
-                        {product.description.length > 100
-                            ? product.description.substring(0, 100) + "..."
-                            : product.description}
+                        {description.length > 100
+                            ? description.substring(0, 100) + "..."
+                            : description}
                     </p>
 
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t("product.categoryLabel")} {CATEGORY_KEYS[product.category] ? t(CATEGORY_KEYS[product.category]) : product.category}</p>
