@@ -1,10 +1,11 @@
-import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import type { GetStaticProps } from "next";
 import { productsAtom } from "@/store";
+import SEOHead from "@/components/SEOHead";
+import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
 import CategoryFilter from "@/components/CategoryFilter";
 import ProductList from "@/components/ProductList";
 import Navbar from "@/components/Navbar";
@@ -38,16 +39,9 @@ export default function HomePage() {
 
     return (
         <>
-            <Head>
-                <title>{t("page.title")}</title>
-                <meta name="description" content={t("page.description")} />
-                <meta name="keywords" content={t("page.keywords")} />
-                <meta name="author" content="Unique6 Tools" />
-                <meta property="og:title" content={t("og.title")} />
-                <meta property="og:description" content={t("og.description")} />
-                <meta property="og:url" content="https://www.unique6.tools" />
-                <meta property="og:type" content="website" />
-            </Head>
+            <SEOHead title={t("page.title")} description={t("page.description")} />
+            <OrganizationJsonLd />
+            <WebsiteJsonLd />
 
             <motion.div
                 initial={{ opacity: 0, y: -20 }}

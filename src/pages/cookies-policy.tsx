@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import type { GetStaticProps } from "next";
+import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -6,6 +9,7 @@ import { motion } from "framer-motion";
 export default function CookiesPolicy() {
     return (
         <>
+            <SEOHead title="Политика за бисквитки | Unique6 Tools" description="Политика за използване на бисквитки на Unique6 Tools." />
             <Navbar />
             <motion.div
                 initial={{ opacity: 0 }}
@@ -93,3 +97,9 @@ function Section({ title, children }: { title: string; children: React.ReactNode
         </motion.div>
     );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale ?? "bg", ["common"])),
+    },
+});

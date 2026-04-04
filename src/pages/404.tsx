@@ -2,12 +2,14 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import type { GetStaticProps } from "next";
+import SEOHead from "@/components/SEOHead";
 
 export default function Custom404() {
     const { t } = useTranslation("common");
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-background dark:bg-darkBg text-gray-900 dark:text-gray-100">
+            <SEOHead title="404 | Unique6 Tools" description={t("error.pageNotFound")} noindex />
             <h1 className="text-6xl font-bold text-primary">404</h1>
             <p className="text-xl mt-2">{t("error.pageNotFound")}</p>
             <Link

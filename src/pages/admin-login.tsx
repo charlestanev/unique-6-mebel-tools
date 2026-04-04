@@ -5,6 +5,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import type { GetStaticProps } from "next";
 import { isAuthenticatedAtom } from "@/store";
+import SEOHead from "@/components/SEOHead";
 
 export default function AdminLogin() {
     const { t } = useTranslation("common");
@@ -36,6 +37,7 @@ export default function AdminLogin() {
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-light p-6">
+            <SEOHead title="Admin Login | Unique6 Tools" description="Admin login" noindex />
             <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
                 <h1 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">{t("login.title")}</h1>
                 {error && <p className="text-red-500 text-center mb-4">{error}</p>}
