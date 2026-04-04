@@ -41,9 +41,7 @@ export default function CategoryFilter({
                     Всички
                 </motion.button>
 
-                {categories
-                    .filter(cat => !['машини', 'софтуер'].includes(cat))
-                    .map((cat) => (
+                {categories.map((cat) => (
                         <motion.button
                             whileHover={{ scale: 1.075 }}
                             whileTap={{ scale: 0.95 }}

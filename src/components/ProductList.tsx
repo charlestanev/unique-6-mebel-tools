@@ -1,7 +1,8 @@
+import { Product } from "@/types/product";
 import ProductCard from "./ProductCard";
 
 interface ProductListProps {
-    products: any[];
+    products: Product[];
     selectedCategory: string | null;
     selectedSubcategory: string | null;
     searchQuery: string;
@@ -11,12 +12,16 @@ export default function ProductList({
     products,
     selectedCategory,
     selectedSubcategory,
-    searchQuery
+    searchQuery,
 }: ProductListProps) {
+    const query = searchQuery.toLowerCase();
     const filteredProducts = products
         .filter((product) => !selectedCategory || product.category === selectedCategory)
         .filter((product) => !selectedSubcategory || product.subcategory === selectedSubcategory)
-        .filter((product) => product.description.toLowerCase().includes(searchQuery.toLowerCase()));
+        .filter((product) =>
+            product.name.toLowerCase().includes(query) ||
+            product.description.toLowerCase().includes(query)
+        );
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-6">
