@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useAtom } from "jotai";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import type { GetStaticProps } from "next";
 import { isAuthenticatedAtom, productsAtom, darkModeAtom } from "@/store";
 import AdminHeader from "@/components/AdminHeader";
 import AdminProductForm from "@/components/AdminProductForm";
@@ -79,3 +81,9 @@ export default function AdminPage() {
         </div>
     );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale ?? "bg", ["common"])),
+    },
+});
